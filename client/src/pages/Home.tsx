@@ -205,6 +205,8 @@ export default function Home() {
     { id: "hallway", label: "Hallway & Floors" },
     { id: "master", label: "Master Bedroom" },
     { id: "bedrooms", label: "Bedrooms 2 & 3" },
+    { id: "project-plan", label: "Project Plan" },
+    { id: "budget", label: "Budget" },
   ];
 
   const [activeSection, setActiveSection] = useState("exterior");
@@ -679,6 +681,160 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
             ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Project Plan */}
+      <section id="project-plan" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <FadeUp>
+            <div className="mb-12">
+              <span className="section-label mb-4 block">Project Approach</span>
+              <h2 className="text-5xl md:text-6xl leading-none mb-8" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>How We're Doing This</h2>
+              <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The renovation is structured as a series of independent mini-projects rather than one continuous build. Each phase has its own scope, budget, and trades — meaning work can progress without everything depending on everything else, and disruption to daily life stays manageable. The house is occupied throughout, with a business running from home, so the sequencing is deliberate.
+              </p>
+              <p className="text-base leading-relaxed max-w-3xl mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The guiding principle: <strong>outdoor work first, then kitchen, then interior rooms, then bathrooms last</strong> — timed around a 3-week vacancy window in September when the house is empty. Demo on each phase is handled in-house. Trades are brought in for specialist work only.
+              </p>
+            </div>
+          </FadeUp>
+
+          {[
+            {
+              num: "01",
+              title: "Pool Coping",
+              timing: "Late March – April 2026",
+              body: "The starting gun for all outdoor work. Coping replacement sets the finished height that the deck is built to — nothing else in the pool area can be accurately quoted or built until this is done. Quote confirmed at $10,939 inc. GST. Trade only, approximately one week on-site."
+            },
+            {
+              num: "02",
+              title: "Pool Decking + Fence",
+              timing: "May 2026",
+              body: "Once coping levels are confirmed, decking is quoted and ordered. Dark composite decking (Trex or equivalent) over the pool area. Colorbond fence painted Monument — DIY. Decking is a trade job; material lead times need to be factored in, so order as soon as coping is complete."
+            },
+            {
+              num: "Side Project",
+              title: "Side Access",
+              timing: "March 2026 onwards — rolling",
+              body: "Already underway. Low disruption, largely DIY. A 1.5m × 3m concrete slab poured at the end of the passage for the slimline shed (already purchased). Shed installed and painted Monument. Garden bed planted with bromeliads, cordylines, and clumping grasses in dark mulch. Solar stake lights along the full length. Done progressively — no hard deadline."
+            },
+            {
+              num: "03",
+              title: "Crazy Paving",
+              timing: "Post-decking, any point",
+              body: "40m² of crazy paving around the existing concreted pool surrounds at $105/m², DIY laid. Additional materials (adhesive, grout, edging) to be factored in. No trade dependency — done at own pace after decking is complete."
+            },
+            {
+              num: "04",
+              title: "Pool Fence + Landscaping",
+              timing: "Post-decking",
+              body: "Black aluminium pool fence — ProtectorAl system from Bunnings, DIY install, compliant with QLD standards. Festoon lights and deck step lights DIY. Black shade sail over pool area. Rear yard: remove unwanted concrete sections (DIY cut and remove), level lawn area, seed existing grass, clean up existing trees and garden surrounds."
+            },
+            {
+              num: "05",
+              title: "Kitchen",
+              timing: "Order March/April 2026 — Install May/June 2026",
+              body: "The first interior phase and the biggest single design statement. IKEA order placed during the March/April sale window. Full demo including removal of the wall between kitchen and living — DIY. Kitchen installer engaged separately; 2–3 quotes from IKEA-experienced installers needed. Minor electrical and plumbing adjustments only. LVP flooring in the kitchen area is laid after cabinets are installed."
+            },
+            {
+              num: "06",
+              title: "Bedroom 4 + Plastering",
+              timing: "June – July 2026",
+              body: "A new wall, doorway, and door creates Bedroom 4. The existing Bedroom 3 door opening is filled and a new door added. DIY framing with chippy mates; plasterer brought in for sheeting, setting, and ceiling touch-ups throughout the whole house. All ceiling imperfections addressed at this point — before any painting begins."
+            },
+            {
+              num: "07",
+              title: "Lounge + Bedrooms Interior",
+              timing: "July – August 2026",
+              body: "Done room by room. Sequence within each room: plasterboard repairs → paint (Dulux Natural White throughout) → replace architraves → replace ceiling fans (matte black DC) → update cupboard doors (DIY). Room order: Lounge first, then Master (temporarily move into Bedroom 3), then Bedrooms 3 & 4 simultaneously (back in master), then Bedroom 2 / home office last (move into Bedroom 4). Carpet ordered in full at the start — single dye lot, held by supplier, installed in two visits. LVP flooring (kitchen, hallway, entry) laid last: existing vinyl stripped DIY, supply + install with a mate."
+            },
+            {
+              num: "08",
+              title: "Bathrooms + Laundry",
+              timing: "September 2026",
+              body: "The most complex phase and the only one requiring the house to be vacated. Full demo of both bathrooms and the laundry completed before departure on 2 September. ShawCon Projects builds both bathrooms and the laundry — framing, waterproofing, tiling, electrical, and fit-off. Richmond Contracting handles all plumbing rough-in and fit-off. Portable shower hire and short-stay accommodation cover the gap on return while finishing touches are completed. Bathroom painting on return — DIY."
+            },
+            {
+              num: "09",
+              title: "Exterior",
+              timing: "Rolling throughout 2026",
+              body: "Roof repaint (Colorbond Ironstone) is a professional job — clean, prep, and paint quoted separately. Partial gutter replacement where needed, also trade. All other exterior painting — fascia, window frames, front door matte black — DIY. Front garden planting (Lilly Pilly columnar trees, entry pots with Agave) done progressively. Driveway is in good condition and stays as-is."
+            },
+          ].map((phase, i) => (
+            <FadeUp key={i} delay={i * 60}>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+                <div className="md:col-span-1">
+                  <span style={{ fontFamily: "Fraunces, Georgia, serif", fontSize: "1.1rem", color: "oklch(0.62 0.015 60)", fontWeight: 300 }}>{phase.num}</span>
+                </div>
+                <div className="md:col-span-3">
+                  <div className="text-base font-medium mb-1" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif" }}>{phase.title}</div>
+                  <div className="text-xs" style={{ color: "oklch(0.48 0.06 155)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, letterSpacing: "0.05em" }}>{phase.timing}</div>
+                </div>
+                <div className="md:col-span-8">
+                  <p className="text-sm leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>{phase.body}</p>
+                </div>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      </section>
+
+      {/* Budget */}
+      <section id="budget" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <FadeUp>
+            <span className="section-label mb-4 block">Project Budget</span>
+            <h2 className="text-5xl md:text-6xl leading-none mb-4" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>Budget Overview</h2>
+            <p className="text-base leading-relaxed max-w-3xl mb-12" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              Estimates include supply and labour where applicable. DIY labour is not costed. Bathroom and plumbing figures are based on confirmed quotes. Pool coping based on confirmed quote. All other figures are provisional allowances pending formal quotes.
+            </p>
+          </FadeUp>
+          <FadeUp delay={100}>
+            <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Phase</th>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Scope</th>
+                    <th className="py-3 text-left pr-4 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Approach</th>
+                    <th className="py-3 text-right" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Estimate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { phase: "1 — Pool Coping", scope: "Remove & replace 27lm stone coping + hide slimmer lid", approach: "Trade", estimate: "$10,939", confirmed: true },
+                    { phase: "2 — Decking + Fence", scope: "Dark composite decking, pool area. Fence paint Monument", approach: "Trade + DIY", estimate: "$8,000 – $12,000", confirmed: false },
+                    { phase: "Side — Side Access", scope: "Concrete slab, shed install, garden, lights", approach: "DIY + Trade (slab)", estimate: "$1,500 – $2,200", confirmed: false },
+                    { phase: "3 — Crazy Paving", scope: "40m² pool surrounds @ $105/m² + materials", approach: "DIY", estimate: "$4,800 – $5,500", confirmed: false },
+                    { phase: "4 — Pool Fence + Landscaping", scope: "Pool fence, shade sail, lights, concrete removal, seeding", approach: "DIY", estimate: "$2,500 – $4,000", confirmed: false },
+                    { phase: "5 — Kitchen", scope: "IKEA supply + installer + electrical + plumbing", approach: "Trade + DIY demo", estimate: "$17,500 – $20,000", confirmed: false },
+                    { phase: "6 — Bedroom 4 + Plastering", scope: "Framing, doors, plaster, ceiling touch-ups whole house", approach: "DIY + Trade", estimate: "$3,000 – $5,000", confirmed: false },
+                    { phase: "7 — Lounge + Bedrooms", scope: "Carpet, paint, fans, architraves, cupboard doors, LVP flooring", approach: "DIY + Trade (carpet, LVP supply)", estimate: "$11,100 – $16,100", confirmed: false },
+                    { phase: "8 — Bathrooms + Laundry", scope: "Full build — both bathrooms + laundry", approach: "Builder + Plumber", estimate: "$53,000 – $57,000", confirmed: true },
+                    { phase: "9 — Exterior", scope: "Roof repaint, gutters, DIY painting, front garden", approach: "Trade + DIY", estimate: "$6,000 – $10,000", confirmed: false },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
+                      <td className="py-3 pr-4 whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>
+                        <div className="flex items-center gap-2">
+                          {row.phase}
+                          {row.confirmed && <span style={{ fontSize: "0.6rem", background: "oklch(0.88 0.04 155)", color: "oklch(0.32 0.06 155)", padding: "1px 6px", borderRadius: "100px", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>Quoted</span>}
+                        </div>
+                      </td>
+                      <td className="py-3 pr-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.8rem" }}>{row.scope}</td>
+                      <td className="py-3 pr-4 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.8rem" }}>{row.approach}</td>
+                      <td className="py-3 text-right whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>{row.estimate}</td>
+                    </tr>
+                  ))}
+                  <tr style={{ background: "oklch(0.95 0.008 75)" }}>
+                    <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
+                    <td className="py-4 pr-4 hidden md:table-cell"></td>
+                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$118,000 – $142,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </FadeUp>
         </div>
       </section>

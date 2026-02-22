@@ -13,7 +13,7 @@ const ASSETS = {
   // Renders (after)
   front_facade: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/zurpoWLKDZrdLGaC.png",
   side_access: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/aQdNUFVvfBpRTbCV.png",
-  lounge: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/lNPjrvQARSSiQBHY.png",
+  lounge: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/nCiUCFWIsHKzccLY.png",
   master_bedroom: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/axjSIlhcABFTdSKs.png",
   bedroom2: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/mUlMLfRYAULNIbem.png",
   kitchen_pendants: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/hQnThuiKjtYaoTsx.png",
@@ -207,6 +207,7 @@ export default function Home() {
     { id: "bedrooms", label: "Bedrooms 2 & 3" },
     { id: "project-plan", label: "Project Plan" },
     { id: "budget", label: "Budget" },
+    { id: "investment", label: "Investment Case" },
   ];
 
   const [activeSection, setActiveSection] = useState("exterior");
@@ -835,6 +836,139 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Investment Case */}
+      <section id="investment" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <FadeUp>
+            <span className="section-label mb-4 block">Investment Justification</span>
+            <h2 className="text-5xl md:text-6xl leading-none mb-8" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>The Investment Case</h2>
+            <p className="text-base leading-relaxed max-w-3xl mb-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              This is not a forever home renovation. Every decision has been made through the lens of <strong>"Premium Economy"</strong> — the sweet spot between a basic rental and a premium property that commands top-of-market rent without overcapitalising. Victoria Point is a suburb where that distinction matters enormously.
+            </p>
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              Victoria Point renters in the $780–$850/week bracket are comparing this property against new builds in the suburb's growth corridors. The 1,002m² block, the pool, and the granny flat are the differentiators that new builds can't replicate. The renovation is what makes those differentiators visible.
+            </p>
+          </FadeUp>
+
+          {/* Suburb Snapshot */}
+          <FadeUp delay={100}>
+            <div className="mt-16 mb-4">
+              <span className="section-label block mb-3">Victoria Point 4165 — Suburb Snapshot</span>
+              <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                Victoria Point sits on the Redland Bay peninsula, approximately 35km south-east of Brisbane CBD. A predominantly owner-occupier suburb with a median resident age of 49, strong family household composition (76% family households), and consistent demand from both owner-occupiers and renters seeking lifestyle, schools, and bay access without inner-city prices.
+              </p>
+            </div>
+            <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Metric</th>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Figure</th>
+                    <th className="py-3 text-left hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { metric: "Median house price (all houses)", figure: "$1,035,000", source: "REA, Feb 2025–Jan 2026" },
+                    { metric: "12-month price growth", figure: "+9.5%", source: "REA, Jan 2026" },
+                    { metric: "3 bedroom median", figure: "$947,500", source: "REA / property.com.au" },
+                    { metric: "4 bedroom median", figure: "$1,050,000", source: "REA / property.com.au" },
+                    { metric: "Median days on market", figure: "28 days", source: "REA" },
+                    { metric: "Active buyers per listing", figure: "57:1 ratio", source: "REA (1,893 buyers, 33 listings)" },
+                    { metric: "Median house rent (all)", figure: "$725/week", source: "REA, 341 listings" },
+                    { metric: "4 bedroom median rent", figure: "$760–$800/week", source: "REA live listings, Feb 2026" },
+                    { metric: "Rental demand growth", figure: "+63% year-on-year", source: "REA" },
+                    { metric: "Gross rental yield", figure: "3.6%", source: "REA" },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
+                      <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 400, fontSize: "0.82rem" }}>{row.metric}</td>
+                      <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 600, fontSize: "0.82rem" }}>{row.figure}</td>
+                      <td className="py-3 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.78rem" }}>{row.source}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </FadeUp>
+
+          {/* Valuation Uplift */}
+          <FadeUp delay={150}>
+            <div className="mt-16 mb-4">
+              <span className="section-label block mb-3">Valuation Uplift</span>
+              <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The property was independently valued at $1.18M in May 2025 (3 bed / 1 bath / 1,002m²). Applying the suburb's 9.5% annual growth rate pro-rated to February 2026 (9 months ≈ +7.1%), the current estimated value is approximately $1.265M before renovation. The renovation converts the property to a 4-bedroom, 2-bathroom home with pool — a meaningful category shift in the Victoria Point market.
+              </p>
+            </div>
+            <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Scenario</th>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Estimated Value</th>
+                    <th className="py-3 text-left hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Basis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { scenario: "May 2025 (at purchase / valuation)", value: "$1,180,000", basis: "Independent valuation, 3br / 1ba / 1,002m²", highlight: false },
+                    { scenario: "Current (pre-reno, Feb 2026)", value: "~$1,265,000", basis: "$1.18M + 9.5% annual growth pro-rated 9 months", highlight: false },
+                    { scenario: "Post-renovation (4br / 2ba / pool)", value: "$1,380,000 – $1,500,000", basis: "4br median $1.05M + 1,002m² block premium + pool + granny flat + full reno", highlight: true },
+                    { scenario: "Renovation cost", value: "$118,000 – $142,000", basis: "Project budget", highlight: false },
+                    { scenario: "Net uplift (low case)", value: "~$0 – $15,000", basis: "Breaks even on paper; real return is rental uplift + vacancy risk removal", highlight: false },
+                    { scenario: "Net uplift (high case)", value: "~$93,000", basis: "$1.50M – $1.265M – $142K", highlight: false },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
+                      <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.scenario}</td>
+                      <td className="py-3 pr-4" style={{ color: row.highlight ? "oklch(0.38 0.08 155)" : "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 600, fontSize: "0.82rem" }}>{row.value}</td>
+                      <td className="py-3 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.78rem" }}>{row.basis}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </FadeUp>
+
+          {/* Rental Projection */}
+          <FadeUp delay={200}>
+            <div className="mt-16 mb-4">
+              <span className="section-label block mb-3">Rental Projection</span>
+              <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 10–15 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
+              </p>
+            </div>
+            <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Configuration</th>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Weekly Rent</th>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Annual Rent</th>
+                    <th className="py-3 text-left hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Basis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { config: "Current (3br / 1ba, pre-reno)", weekly: "$625", annual: "$32,500", basis: "Actual — described as hard to rent", highlight: false },
+                    { config: "Post-renovation (4br / 2ba / pool)", weekly: "$780 – $850", annual: "$40,560 – $44,200", basis: "REA live 4br listings: $690–$950/wk range, median ~$790", highlight: true },
+                    { config: "Annual rental uplift", weekly: "+$155 – $225", annual: "+$8,060 – $11,700", basis: "", highlight: false },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
+                      <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.config}</td>
+                      <td className="py-3 pr-4" style={{ color: row.highlight ? "oklch(0.38 0.08 155)" : "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 600, fontSize: "0.82rem" }}>{row.weekly}</td>
+                      <td className="py-3 pr-4" style={{ color: row.highlight ? "oklch(0.38 0.08 155)" : "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.82rem" }}>{row.annual}</td>
+                      <td className="py-3 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.78rem" }}>{row.basis}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs mt-6 max-w-2xl" style={{ color: "oklch(0.58 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>
+              All figures are estimates based on publicly available market data (realestate.com.au, domain.com.au, property.com.au) as at February 2026. Valuation uplift projections are indicative only and subject to market conditions at time of sale or formal valuation. Rental projections are based on comparable listings and should be confirmed with a property manager prior to listing.
+            </p>
           </FadeUp>
         </div>
       </section>

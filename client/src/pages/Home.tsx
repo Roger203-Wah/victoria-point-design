@@ -19,10 +19,16 @@ const ASSETS = {
   kitchen_pendants: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/hQnThuiKjtYaoTsx.png",
   kitchen_clean: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/zdmtasgohuGKZLNP.png",
   hallway: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/dNJnCGkJgobNOmOl.png",
-  pool_v1: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/jBDHmfXtZdurGmOA.png",
-  pool_v2: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/tMwqguLCmKcMWlPf.png",
-  ensuite: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/wWOsFQGOfhVmCPuB.jpg",
-  main_bathroom: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/TQEDUrZMSiKusrth.png",
+  // Pool — after renders (new)
+  pool_after_deck: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/UsRsagXZcBpCfJqM.jpg",
+  pool_after_patio: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/XhNNkaHxanEgGxoK.png",
+  // Pool — before photos (new)
+  pool_before_1: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/UinUHjYNXgbaDGTL.jpeg",
+  pool_before_2: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/QRcGYphhUQwDNpRP.jpeg",
+  // Bathrooms (new renders)
+  main_bathroom: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/NclUswMBaHVEOdzV.png",
+  ensuite: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/LkTeaAEIOcxvrsOV.png",
+  // Laundry
   laundry_white: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/JMzLvSvvLSqBqRjF.png",
   laundry_oak: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/gJVHqMHSxcBegrIN.jpg",
   // Before photos
@@ -190,15 +196,15 @@ function SectionHeader({ label, title, status }: { label: string; title: string;
 export default function Home() {
   const sections = [
     { id: "exterior", label: "Street Presence" },
+    { id: "pool", label: "Pool & Outdoor" },
     { id: "side-access", label: "Side Passage" },
-    { id: "lounge", label: "Living Room" },
     { id: "kitchen", label: "Kitchen" },
-    { id: "master", label: "Master Bedroom" },
-    { id: "bedrooms", label: "Bedrooms 2 & 3" },
     { id: "bathrooms", label: "Bathrooms" },
     { id: "laundry", label: "Laundry" },
+    { id: "lounge", label: "Living Room" },
     { id: "hallway", label: "Hallway & Floors" },
-    { id: "pool", label: "Pool & Outdoor" },
+    { id: "master", label: "Master Bedroom" },
+    { id: "bedrooms", label: "Bedrooms 2 & 3" },
   ];
 
   const [activeSection, setActiveSection] = useState("exterior");
@@ -337,7 +343,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 01 — Exterior */}
+      {/* 01 — Exterior / Street Presence */}
       <section id="exterior" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
           <SectionHeader label="01 — Exterior" title="Street Presence" status="locked" />
@@ -369,10 +375,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 02 — Side Access */}
+      {/* 02 — Pool & Outdoor Living */}
+      <section id="pool" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="02 — Pool & Outdoor Living" title="Pool & Outdoor Living" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <BeforeAfter before={ASSETS.pool_before_1} after={ASSETS.pool_after_deck} />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Deck perspective — looking from garden toward house</p>
+            </FadeUp>
+            <FadeUp delay={200}>
+              <BeforeAfter before={ASSETS.pool_before_2} after={ASSETS.pool_after_patio} />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Patio perspective — looking out to pool and yard</p>
+            </FadeUp>
+          </div>
+          <FadeUp delay={100}>
+            <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              The pool area establishes the outdoor design language that flows through the side access and to the street. Dark composite decking, charcoal Colorbond fencing, tropical low-maintenance planting in dark mulch, and warm festoon lighting create a resort-style outdoor living space. The charcoal palette ties directly to the exterior facade.
+            </p>
+          </FadeUp>
+          <FadeUp delay={300}>
+            <SpecTable items={[
+              { label: "Decking", value: "Dark composite — Trex or equivalent" },
+              { label: "Fence", value: "Charcoal Colorbond — pool compliant" },
+              { label: "Pool Fence", value: "Black aluminium pool fence" },
+              { label: "Shade Sail", value: "Black shade sail over pool area" },
+              { label: "Pergola", value: "Dark timber/steel pergola with festoon lights" },
+              { label: "Planting", value: "Bromeliads, cordylines, clumping grasses — dark mulch" },
+              { label: "Lighting", value: "Warm festoon lights + deck step lights" },
+              { label: "Lawn", value: "Sir Walter buffalo — rear yard" },
+            ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* 03 — Side Access */}
       <section id="side-access" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="02 — Side Access" title="Side Passage" status="locked" />
+          <SectionHeader label="03 — Side Access" title="Side Passage" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start lg:[direction:rtl]">
             <FadeUp delay={100} className="lg:col-span-3">
               <div className="[direction:ltr]">
@@ -397,37 +437,6 @@ export default function Home() {
               { label: "Path Lighting", value: "Solar stake lights — warm amber, full length" },
               { label: "Shed", value: "Slimline charcoal shed at far end" },
               { label: "Path", value: "Existing concrete retained and cleaned" },
-            ]} />
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* 03 — Lounge */}
-      <section id="lounge" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-        <div className="container">
-          <SectionHeader label="03 — Living Room" title="Living Room" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.lounge} alt="Lounge render" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
-              </div>
-            </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The lounge anchors the interior palette. White painted brick feature wall adds texture without colour, the floating oak TV unit grounds the space, and the warm mid-grey carpet flows through to all bedrooms. The matte black DC ceiling fan and recessed downlights replace the dated fitting. No feature wall paint — the design relies on material quality and furniture to create character.
-              </p>
-            </FadeUp>
-          </div>
-          <FadeUp delay={300}>
-            <SpecTable items={[
-              { label: "Walls", value: "Dulux Natural White throughout" },
-              { label: "Brick Wall", value: "Painted white — texture retained, colour unified" },
-              { label: "Carpet", value: "Warm mid-grey — Feltex or Godfrey Hirst" },
-              { label: "TV Unit", value: "Floating oak timber with matte black legs" },
-              { label: "Ceiling Fan", value: "Matte black DC fan — no light fitting" },
-              { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
-              { label: "Curtains", value: "Sheer linen + blockout roller blind" },
-              { label: "Coffee Table", value: "Matte black frame, stone or glass top" },
             ]} />
           </FadeUp>
         </div>
@@ -475,85 +484,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 05 — Master Bedroom */}
-      <section id="master" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-        <div className="container">
-          <SectionHeader label="05 — Master Bedroom" title="Master Bedroom" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <BeforeAfter before={ASSETS.before_master} after={ASSETS.master_bedroom} />
-            </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
-              </p>
-            </FadeUp>
-          </div>
-          <FadeUp delay={300}>
-            <SpecTable items={[
-              { label: "Walls", value: "Dulux Natural White — no feature wall" },
-              { label: "Bedhead", value: "Tall fluted upholstered — oatmeal linen fabric" },
-              { label: "Carpet", value: "Warm mid-grey — continuous from lounge" },
-              { label: "Bedside Tables", value: "Oak timber with matte black legs" },
-              { label: "Bedside Lighting", value: "Matte black wall-mounted sconces" },
-              { label: "Ceiling Fan", value: "Matte black DC fan — no light fitting" },
-              { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
-              { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
-              { label: "Dresser", value: "Oak timber with matte black handles and mirror above" },
-            ]} />
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* 06 — Bedrooms 2 & 3 */}
-      <section id="bedrooms" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-        <div className="container">
-          <SectionHeader label="06 — Secondary Bedrooms" title="Bedrooms 2 & 3" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start lg:[direction:rtl]">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <div className="[direction:ltr]">
-                <BeforeAfter before={ASSETS.before_bedroom2} after={ASSETS.bedroom2} />
-              </div>
-            </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <div className="[direction:ltr]">
-                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                  Bedrooms 2 and 3 share the same layout and design approach — cohesive with the master bedroom but self-contained. The oatmeal linen bedhead and warm mid-grey carpet create a calm, restful palette. White sliding robe doors with matte black handles span the full right wall.
-                </p>
-              </div>
-            </FadeUp>
-          </div>
-          <FadeUp delay={300}>
-            <SpecTable items={[
-              { label: "Walls", value: "Dulux Natural White" },
-              { label: "Bedhead", value: "Upholstered — oatmeal linen, queen size" },
-              { label: "Carpet", value: "Warm mid-grey — same as master and lounge" },
-              { label: "Built-in Robe", value: "Full-wall sliding doors — white with matte black handles" },
-              { label: "Bedside Tables", value: "Oak timber, compact" },
-              { label: "Ceiling Fan", value: "Matte black DC fan" },
-              { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
-              { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
-            ]} />
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* 07 — Bathrooms */}
+      {/* 05 — Bathrooms */}
       <section id="bathrooms" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="07 — Bathrooms" title="Ensuite & Main Bathroom" status="locked" />
+          <SectionHeader label="05 — Bathrooms" title="Ensuite & Main Bathroom" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
+              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
+                <img src={ASSETS.main_bathroom} alt="Main bathroom render" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
+              </div>
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Main Bathroom — oak vanity, dark concrete tiles, bath</p>
+            </FadeUp>
+            <FadeUp delay={200}>
               <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
                 <img src={ASSETS.ensuite} alt="Ensuite render" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
               </div>
               <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Ensuite</p>
-            </FadeUp>
-            <FadeUp delay={200}>
-              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.main_bathroom} alt="Main bathroom render" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
-              </div>
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Main Bathroom</p>
             </FadeUp>
           </div>
           <FadeUp delay={100}>
@@ -577,10 +523,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 08 — Laundry */}
+      {/* 06 — Laundry */}
       <section id="laundry" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="08 — Laundry" title="Laundry" status="options" />
+          <SectionHeader label="06 — Laundry" title="Laundry" status="options" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
               <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
@@ -616,10 +562,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 09 — Hallway & Floors */}
+      {/* 07 — Lounge */}
+      <section id="lounge" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="07 — Living Room" title="Living Room" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
+            <FadeUp delay={100} className="lg:col-span-3">
+              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
+                <img src={ASSETS.lounge} alt="Lounge render" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
+              </div>
+            </FadeUp>
+            <FadeUp delay={200} className="lg:col-span-2">
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The lounge anchors the interior palette. White painted brick feature wall adds texture without colour, the floating oak TV unit grounds the space, and the warm mid-grey carpet flows through to all bedrooms. The matte black DC ceiling fan and recessed downlights replace the dated fitting. No feature wall paint — the design relies on material quality and furniture to create character.
+              </p>
+            </FadeUp>
+          </div>
+          <FadeUp delay={300}>
+            <SpecTable items={[
+              { label: "Walls", value: "Dulux Natural White throughout" },
+              { label: "Brick Wall", value: "Painted white — texture retained, colour unified" },
+              { label: "Carpet", value: "Warm mid-grey — Feltex or Godfrey Hirst" },
+              { label: "TV Unit", value: "Floating oak timber with matte black legs" },
+              { label: "Ceiling Fan", value: "Matte black DC fan — no light fitting" },
+              { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
+              { label: "Curtains", value: "Sheer linen + blockout roller blind" },
+              { label: "Coffee Table", value: "Matte black frame, stone or glass top" },
+            ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* 08 — Hallway & Floors */}
       <section id="hallway" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="09 — Hallway & Flooring" title="Hallway & Flooring" status="locked" />
+          <SectionHeader label="08 — Hallway & Flooring" title="Hallway & Flooring" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
             <FadeUp delay={100} className="lg:col-span-3">
               <BeforeAfter before={ASSETS.before_hallway} after={ASSETS.hallway} />
@@ -643,39 +620,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10 — Pool & Outdoor */}
-      <section id="pool" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+      {/* 09 — Master Bedroom */}
+      <section id="master" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="10 — Pool & Outdoor Living" title="Pool & Outdoor Living" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
-            <FadeUp delay={100}>
-              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.pool_v1} alt="Pool — view from patio" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
-              </div>
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>View from patio looking across pool</p>
+          <SectionHeader label="09 — Master Bedroom" title="Master Bedroom" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
+            <FadeUp delay={100} className="lg:col-span-3">
+              <BeforeAfter before={ASSETS.before_master} after={ASSETS.master_bedroom} />
             </FadeUp>
-            <FadeUp delay={200}>
-              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.pool_v2} alt="Pool — under pergola view" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
-              </div>
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>View from under pergola looking out to pool and yard</p>
+            <FadeUp delay={200} className="lg:col-span-2">
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
+              </p>
             </FadeUp>
           </div>
-          <FadeUp delay={100}>
-            <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The pool area establishes the outdoor design language that flows through the side access and to the street. Dark composite decking, charcoal Colorbond fencing, tropical low-maintenance planting in dark mulch, and warm festoon lighting create a resort-style outdoor living space. The charcoal palette ties directly to the exterior facade.
-            </p>
-          </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Decking", value: "Dark composite — Trex or equivalent" },
-              { label: "Fence", value: "Charcoal Colorbond — pool compliant" },
-              { label: "Pool Fence", value: "Black aluminium pool fence" },
-              { label: "Shade Sail", value: "Black shade sail over pool area" },
-              { label: "Pergola", value: "Dark timber/steel pergola with festoon lights" },
-              { label: "Planting", value: "Bromeliads, cordylines, clumping grasses — dark mulch" },
-              { label: "Lighting", value: "Warm festoon lights + deck step lights" },
-              { label: "Lawn", value: "Sir Walter buffalo — rear yard" },
+              { label: "Walls", value: "Dulux Natural White — no feature wall" },
+              { label: "Bedhead", value: "Tall fluted upholstered — oatmeal linen fabric" },
+              { label: "Carpet", value: "Warm mid-grey — continuous from lounge" },
+              { label: "Bedside Tables", value: "Oak timber with matte black legs" },
+              { label: "Bedside Lighting", value: "Matte black wall-mounted sconces" },
+              { label: "Ceiling Fan", value: "Matte black DC fan — no light fitting" },
+              { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
+              { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
+              { label: "Dresser", value: "Oak timber with matte black handles and mirror above" },
+            ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* 10 — Bedrooms 2 & 3 */}
+      <section id="bedrooms" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="10 — Secondary Bedrooms" title="Bedrooms 2 & 3" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start lg:[direction:rtl]">
+            <FadeUp delay={100} className="lg:col-span-3">
+              <div className="[direction:ltr]">
+                <BeforeAfter before={ASSETS.before_bedroom2} after={ASSETS.bedroom2} />
+              </div>
+            </FadeUp>
+            <FadeUp delay={200} className="lg:col-span-2">
+              <div className="[direction:ltr]">
+                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                  Bedrooms 2 and 3 share the same layout and design approach — cohesive with the master bedroom but self-contained. The oatmeal linen bedhead and warm mid-grey carpet create a calm, restful palette. White sliding robe doors with matte black handles span the full right wall.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+          <FadeUp delay={300}>
+            <SpecTable items={[
+              { label: "Walls", value: "Dulux Natural White" },
+              { label: "Bedhead", value: "Upholstered — oatmeal linen, queen size" },
+              { label: "Carpet", value: "Warm mid-grey — same as master and lounge" },
+              { label: "Built-in Robe", value: "Full-wall sliding doors — white with matte black handles" },
+              { label: "Bedside Tables", value: "Oak timber, compact" },
+              { label: "Ceiling Fan", value: "Matte black DC fan" },
+              { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
+              { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
             ]} />
           </FadeUp>
         </div>

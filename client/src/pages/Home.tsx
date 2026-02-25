@@ -235,12 +235,12 @@ export default function Home() {
     <div style={{ background: "oklch(0.965 0.008 75)", minHeight: "100vh" }}>
 
       {/* Sticky nav */}
-      <nav className="sticky top-0 z-50 border-b hidden lg:block" style={{ background: "oklch(0.965 0.008 75 / 0.95)", backdropFilter: "blur(12px)", borderColor: "oklch(0.88 0.012 75)" }}>
+      <nav className="sticky top-0 z-50 border-b" style={{ background: "oklch(0.965 0.008 75 / 0.95)", backdropFilter: "blur(12px)", borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container flex items-center justify-between h-14">
           <span style={{ fontFamily: "Fraunces, Georgia, serif", fontSize: "0.95rem", color: "oklch(0.22 0.025 55)", fontWeight: 400 }}>
             14 Prescoter Drive
           </span>
-          <div className="flex items-center gap-5 flex-wrap">
+          <div className="flex items-center gap-3 lg:gap-5 flex-wrap">
             <a
               href="/tracker"
               style={{
@@ -260,6 +260,7 @@ export default function Home() {
             >
               Project Tracker
             </a>
+            <div className="hidden lg:flex items-center gap-5 flex-wrap">
             {sections.map((s) => (
               <button
                 key={s.id}
@@ -281,6 +282,7 @@ export default function Home() {
                 {s.label}
               </button>
             ))}
+            </div>
           </div>
         </div>
       </nav>

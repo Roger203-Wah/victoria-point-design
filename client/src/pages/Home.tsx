@@ -241,6 +241,25 @@ export default function Home() {
             14 Prescoter Drive
           </span>
           <div className="flex items-center gap-5 flex-wrap">
+            <a
+              href="/tracker"
+              style={{
+                fontFamily: "Plus Jakarta Sans, sans-serif",
+                fontWeight: 600,
+                fontSize: "0.68rem",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "oklch(0.97 0.005 75)",
+                background: "oklch(0.38 0.06 155)",
+                padding: "5px 14px",
+                borderRadius: "100px",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                transition: "background 0.2s",
+              }}
+            >
+              Project Tracker
+            </a>
             {sections.map((s) => (
               <button
                 key={s.id}

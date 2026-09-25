@@ -48,6 +48,6 @@ Run `pnpm check` and `pnpm build` after every substantive change. Keep the proje
 5. Commit with a clear message and open a pull request or push the reviewed change.
 6. Include a short summary of changed files, validation results, and any visual or data assumptions.
 
-## Publishing to the current live site
+## Publishing to the live site
 
-The current Manus-hosted presentation is published from its managed WebDev project, not automatically from GitHub. Therefore, a Claude change pushed to GitHub must be pulled into the Manus project, re-validated, saved as a WebDev checkpoint, and published before it appears on the existing public site. Do not claim a GitHub push is live until that sync and publish step has occurred.
+The live site is the `live` branch, served locally by the owner. GitHub Actions builds `main` on every push and publishes only the static site, `serve.js`, and `README-LIVE.md` to `live`. From that checkout, `node serve.js` serves http://localhost:8080. Do not claim a push to `main` is on the owner's machine until that publish has finished and the local `live` checkout has been updated. Manus is not part of this workflow.

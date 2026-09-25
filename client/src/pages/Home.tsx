@@ -8,35 +8,35 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-// CDN URLs for all render assets
+// Presentation images served from client/public/images
 const ASSETS = {
   // Renders (after)
-  front_facade: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/zurpoWLKDZrdLGaC.png",
-  side_access: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/aQdNUFVvfBpRTbCV.png",
-  lounge: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/nCiUCFWIsHKzccLY.png",
-  master_bedroom: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/axjSIlhcABFTdSKs.png",
-  bedroom2: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/mUlMLfRYAULNIbem.png",
-  kitchen_pendants: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/hQnThuiKjtYaoTsx.png",
-  kitchen_clean: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/zdmtasgohuGKZLNP.png",
-  hallway: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/dNJnCGkJgobNOmOl.png",
+  front_facade: "/images/front_facade.webp",
+  side_access: "/images/side_access.webp",
+  lounge: "/images/lounge.webp",
+  master_bedroom: "/images/master_bedroom.webp",
+  bedroom2: "/images/bedroom2.webp",
+  kitchen_pendants: "/images/kitchen_pendants.webp",
+  kitchen_clean: "/images/kitchen_clean.webp",
+  hallway: "/images/hallway.webp",
   // Pool — after renders (new)
-  pool_after_deck: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/UsRsagXZcBpCfJqM.jpg",
-  pool_after_patio: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/XhNNkaHxanEgGxoK.png",
+  pool_after_deck: "/images/pool_after_deck.webp",
+  pool_after_patio: "/images/pool_after_patio.webp",
   // Pool — before photos (new)
-  pool_before_1: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/UinUHjYNXgbaDGTL.jpeg",
-  pool_before_2: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/QRcGYphhUQwDNpRP.jpeg",
+  pool_before_1: "/images/pool_before_1.webp",
+  pool_before_2: "/images/pool_before_2.webp",
   // Bathrooms (new renders)
-  main_bathroom: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/NclUswMBaHVEOdzV.png",
-  ensuite: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/LkTeaAEIOcxvrsOV.png",
+  main_bathroom: "/images/main_bathroom.webp",
+  ensuite: "/images/ensuite.webp",
   // Laundry
-  laundry_white: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/JMzLvSvvLSqBqRjF.png",
-  laundry_oak: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/gJVHqMHSxcBegrIN.jpg",
+  laundry_white: "/images/laundry_white.webp",
+  laundry_oak: "/images/laundry_oak.webp",
   // Before photos
-  before_facade: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/KCxwoohWrSkiCsyH.jpeg",
-  before_master: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/sFvSaTADHXsJDIoj.jpeg",
-  before_kitchen: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/PWjcQazhRSkQAhJA.jpeg",
-  before_hallway: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/DXzGVDecvTTZVVap.jpeg",
-  before_bedroom2: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663362896871/tojEzXWuLWeldIap.jpeg",
+  before_facade: "/images/before_facade.webp",
+  before_master: "/images/before_master.webp",
+  before_kitchen: "/images/before_kitchen.webp",
+  before_hallway: "/images/before_hallway.webp",
+  before_bedroom2: "/images/before_bedroom2.webp",
 };
 
 const PALETTE = [

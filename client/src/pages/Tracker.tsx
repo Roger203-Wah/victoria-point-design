@@ -3,7 +3,7 @@
   - Warm linen bg / deep warm brown headings / sage green accents
   - Fraunces display serif + Plus Jakarta Sans body
   - This page renders the live tracker; source data lives in client/src/data/tracker.ts
-  - To update: use the shared GitHub repository with Manus or an approved Claude agent
+  - To update: use the shared GitHub repository with an approved Claude agent
 */
 
 import React, { useState } from "react";
@@ -103,7 +103,7 @@ export default function Tracker() {
             Project Tracker
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>
-            Live status, budget tracking, and spend log for the full renovation. Updated through the shared GitHub source — ask Manus or an approved Claude agent to log spend, change a phase status, or update a milestone.
+            Live status, budget tracking, and spend log for the full renovation. Updated through the shared GitHub source — ask an approved Claude agent to log spend, change a phase status, or update a milestone.
           </p>
         </div>
       </header>
@@ -341,7 +341,7 @@ export default function Tracker() {
             <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "oklch(0.52 0.02 60)" }}>Keeping this current</span>
             <h2 className="text-3xl mt-2 mb-6" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)", fontWeight: 300 }}>How to Update</h2>
             <p className="text-sm leading-relaxed mb-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Open a new chat with Manus, or use an approved Claude agent connected to the shared GitHub repository. Describe what's changed — a phase status, a new spend entry, a milestone completed, or a note to add. The agent should update the tracker source, validate the build, and commit the change for review.
+              Use an approved Claude agent connected to the shared GitHub repository. Describe what's changed — a phase status, a new spend entry, a milestone completed, or a note to add. The agent should update the tracker source, validate the build, and commit the change for review.
             </p>
             <div className="border-l-2 pl-4 py-1 mb-6" style={{ borderColor: "oklch(0.48 0.06 155)" }}>
               <p className="text-sm italic" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>

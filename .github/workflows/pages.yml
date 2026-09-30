@@ -22,10 +22,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # package.json "packageManager" pins pnpm 10.4.1. Do not also set version here.
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10.4.1
 
       - name: Setup Node
         uses: actions/setup-node@v4

@@ -16,6 +16,14 @@ GitHub Pages does not read `client/public/_redirects`. The build copies `index.h
 
 Do not claim that address is up to date until the **Deploy GitHub Pages** workflow on `main` has succeeded.
 
+The site has to be created once in the repository settings. Automation cannot do that step: creating a Pages site needs a repository admin, and the GitHub Actions token is not allowed to create it. If the workflow fails at **Setup Pages** with `Get Pages site failed` / `Not Found`:
+
+1. Open <https://github.com/Roger203-Wah/victoria-point-design/settings/pages>.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**. Save if GitHub asks.
+3. Re-run **Deploy GitHub Pages** on `main`.
+
+After that, pushes to `main` publish on their own.
+
 The `live` branch and `node serve.js` remain the local copy. They are not a public URL.
 
 ## Cloudflare Pages retry

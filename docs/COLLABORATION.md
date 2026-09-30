@@ -6,7 +6,7 @@ This repository is the durable, shared editing surface for the 14 Prescoter Driv
 
 ## Source-of-truth model
 
-GitHub `main` is the canonical code and content history. The private repository should contain all source files, the tracker data, and collaboration instructions.
+GitHub `main` is the canonical code and content history. The public repository contains the source files, the tracker data, and collaboration instructions.
 
 The live site is the `live` branch. On every push to `main`, GitHub Actions installs dependencies, runs `pnpm check` and `pnpm build`, and publishes the built static site to `live`. That branch contains only the built files, a zero-dependency `serve.js`, and `README-LIVE.md`. The owner serves `live` locally. Manus is not involved.
 
@@ -32,7 +32,7 @@ A push to `main` updates the owner's screen only after GitHub Actions finishes p
 
 ## Public shareable link
 
-The `live` branch is local only. A public HTTPS address comes from Cloudflare Pages (or Vercel) connected to this GitHub repository. The signup steps, build settings, and the shape of the address are in `docs/PUBLIC-SITE.md`. The repository can stay private. The host address is public, including the tracker. Do not claim a public URL exists until that host shows a successful deployment.
+The `live` branch is local only. The public HTTPS address is GitHub Pages: `https://roger203-wah.github.io/victoria-point-design/`. The repository is public, so Cloudflare can clone it. Retry an existing Cloudflare Pages project with framework None, build `pnpm build`, output `dist/public`, and `PNPM_VERSION=10.4.1`. Build settings are in `docs/PUBLIC-SITE.md`. The host address is public, including the tracker. Do not claim a public URL is current until that host shows a successful deployment.
 
 ## Conflict rule
 

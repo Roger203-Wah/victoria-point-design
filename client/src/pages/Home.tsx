@@ -7,36 +7,41 @@
 */
 
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
+
+// Public files keep their names. BASE_URL is "/" locally and the repo path on GitHub Pages.
+const publicAsset = (file: string) =>
+  `${import.meta.env.BASE_URL}${file.replace(/^\//, "")}`;
 
 // Presentation images served from client/public/images
 const ASSETS = {
   // Renders (after)
-  front_facade: "/images/front_facade.webp",
-  side_access: "/images/side_access.webp",
-  lounge: "/images/lounge.webp",
-  master_bedroom: "/images/master_bedroom.webp",
-  bedroom2: "/images/bedroom2.webp",
-  kitchen_pendants: "/images/kitchen_pendants.webp",
-  kitchen_clean: "/images/kitchen_clean.webp",
-  hallway: "/images/hallway.webp",
+  front_facade: publicAsset("images/front_facade.webp"),
+  side_access: publicAsset("images/side_access.webp"),
+  lounge: publicAsset("images/lounge.webp"),
+  master_bedroom: publicAsset("images/master_bedroom.webp"),
+  bedroom2: publicAsset("images/bedroom2.webp"),
+  kitchen_pendants: publicAsset("images/kitchen_pendants.webp"),
+  kitchen_clean: publicAsset("images/kitchen_clean.webp"),
+  hallway: publicAsset("images/hallway.webp"),
   // Pool — after renders (new)
-  pool_after_deck: "/images/pool_after_deck.webp",
-  pool_after_patio: "/images/pool_after_patio.webp",
+  pool_after_deck: publicAsset("images/pool_after_deck.webp"),
+  pool_after_patio: publicAsset("images/pool_after_patio.webp"),
   // Pool — before photos (new)
-  pool_before_1: "/images/pool_before_1.webp",
-  pool_before_2: "/images/pool_before_2.webp",
+  pool_before_1: publicAsset("images/pool_before_1.webp"),
+  pool_before_2: publicAsset("images/pool_before_2.webp"),
   // Bathrooms (new renders)
-  main_bathroom: "/images/main_bathroom.webp",
-  ensuite: "/images/ensuite.webp",
+  main_bathroom: publicAsset("images/main_bathroom.webp"),
+  ensuite: publicAsset("images/ensuite.webp"),
   // Laundry
-  laundry_white: "/images/laundry_white.webp",
-  laundry_oak: "/images/laundry_oak.webp",
+  laundry_white: publicAsset("images/laundry_white.webp"),
+  laundry_oak: publicAsset("images/laundry_oak.webp"),
   // Before photos
-  before_facade: "/images/before_facade.webp",
-  before_master: "/images/before_master.webp",
-  before_kitchen: "/images/before_kitchen.webp",
-  before_hallway: "/images/before_hallway.webp",
-  before_bedroom2: "/images/before_bedroom2.webp",
+  before_facade: publicAsset("images/before_facade.webp"),
+  before_master: publicAsset("images/before_master.webp"),
+  before_kitchen: publicAsset("images/before_kitchen.webp"),
+  before_hallway: publicAsset("images/before_hallway.webp"),
+  before_bedroom2: publicAsset("images/before_bedroom2.webp"),
 };
 
 const PALETTE = [
@@ -241,7 +246,7 @@ export default function Home() {
             14 Prescoter Drive
           </span>
           <div className="flex items-center gap-3 lg:gap-5 flex-wrap">
-            <a
+            <Link
               href="/tracker"
               style={{
                 fontFamily: "Plus Jakarta Sans, sans-serif",
@@ -259,7 +264,7 @@ export default function Home() {
               }}
             >
               Project Tracker
-            </a>
+            </Link>
             <div className="hidden lg:flex items-center gap-5 flex-wrap">
             {sections.map((s) => (
               <button
@@ -1002,7 +1007,7 @@ export default function Home() {
             <div className="text-sm" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>Victoria Point, QLD — Renovation Design Presentation</div>
           </div>
           <div className="flex items-center gap-6">
-            <a href="/tracker" style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "oklch(0.48 0.06 155)", letterSpacing: "0.04em", textDecoration: "none" }}>Project Tracker →</a>
+            <Link href="/tracker" style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "oklch(0.48 0.06 155)", letterSpacing: "0.04em", textDecoration: "none" }}>Project Tracker →</Link>
             <div className="text-xs" style={{ color: "oklch(0.62 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>Prepared February 2026</div>
           </div>
         </div>

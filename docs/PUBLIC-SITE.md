@@ -1,25 +1,26 @@
 # Public site
 
-The design presentation (`/`) and the project tracker (`/tracker`) are a static site. GitHub `main` is the source. This file is the owner's path to a shareable HTTPS address.
+The design presentation (`/`) and the project tracker (`/tracker`) are a static site. GitHub `main` is the source. The repository is public, so a host can clone it without a private-repo credential.
 
-No public URL exists until a host shows a successful deployment. Use the address on that project's page. Do not share a guessed `pages.dev` or `vercel.app` link.
+## GitHub Pages
 
-## Before you start
+`.github/workflows/pages.yml` deploys on every push to `main`, and when someone runs the workflow by hand. It uses Node 22, `pnpm install --frozen-lockfile`, and `pnpm build`, then publishes `dist/public` with `actions/upload-pages-artifact` and `actions/deploy-pages`.
 
-Merge the open pull request that removes the Manus build plugin into `main`. Cloudflare and Vercel build the production branch. Until that merge, `main` still uses the old Manus build.
+The project site address is:
 
-The GitHub repository can stay private. The site address is public. Anyone with the link can read the design presentation and the tracker, including budget and spend.
+https://roger203-wah.github.io/victoria-point-design/
+
+That host serves the site from `/victoria-point-design/`, not from the domain root. The workflow sets `GITHUB_PAGES_BASE` so Vite emits asset and image URLs under that path. `pnpm dev`, the `live` branch, Cloudflare, and Vercel do not set that variable, so they stay at `/`.
+
+GitHub Pages does not read `client/public/_redirects`. The build copies `index.html` to `dist/public/404.html` (fallback for unknown routes) and to `dist/public/tracker/index.html` so `/tracker` returns the app. Refreshing `/tracker` loads the same page.
+
+Do not claim that address is up to date until the **Deploy GitHub Pages** workflow on `main` has succeeded.
 
 The `live` branch and `node serve.js` remain the local copy. They are not a public URL.
 
-## Cloudflare Pages
+## Cloudflare Pages retry
 
-About five minutes, after the pull request is merged.
-
-1. Create a free Cloudflare account at <https://dash.cloudflare.com/sign-up>. Choose **Continue with GitHub** when it is offered.
-2. Open **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-3. Authorize Cloudflare for `Roger203-Wah/victoria-point-design`.
-4. Select that repository. Use the settings below. The Vite preset publishes `dist`, which is the wrong folder for this repository.
+The repository is public. An existing Cloudflare Pages project can clone it and rebuild without new credentials. Use **Retry deployment** with these settings. The Vite preset publishes `dist`, which is the wrong folder.
 
 | Setting | Value |
 | --- | --- |
@@ -31,15 +32,13 @@ About five minutes, after the pull request is merged.
 | Build output directory | `dist/public` |
 | Environment variable `PNPM_VERSION` | `10.4.1` |
 
-Node.js 22 comes from `.node-version`. You do not need to set `NODE_VERSION`.
+Do not set `GITHUB_PAGES_BASE` on Cloudflare. The site is served from the domain root there, so the default Vite base `/` is correct. Node.js 22 comes from `.node-version`.
 
-5. Deploy and wait until the deployment status is Success.
-6. Copy the address Cloudflare shows on the project page. It has the form `https://<project-name>.pages.dev`. With the project name above, that is `https://victoria-point-design.pages.dev` unless that name was already taken on the account. If Cloudflare changes the name, use the address it displays.
-7. Open `/`, open `/tracker`, and refresh `/tracker`.
+`client/public/_redirects` is copied into the build so `/tracker` serves the app. `wrangler.toml` records the same output directory for a manual `npx wrangler pages deploy`. The Git connection does not read the build command from that file.
 
-Later pushes to `main` rebuild the public site. A push is public only after that deployment succeeds.
+A successful retry shows an address of the form `https://<project-name>.pages.dev`. Use the address Cloudflare displays. Open `/` and `/tracker`, then refresh `/tracker`.
 
-`client/public/_redirects` is copied into the build so `/tracker` serves the app. `wrangler.toml` records the same output directory for a manual `npx wrangler pages deploy`. The Git connection does not read the build command from that file. The table above is what the dashboard needs.
+Later pushes to `main` rebuild that project as well as GitHub Pages. A push is public only after the deployment you are sharing has succeeded.
 
 ## Vercel
 
@@ -53,4 +52,4 @@ Use this if you would rather connect Vercel. One host is enough.
 
 ## What stays unchanged
 
-A custom domain is optional. The host address is already shareable HTTPS. Connecting a host does not change tracker numbers. Spend stays in `client/src/data/tracker.ts`.
+A custom domain is optional. Connecting a host does not change tracker numbers. Spend stays in `client/src/data/tracker.ts`.

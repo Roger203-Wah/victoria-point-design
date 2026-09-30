@@ -2,6 +2,10 @@
  * Zero-dependency static server for the published site.
  * Usage: node serve.js [port]
  * Port defaults to 8080. A numeric argument wins over the PORT env var.
+ * This file is CommonJS. scripts/live/package.json sets "type": "commonjs"
+ * so it still runs inside this repository, whose root package is ESM.
+ * The published live branch copies only this file; with no package.json
+ * there, Node treats it as CommonJS as well.
  */
 "use strict";
 

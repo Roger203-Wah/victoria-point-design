@@ -30,6 +30,10 @@ Then open http://localhost:8080. The server listens on port 8080 unless `PORT` i
 
 A push to `main` updates the owner's screen only after GitHub Actions finishes publishing `live` and the local checkout pulls that branch.
 
+## Public shareable link
+
+The `live` branch is local only. A public HTTPS address comes from Cloudflare Pages (or Vercel) connected to this GitHub repository. The signup steps, build settings, and the shape of the address are in `docs/PUBLIC-SITE.md`. The repository can stay private. The host address is public, including the tracker. Do not claim a public URL exists until that host shows a successful deployment.
+
 ## Conflict rule
 
 Never overwrite another collaborator's work wholesale. Rebase or merge deliberately, reconcile conflicts in `client/src/data/tracker.ts` carefully, and retain every confirmed spend entry unless it was demonstrably duplicated or corrected by Jeremy.

@@ -16,4 +16,4 @@ Describe the focused change and its intended outcome.
 
 ## Publication
 
-Merging to `main` publishes the static site to the `live` branch automatically. The owner updates a local checkout of `live` and runs `node serve.js`.
+Merging to `main` publishes the static site to the `live` branch automatically. The owner updates a local checkout of `live` and runs `node serve.js`. After Cloudflare Pages or Vercel is connected, the same merge also needs a successful host deployment before the public URL updates. See `docs/PUBLIC-SITE.md`.

@@ -59,8 +59,8 @@ jobs:
           find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
           cp -a "$publish_dir"/. .
 
-          if [ ! -f index.html ] || [ ! -f serve.js ] || [ ! -f README-LIVE.md ]; then
-            echo "Publish folder is missing index.html, serve.js, or README-LIVE.md"
+          if [ ! -f index.html ] || [ ! -f serve.js ] || [ ! -f README-LIVE.md ] || [ ! -f _redirects ]; then
+            echo "Publish folder is missing index.html, serve.js, README-LIVE.md, or _redirects"
             exit 1
           fi
           if [ -f package.json ] || [ -d client ] || [ -d server ]; then

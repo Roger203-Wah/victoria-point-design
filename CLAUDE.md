@@ -37,7 +37,7 @@ pnpm check
 pnpm build
 ```
 
-Run `pnpm check` and `pnpm build` after every substantive change. Keep the project frontend-only; do not add a database, authentication, external API, or server-side code merely to support tracker edits. Do not edit `server/` unless explicitly requested. Avoid storing large image files inside the repository; existing visuals are CDN-hosted.
+Run `pnpm check` and `pnpm build` after every substantive change. Keep the project frontend-only; do not add a database, authentication, external API, or server-side code merely to support tracker edits. Do not edit `server/` unless explicitly requested. Presentation photos live in `client/public/images/` as compressed WebP. Do not add large original image files.
 
 ## Shared workflow
 
@@ -48,6 +48,8 @@ Run `pnpm check` and `pnpm build` after every substantive change. Keep the proje
 5. Commit with a clear message and open a pull request or push the reviewed change.
 6. Include a short summary of changed files, validation results, and any visual or data assumptions.
 
-## Publishing to the current live site
+## Publishing
 
-The current Manus-hosted presentation is published from its managed WebDev project, not automatically from GitHub. Therefore, a Claude change pushed to GitHub must be pulled into the Manus project, re-validated, saved as a WebDev checkpoint, and published before it appears on the existing public site. Do not claim a GitHub push is live until that sync and publish step has occurred.
+The local site is the `live` branch. GitHub Actions builds `main` on every push and publishes only the static site, `serve.js`, and `README-LIVE.md` to `live`. From that checkout, `node serve.js` serves http://localhost:8080. Do not claim a push to `main` is on the owner's machine until that publish has finished and the local `live` checkout has been updated.
+
+The public site is Cloudflare Pages, or Vercel if the owner chooses that host. Steps and build settings are in `docs/PUBLIC-SITE.md`. Do not claim a `pages.dev` or `vercel.app` address is live until that host shows a successful deployment. Manus is not part of this workflow.

@@ -1,0 +1,6 @@
+# Records the Pages output directory for `wrangler pages deploy`.
+# The Git connection in the Cloudflare dashboard does not read the build
+# command from this file. Use the settings in docs/PUBLIC-SITE.md.
+name = "victoria-point-design"
+pages_build_output_dir = "./dist/public"
+compatibility_date = "2026-09-30"

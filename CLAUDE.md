@@ -27,7 +27,7 @@ Make tracker-content edits in `client/src/data/tracker.ts`, not in the UI compon
 
 Preserve the agreed project sequence: complete the outside first where practical; kitchen before interior room-by-room works; lounge, master, bedrooms 3 and 4, then bedroom 2/office; LVP in kitchen/hall/dining/entry last; and bathrooms/laundry around September 2026. The side access is a rolling project, not an ordered phase. DIY demolition and painting are assumed unless a project note says otherwise. Do not turn the current driveway into a scope item.
 
-The current tracker budget range is **$118k–$142k**, including the existing $15,000 estimated pre-tracker exterior spend. Preserve confirmed quote values unless Jeremy supplies a replacement: pool coping $10,939 inc. GST, ShawCon bathroom/ensuite works $45,300 inc. GST, and plumbing $7,485 inc. GST.
+The current tracker budget range is **$118k–$142k**. Paid spend is the real `SPEND_LOG` (196 lines as at 13 Nov 2026). Do not restore the retired $15,000 pre-tracker estimate. Preserve confirmed quote values unless Jeremy supplies a replacement: pool coping $10,939 inc. GST, ShawCon bathroom/ensuite works $45,300 inc. GST, and plumbing $7,485 inc. GST. Actual coping paid is $11,539.60 and belongs in the spend log, not in that quote.
 
 ## Development and validation
 

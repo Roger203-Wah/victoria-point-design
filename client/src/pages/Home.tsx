@@ -82,8 +82,8 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 }
 
 // Before/After toggle component
-function BeforeAfter({ before, after, beforeLabel = "Before", afterLabel = "After" }: {
-  before: string; after: string; beforeLabel?: string; afterLabel?: string;
+function BeforeAfter({ before, after, beforeLabel = "Before", afterLabel = "After", badge }: {
+  before: string; after: string; beforeLabel?: string; afterLabel?: string; badge?: string;
 }) {
   const [showBefore, setShowBefore] = useState(false);
   return (
@@ -93,6 +93,24 @@ function BeforeAfter({ before, after, beforeLabel = "Before", afterLabel = "Afte
         alt={showBefore ? beforeLabel : afterLabel}
         className="w-full h-72 md:h-[480px] object-cover transition-opacity duration-300"
       />
+      {badge && !showBefore && (
+        <div
+          className="absolute top-3 left-3"
+          style={{
+            background: "oklch(0.15 0.01 55 / 0.82)",
+            color: "oklch(0.97 0.005 75)",
+            fontFamily: "Plus Jakarta Sans, sans-serif",
+            fontSize: "0.68rem",
+            fontWeight: 600,
+            letterSpacing: "0.04em",
+            padding: "6px 10px",
+            borderRadius: "2px",
+            maxWidth: "calc(100% - 1.5rem)",
+          }}
+        >
+          {badge}
+        </div>
+      )}
       {/* Toggle pill */}
       <div
         className="absolute bottom-4 left-1/2 -translate-x-1/2 flex"
@@ -121,7 +139,7 @@ function BeforeAfter({ before, after, beforeLabel = "Before", afterLabel = "Afte
             color: !showBefore ? "oklch(0.22 0.025 55)" : "oklch(0.75 0.005 75)",
           }}
         >
-          After
+          {afterLabel}
         </button>
         <button
           onClick={() => setShowBefore(true)}
@@ -140,7 +158,7 @@ function BeforeAfter({ before, after, beforeLabel = "Before", afterLabel = "Afte
             color: showBefore ? "oklch(0.22 0.025 55)" : "oklch(0.75 0.005 75)",
           }}
         >
-          Before
+          {beforeLabel}
         </button>
       </div>
     </div>
@@ -382,20 +400,20 @@ export default function Home() {
             </FadeUp>
             <FadeUp delay={200} className="lg:col-span-2">
               <p className="text-base leading-relaxed mb-6" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The existing red brick is retained as the hero material — warm, textural, and distinctive. Everything around it is resolved in a unified charcoal palette: Colorbond Ironstone roof, charcoal panel-lift garage door, charcoal rendered retaining wall, and charcoal fascia and window frames. The result is a deliberate, contemporary facade that photographs exceptionally well for rental listings.
+                The existing red brick is retained as the hero material — warm, textural, and distinctive. Everything around it is resolved in a unified charcoal palette: a Monument roof, charcoal panel-lift garage door, charcoal rendered retaining wall, and charcoal fascia and window frames. The result is a deliberate, contemporary facade that photographs exceptionally well for rental listings.
               </p>
             </FadeUp>
           </div>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Roof", value: "Colorbond Ironstone — repaint existing" },
+              { label: "Roof", value: "Professional repaint, colour leaning Monument — not started" },
               { label: "Garage Door", value: "Charcoal panel-lift, horizontal ribbing" },
               { label: "Retaining Wall", value: "Smooth charcoal render over existing timber sleepers" },
               { label: "Fascia & Eaves", value: "Charcoal — all trim unified" },
               { label: "Window Frames", value: "Charcoal — consistent with trim" },
               { label: "Front Door", value: "Matte black" },
               { label: "Entry Lighting", value: "Matte black wall sconces flanking door" },
-              { label: "Driveway", value: "Exposed aggregate concrete — replace loose gravel" },
+              { label: "Driveway", value: "Stays as-is" },
               { label: "Lawn", value: "Sir Walter buffalo — fresh turf, well-edged" },
               { label: "Trees", value: "2–3 columnar Lilly Pilly 'Slim' from lawn behind retaining wall" },
               { label: "Entry Pots", value: "2× large black ceramic pots with Agave, flanking front door" },
@@ -410,28 +428,31 @@ export default function Home() {
           <SectionHeader label="02 — Pool & Outdoor Living" title="Pool & Outdoor Living" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
-              <BeforeAfter before={ASSETS.pool_before_1} after={ASSETS.pool_after_deck} />
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Deck perspective — looking from garden toward house</p>
+              <BeforeAfter before={ASSETS.pool_before_1} after={ASSETS.pool_after_deck} afterLabel="Concept" badge="original concept (superseded)" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>original concept (superseded) — composite deck around the pool. Not the current plan.</p>
             </FadeUp>
             <FadeUp delay={200}>
-              <BeforeAfter before={ASSETS.pool_before_2} after={ASSETS.pool_after_patio} />
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Patio perspective — looking out to pool and yard</p>
+              <BeforeAfter before={ASSETS.pool_before_2} after={ASSETS.pool_after_patio} afterLabel="Concept" badge="original concept (superseded)" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>original concept (superseded) — deck and shade-sail render. Not the current plan.</p>
             </FadeUp>
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The pool area establishes the outdoor design language that flows through the side access and to the street. Dark composite decking, charcoal Colorbond fencing, tropical low-maintenance planting in dark mulch, and warm festoon lighting create a resort-style outdoor living space. The charcoal palette ties directly to the exterior facade.
+              The pictures above are the original concept (superseded). They show a composite deck, not the work that is underway. The current outdoor plan is coping (done and paid), Nimbus granite crazy paving on the slab (not laid yet), the timber pool bench, the Absco shed, and the pool shed screen. Photos of that work are not on this site yet. Charcoal Colorbond fencing and the warm planting palette still carry through to the side access.
             </p>
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Decking", value: "Dark composite — Trex or equivalent" },
-              { label: "Fence", value: "Charcoal Colorbond — pool compliant" },
-              { label: "Pool Fence", value: "Black aluminium pool fence" },
-              { label: "Shade Sail", value: "Black shade sail over pool area" },
-              { label: "Pergola", value: "Dark timber/steel pergola with festoon lights" },
+              { label: "Coping", value: "Done and paid — Project Dream Pools" },
+              { label: "Paving", value: "Nimbus granite crazy pave, flamed — about 40 m², not laid yet" },
+              { label: "Pool bench", value: "Mostly built — bottom palings wait until after tiling" },
+              { label: "Shed", value: "Absco Space Saver WG30152SK, Woodland Grey — erected and anchored" },
+              { label: "Shed screen", value: "In progress — first section partly fitted" },
+              { label: "Fence", value: "Charcoal Colorbond fence and gate — in" },
+              { label: "Shade sail", value: "Going back up over the pool area" },
+              { label: "Pergola", value: "original concept (superseded) — not in the current plan" },
+              { label: "Deck lighting", value: "original concept (superseded) — there is no composite deck" },
               { label: "Planting", value: "Bromeliads, cordylines, clumping grasses — dark mulch" },
-              { label: "Lighting", value: "Warm festoon lights + deck step lights" },
               { label: "Lawn", value: "Sir Walter buffalo — rear yard" },
             ]} />
           </FadeUp>
@@ -445,15 +466,31 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start lg:[direction:rtl]">
             <FadeUp delay={100} className="lg:col-span-3">
               <div className="[direction:ltr]">
-                <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                  <img src={ASSETS.side_access} alt="Side access render" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
+                <div className="overflow-hidden relative" style={{ borderRadius: "2px" }}>
+                  <img src={ASSETS.side_access} alt="original concept (superseded) — side passage planting" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
+                  <div
+                    className="absolute top-3 left-3"
+                    style={{
+                      background: "oklch(0.15 0.01 55 / 0.82)",
+                      color: "oklch(0.97 0.005 75)",
+                      fontFamily: "Plus Jakarta Sans, sans-serif",
+                      fontSize: "0.68rem",
+                      fontWeight: 600,
+                      letterSpacing: "0.04em",
+                      padding: "6px 10px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    original concept (superseded)
+                  </div>
                 </div>
+                <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>original concept (superseded) — passage planting only. It does not show the Absco shed or the shed screen.</p>
               </div>
             </FadeUp>
             <FadeUp delay={200} className="lg:col-span-2">
               <div className="[direction:ltr]">
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                  The side passage connects the street to the pool area and is designed as a cohesive extension of the backyard palette. Dark charcoal Colorbond fence, tropical low-maintenance planting in dark mulch, and warm solar stake path lights create a designed corridor rather than a forgotten utility passage.
+                  The side passage connects the street to the pool area. The picture is the original concept (superseded): it shows the planting idea only, not the Absco shed or the pool shed screen. The slab for this passage was poured on 3–4 Oct (16.1 m²). The charcoal Colorbond fence, dark mulch, and solar stake lights are still the passage palette.
                 </p>
               </div>
             </FadeUp>
@@ -464,8 +501,8 @@ export default function Home() {
               { label: "Garden Bed", value: "Dark mulch, bromeliads, cordylines, clumping grasses" },
               { label: "Edging", value: "River rock border along garden bed" },
               { label: "Path Lighting", value: "Solar stake lights — warm amber, full length" },
-              { label: "Shed", value: "Slimline charcoal shed at far end" },
-              { label: "Path", value: "Existing concrete retained and cleaned" },
+              { label: "Shed", value: "Absco Space Saver WG30152SK, Woodland Grey — erected and anchored" },
+              { label: "Path", value: "Slab poured 3–4 Oct — side access 16.1 m²" },
             ]} />
           </FadeUp>
         </div>
@@ -497,17 +534,17 @@ export default function Home() {
               { label: "Lower Cabinets", value: "IKEA NICKEBO — matt grey-green" },
               { label: "Upper Cabinets (back)", value: "IKEA VOXTORP — matt white" },
               { label: "Upper Cabinets (island)", value: "IKEA HEJSTA — white frame / clear glass" },
-              { label: "Benchtop", value: "IKEA EKBACKEN — light grey concrete effect laminate" },
-              { label: "Splashback", value: "Light grey vertical subway tile, mid-grey grout" },
+              { label: "Benchtop", value: "IKEA EKBACKEN — light grey concrete effect. Still unpaid" },
+              { label: "Splashback", value: "2× IKEA LYSEKIL panels — paid, due 17 Nov" },
               { label: "Sink", value: "IKEA KILSVIKEN — black quartz composite, 1 bowl" },
-              { label: "Tap", value: "IKEA DELSJÖN — brushed black metal mixer" },
-              { label: "Oven", value: "IKEA BRÄNDBO 500 — forced air, black, built-under" },
+              { label: "Tap", value: "IKEA SALLSJÖN — black pull-out" },
+              { label: "Oven", value: "IKEA SPJUTBO — pyrolytic, IKEA 300, black" },
               { label: "Cooktop", value: "IKEA KOLSTAN 500 — induction, black, 58cm" },
               { label: "Rangehood", value: "IKEA UNDERVERK — built-in, stainless, 60cm" },
               { label: "Handles", value: "IKEA BAGGANÄS — black knobs, 21mm" },
               { label: "Lighting", value: "MITTLED LED strips under uppers + pendant option" },
               { label: "Doorway", value: "Existing doorway removed — fully open to living" },
-              { label: "IKEA Total", value: "$13,315.97 (self-collect, excl. delivery & install)" },
+              { label: "IKEA Order", value: "$11,666.44 paid (234146073, incl. delivery) — arrives 17 Nov" },
             ]} />
           </FadeUp>
         </div>
@@ -555,7 +592,7 @@ export default function Home() {
       {/* 06 — Laundry */}
       <section id="laundry" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="06 — Laundry" title="Laundry" status="options" />
+          <SectionHeader label="06 — Laundry" title="Laundry" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
               <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
@@ -572,7 +609,7 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Two options are presented for the laundry. Both share the same layout, dark concrete tile splashback and floor, wall-mounted dryer, and under-bench washing machine. Option A in white shaker cabinets keeps the laundry cohesive with the kitchen's white upper cabinets. Option B in warm oak timber ties to the natural oak flooring and furniture used throughout the house. Both are strong choices — the decision comes down to whether you want the laundry to feel like an extension of the kitchen or the bedroom palette.
+              Option A is the chosen laundry: white shaker cabinets, ordered with the kitchen. Both options share the same layout, dark concrete tile splashback and floor, wall-mounted dryer, and under-bench washing machine. Option B, warm oak shaker, is the earlier alternative and is not the order. Laundry floor and splashback tiles are meant to match the bathrooms and are not chosen yet.
             </p>
           </FadeUp>
           <FadeUp delay={300}>
@@ -723,7 +760,7 @@ export default function Home() {
                 The renovation is structured as a series of independent mini-projects rather than one continuous build. Each phase has its own scope, budget, and trades — meaning work can progress without everything depending on everything else, and disruption to daily life stays manageable. The house is occupied throughout, with a business running from home, so the sequencing is deliberate.
               </p>
               <p className="text-base leading-relaxed max-w-3xl mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The guiding principle: <strong>outdoor work first, then kitchen, then interior rooms, then bathrooms last</strong> — timed around a 3-week vacancy window in September when the house is empty. Demo on each phase is handled in-house. Trades are brought in for specialist work only.
+                The guiding principle: <strong>outdoor work first, then kitchen, then interior rooms, then bathrooms last</strong>. Bathrooms are the later stage, around February–April 2027, with temporary facilities. There is no interior demolition before the 14–15 Nov visit. Demo on each phase is handled in-house. Trades are brought in for specialist work only.
               </p>
             </div>
           </FadeUp>
@@ -732,62 +769,62 @@ export default function Home() {
             {
               num: "01",
               title: "Pool Coping",
-              timing: "Late March – April 2026",
-              body: "The starting gun for all outdoor work. Coping replacement sets the finished height that the deck is built to — nothing else in the pool area can be accurately quoted or built until this is done. Quote confirmed at $10,939 inc. GST. Trade only, approximately one week on-site."
+              timing: "Done — paid",
+              body: "Done and paid. Project Dream Pools, $11,539.60. The confirmed quote was $10,939 inc. GST. Coping is not sealed yet; the plan is to have it sealed with the crazy paving after the grout cures."
             },
             {
               num: "02",
-              title: "Pool Decking + Fence",
-              timing: "May 2026",
-              body: "Once coping levels are confirmed, decking is quoted and ordered. Dark composite decking (Trex or equivalent) over the pool area. Colorbond fence painted Monument — DIY. Decking is a trade job; material lead times need to be factored in, so order as soon as coping is complete."
+              title: "Pool Slab + Bench",
+              timing: "Poured 3–4 Oct 2026 — bench in progress",
+              body: "Composite decking is not the plan. The pool surround, pool-shed base, and side access were poured on 3–4 Oct 2026. Paid so far $4,133.54, including $1,350 cash to the pump crew. The main concrete supply and labour bill (about $8,500) is still outstanding. The pool bench is mostly built. The bottom paling row stays off until after tiling, and the decking row closest to the fence still needs ripping to fit."
             },
             {
               num: "Side Project",
               title: "Side Access",
-              timing: "March 2026 onwards — rolling",
-              body: "Already underway. Low disruption, largely DIY. A 1.5m × 3m concrete slab poured at the end of the passage for the slimline shed (already purchased). Shed installed and painted Monument. Garden bed planted with bromeliads, cordylines, and clumping grasses in dark mulch. Solar stake lights along the full length. Done progressively — no hard deadline."
+              timing: "Rolling — slab poured, shed anchored",
+              body: "Rolling, and underway. The 3–4 Oct pour included the side access slab, 16.1 m² (2.2 × 7.3). The Absco Space Saver shed (WG30152SK, Woodland Grey) was erected in October and anchored on the weekend of 7–8 Nov. Garden and path finishing continue with no hard deadline."
             },
             {
               num: "03",
               title: "Crazy Paving",
-              timing: "Post-decking, any point",
-              body: "40m² of crazy paving around the existing concreted pool surrounds at $105/m², DIY laid. Additional materials (adhesive, grout, edging) to be factored in. No trade dependency — done at own pace after decking is complete."
+              timing: "Not started — no firm date",
+              body: "Not started, and there is no firm laying date. Chosen system: Pool Tile Company Nimbus granite crazy pave, flamed finish, with Dunlop 20 kg Rubber Modified tile adhesive from Bunnings. About 40 m² for the pool surround. The patio is deferred. Leftover scrap still needs measuring before any extra stone is ordered."
             },
             {
               num: "04",
               title: "Pool Fence + Landscaping",
-              timing: "Post-decking",
-              body: "Black aluminium pool fence — ProtectorAl system from Bunnings, DIY install, compliant with QLD standards. Festoon lights and deck step lights DIY. Black shade sail over pool area. Rear yard: remove unwanted concrete sections (DIY cut and remove), level lawn area, seed existing grass, clean up existing trees and garden surrounds."
+              timing: "Fence in — sunshade going back up",
+              body: "The Colorbond fence and gate are in, paid $6,940.09. Landscaping is paid ($4,581.89) and the garden bed and palm removal are paid ($3,390.00). The back garden was set up by 8 Nov. The sunshade is going back up; the hardware was bought on 12 Nov."
             },
             {
               num: "05",
               title: "Kitchen",
-              timing: "Order March/April 2026 — Install May/June 2026",
-              body: "The first interior phase and the biggest single design statement. IKEA order placed during the March/April sale window. Full demo including removal of the wall between kitchen and living — DIY. Kitchen installer engaged separately; 2–3 quotes from IKEA-experienced installers needed. Minor electrical and plumbing adjustments only. LVP flooring in the kitchen area is laid after cabinets are installed."
+              timing: "Paid — delivery 17 Nov 2026",
+              body: "IKEA kitchen and laundry order 234146073 is paid ($11,666.44, including delivery) and arrives 17 Nov 2026. After delivery the priority is assembling cabinet shells in the garage. Demolition and installation are not booked, and there is no interior demo before the 14–15 Nov visit. Splashbacks (2× LYSEKIL, $134.30) arrive the same day. Benchtops and some panels are still unpaid, about $1,083 at full price."
             },
             {
               num: "06",
               title: "Bedroom 4 + Plastering",
-              timing: "June – July 2026",
-              body: "A new wall, doorway, and door creates Bedroom 4. The existing Bedroom 3 door opening is filled and a new door added. DIY framing with chippy mates; plasterer brought in for sheeting, setting, and ceiling touch-ups throughout the whole house. All ceiling imperfections addressed at this point — before any painting begins."
+              timing: "After the kitchen",
+              body: "Not started. The office stays in Bedroom 2 while outdoor work is the focus. Bedroom 4 becomes the second office and character room. A new wall, doorway, and door still create Bedroom 4, and the Bedroom 3 door opening is filled. DIY framing with chippy mates, then a plasterer for sheeting, setting, and whole-house ceiling touch-ups. This waits until after the kitchen."
             },
             {
               num: "07",
               title: "Lounge + Bedrooms Interior",
-              timing: "July – August 2026",
+              timing: "After the kitchen",
               body: "Done room by room. Sequence within each room: plasterboard repairs → paint (Dulux Natural White throughout) → replace architraves → replace ceiling fans (matte black DC) → update cupboard doors (DIY). Room order: Lounge first, then Master (temporarily move into Bedroom 3), then Bedrooms 3 & 4 simultaneously (back in master), then Bedroom 2 / home office last (move into Bedroom 4). Carpet ordered in full at the start — single dye lot, held by supplier, installed in two visits. LVP flooring (kitchen, hallway, entry) laid last: existing vinyl stripped DIY, supply + install with a mate."
             },
             {
               num: "08",
               title: "Bathrooms + Laundry",
-              timing: "September 2026",
-              body: "The most complex phase and the only one requiring the house to be vacated. Full demo of both bathrooms and the laundry completed before departure on 2 September. ShawCon Projects builds both bathrooms and the laundry — framing, waterproofing, tiling, electrical, and fit-off. Richmond Contracting handles all plumbing rough-in and fit-off. Portable shower hire and short-stay accommodation cover the gap on return while finishing touches are completed. Bathroom painting on return — DIY."
+              timing: "Feb–Apr 2027",
+              body: "Later stage, after the kitchen, with temporary facilities. The bathroom package went to Jason (plumber) and John (builder) on 30 Sep. ShawCon Projects builds both bathrooms — quote $45,300 inc. GST. Plumbing quote $7,485 inc. GST. Laundry floor and splashback tiles are meant to match the bathrooms and are not chosen yet. Laundry cabinetry is already on the paid IKEA order."
             },
             {
               num: "09",
               title: "Exterior",
               timing: "Rolling throughout 2026",
-              body: "Roof repaint (Colorbond Ironstone) is a professional job — clean, prep, and paint quoted separately. Partial gutter replacement where needed, also trade. All other exterior painting — fascia, window frames, front door matte black — DIY. Front garden planting (Lilly Pilly columnar trees, entry pots with Agave) done progressively. Driveway is in good condition and stays as-is."
+              body: "The front retaining wall is done. Roof paint has not started: allowance $3–6k, not on the critical path, colour leaning Monument. The lean is Perfect Glaze Option 3 ($6,300 inc. GST), with Colour Seal as the fallback. Gutters are Jeremy's plumber, not part of the roof job, and a rusted section still needs a quote. Other exterior painting and the front garden are still DIY. The driveway stays as-is."
             },
           ].map((phase, i) => (
             <FadeUp key={i} delay={i * 60}>
@@ -832,15 +869,15 @@ export default function Home() {
                 <tbody>
                   {[
                     { phase: "1 — Pool Coping", scope: "Remove & replace 27lm stone coping + hide slimmer lid", approach: "Trade", estimate: "$10,939", confirmed: true },
-                    { phase: "2 — Decking + Fence", scope: "Dark composite decking, pool area. Fence paint Monument", approach: "Trade + DIY", estimate: "$8,000 – $12,000", confirmed: false },
-                    { phase: "Side — Side Access", scope: "Concrete slab, shed install, garden, lights", approach: "DIY + Trade (slab)", estimate: "$1,500 – $2,200", confirmed: false },
-                    { phase: "3 — Crazy Paving", scope: "40m² pool surrounds @ $105/m² + materials", approach: "DIY", estimate: "$4,800 – $5,500", confirmed: false },
-                    { phase: "4 — Pool Fence + Landscaping", scope: "Pool fence, shade sail, lights, concrete removal, seeding", approach: "DIY", estimate: "$2,500 – $4,000", confirmed: false },
+                    { phase: "2 — Pool Slab + Bench", scope: "Pool surround slab and timber bench. Main concrete bill still outstanding", approach: "Trade + DIY", estimate: "$8,000 – $12,000", confirmed: false },
+                    { phase: "Side — Side Access", scope: "Side access slab poured, Absco shed anchored, garden still rolling", approach: "DIY + Trade (slab)", estimate: "$1,500 – $2,200", confirmed: false },
+                    { phase: "3 — Crazy Paving", scope: "About 40 m² Nimbus granite crazy pave. Not started", approach: "DIY", estimate: "$4,800 – $5,500", confirmed: false },
+                    { phase: "4 — Pool Fence + Landscaping", scope: "Colorbond fence and gate in. Landscaping paid. Sunshade going back up", approach: "DIY", estimate: "$2,500 – $4,000", confirmed: false },
                     { phase: "5 — Kitchen", scope: "IKEA supply + installer + electrical + plumbing", approach: "Trade + DIY demo", estimate: "$17,500 – $20,000", confirmed: false },
                     { phase: "6 — Bedroom 4 + Plastering", scope: "Framing, doors, plaster, ceiling touch-ups whole house", approach: "DIY + Trade", estimate: "$3,000 – $5,000", confirmed: false },
                     { phase: "7 — Lounge + Bedrooms", scope: "Carpet, paint, fans, architraves, cupboard doors, LVP flooring", approach: "DIY + Trade (carpet, LVP supply)", estimate: "$11,100 – $16,100", confirmed: false },
                     { phase: "8 — Bathrooms + Laundry", scope: "Full build — both bathrooms + laundry", approach: "Builder + Plumber", estimate: "$53,000 – $57,000", confirmed: true },
-                    { phase: "9 — Exterior", scope: "Roof repaint, gutters, DIY painting, front garden", approach: "Trade + DIY", estimate: "$6,000 – $10,000", confirmed: false },
+                    { phase: "9 — Exterior", scope: "Retaining wall done. Roof paint not started. Driveway stays as-is", approach: "Trade + DIY", estimate: "$6,000 – $10,000", confirmed: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
                       <td className="py-3 pr-4 whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>

@@ -15,7 +15,18 @@ import { Link } from "wouter";
 // ─────────────────────────────────────────────────────────────────────────────
 
 function fmt(n: number) {
-  return "$" + n.toLocaleString("en-AU", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  const rounded = Math.round(n * 100) / 100;
+  const sign = rounded < 0 ? "-" : "";
+  const abs = Math.abs(rounded);
+  const hasCents = Math.abs(abs - Math.round(abs)) > 0.001;
+  return (
+    sign +
+    "$" +
+    abs.toLocaleString("en-AU", {
+      minimumFractionDigits: hasCents ? 2 : 0,
+      maximumFractionDigits: 2,
+    })
+  );
 }
 
 function statusLabel(s: Status) {
@@ -48,6 +59,7 @@ export default function Tracker() {
   const totalBudgetLow = PHASES.reduce((s, p) => s + p.budgetLow, 0);
   const totalBudgetHigh = PHASES.reduce((s, p) => s + p.budgetHigh, 0);
   const totalSpent = SPEND_LOG.reduce((s, e) => s + e.amount, 0);
+  const outdoorSpent = SPEND_LOG.filter((e) => e.area === "Outdoor").reduce((s, e) => s + e.amount, 0);
   const phasesComplete = PHASES.filter((p) => p.status === "complete").length;
   const phasesInProgress = PHASES.filter((p) => p.status === "in-progress").length;
 
@@ -103,7 +115,7 @@ export default function Tracker() {
             Project Tracker
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>
-            Live status, budget tracking, and spend log for the full renovation. Updated through the shared GitHub source — ask an approved Claude agent to log spend, change a phase status, or update a milestone.
+            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({SPEND_LOG.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. One labour payment is unallocated because its work area is unknown.
           </p>
         </div>
       </header>
@@ -113,9 +125,9 @@ export default function Tracker() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
             {[
-              { label: "Total Budget", value: `${fmt(totalBudgetLow)} – ${fmt(totalBudgetHigh)}`, sub: "Estimated range" },
-              { label: "Total Spent", value: fmt(totalSpent), sub: `${Math.round((totalSpent / totalBudgetLow) * 100)}% of low estimate` },
-              { label: "Remaining (low)", value: fmt(totalBudgetLow - totalSpent), sub: "Budget low minus spent" },
+              { label: "Total Budget", value: `${fmt(totalBudgetLow)} – ${fmt(totalBudgetHigh)}`, sub: "Phase allowances" },
+              { label: "Total Spent", value: fmt(totalSpent), sub: `${SPEND_LOG.length} paid lines · outdoor ${fmt(outdoorSpent)}` },
+              { label: "Remaining (low)", value: fmt(totalBudgetLow - totalSpent), sub: "Allowances minus all paid spend" },
               { label: "Phases", value: `${phasesComplete} done · ${phasesInProgress} active`, sub: `${PHASES.length} total phases` },
             ].map((card, i) => (
               <div key={i} className="py-8 px-6 border-r last:border-r-0" style={{ borderColor: "oklch(0.88 0.012 75)" }}>

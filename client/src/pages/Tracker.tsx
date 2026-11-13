@@ -119,7 +119,7 @@ export default function Tracker() {
             Project Tracker
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>
-            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({SPEND_LOG.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. Within outdoor, slab and concrete is {fmt(slabSpent)} across {slabEntries.length} lines. One labour payment is unallocated because its work area is unknown.
+            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({SPEND_LOG.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. Within outdoor, slab and concrete is {fmt(slabSpent)} across {slabEntries.length} lines.
           </p>
         </div>
       </header>

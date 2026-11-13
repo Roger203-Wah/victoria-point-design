@@ -2,7 +2,7 @@
 // Keep entries factual and use whole AUD dollars unless a receipt requires cents.
 // All new spend belongs in SPEND_LOG — including small DIY and Bunnings purchases.
 // Paid spend replaced the retired $15,000 pre-tracker estimate on 13 Nov 2026.
-// Totals: $89,889.85 across 197 lines, of which Outdoor is $51,985.92.
+// Totals: $89,889.85 across 197 lines, of which Outdoor is $52,405.92.
 // Slab/concrete within Outdoor is $12,633.54 across 15 lines.
 // Phase ids are stable. Quotes and allowances stay on the phase budgets.
 
@@ -60,13 +60,13 @@ export const PHASES: Phase[] = [
     budgetLow: 8000,
     budgetHigh: 12000,
     notes:
-      "Composite decking is not the plan. The pour on 3–4 Oct 2026 covered the pool surround, the pool-shed base, and the side access. Slab and concrete are paid, $12,633.54 across 15 lines. That includes the earlier $4,133.54 (prep, fence-side step pad, and $1,350 cash to the pump crew) plus the main concrete supply and labour bill of $8,500, paid to Zac Knight on 6 Oct 2026. Payment method was not stated; invoice or receipt is still pending. The pool bench is mostly built ($1,767.47): the long decking cap rows and face palings are largely in, the bottom paling row stays off until after tiling, and the decking row closest to the fence still needs ripping to fit. The pool shed screen is in progress ($340.20 net). Pool pipe and stormwater were paid on 15 Oct, plumber invoice 2488, $1,517.13.",
+      "Composite decking is not the plan. The pour on 3–4 Oct 2026 covered the pool surround, the pool-shed base, and the side access. Slab and concrete are paid, $12,633.54 across 15 lines. That includes the earlier $4,133.54 (prep, fence-side step pad, and $1,350 cash to the pump crew) plus the main concrete supply and labour bill of $8,500, paid to Zac Knight on 6 Oct 2026. Payment method was not stated; invoice or receipt is still pending. The pool bench is mostly built ($1,767.47): the long decking cap rows and face palings are largely in, the bottom paling row stays off until after tiling, and the decking row closest to the fence still needs ripping to fit. The pool shed screen is in progress and about half done: materials $340.20 net, plus Zac Knight labour of $420 paid 8 Nov for work on 7 Nov, largely the slats. Pool pipe and stormwater were paid on 15 Oct, plumber invoice 2488, $1,517.13.",
     milestones: [
       "Slab poured 3–4 Oct 2026",
       "Main concrete bill paid $8,500 on 6 Oct 2026",
       "Pool bench mostly built — bottom palings wait until after tiling",
       "Fence-side decking row still to rip and fit",
-      "Pool shed screen started",
+      "Pool shed screen started, about half done, including $420 slats labour",
       "Pool pipe and stormwater paid (invoice 2488)",
     ],
   },
@@ -80,7 +80,7 @@ export const PHASES: Phase[] = [
     budgetLow: 1500,
     budgetHigh: 2200,
     notes:
-      "Rolling, and underway. The 3–4 Oct pour included the side access slab, 16.1 m² (2.2 × 7.3). The Absco Space Saver shed (WG30152SK, Woodland Grey) was erected in October and anchored to the slab on the weekend of 7–8 Nov. This phase also holds outdoor Bunnings charges the spend master leaves as general/unclear ($3,230.19). Those lines are in the outdoor total, and they are not a measured side-access cost.",
+      "Rolling, and underway. The 3–4 Oct pour included the side access slab, 16.1 m² (2.2 × 7.3). The Absco Space Saver shed (WG30152SK, Woodland Grey) was erected in October and anchored to the slab on the weekend of 7–8 Nov. The shed kit purchase has not been found as a labelled spend-master or PowerPass line, so no kit cost is in the log yet. This phase also holds outdoor Bunnings charges the spend master leaves as general/unclear ($3,230.19). Those lines are in the outdoor total, and they are not a measured side-access cost.",
     milestones: [
       "Side access slab poured with the 3–4 Oct pour (16.1 m²)",
       "Absco shed erected in October and anchored 7–8 Nov",
@@ -115,13 +115,13 @@ export const PHASES: Phase[] = [
     budgetLow: 2500,
     budgetHigh: 4000,
     notes:
-      "The fence and gate are in, paid $6,940.09. Landscaping is paid $4,581.89. Garden bed and palm removal are paid $3,390.00, and the back area garden was set up by 8 Nov. The sunshade is going back up; the hardware was bought at Bunnings on 12 Nov ($34.39).",
+      "The fence and gate are in, paid $6,940.09. Landscaping is paid $4,581.89. Garden bed and palm removal are paid $3,390.00, and the back area garden was set up by 8 Nov. The sunshade is going back up. The existing sail is being reused, so the only new cost is the Bunnings connectors bought on 12 Nov ($34.39). That spend gap is closed.",
     milestones: [
       "Fence and gate in",
       "Landscaping paid",
       "Garden bed and palm removal paid",
       "Back area garden set up by 8 Nov",
-      "Sunshade going back up",
+      "Sunshade going back up; existing sail reused, only $34.39 connectors are new spend",
     ],
   },
   {
@@ -224,10 +224,10 @@ export const PHASES: Phase[] = [
     budgetLow: 0,
     budgetHigh: 0,
     notes:
-      "Paid lines with no confirmed works phase. Zac Knight's $420, paid 8 Nov for labour on 7 Nov, has area Unknown, so it is not in the outdoor total. If that labour was outdoor, outdoor spend would be $52,405.92. This holding line also keeps the 2023 purchase inspections, three investigate lines the master still counts, the granny-flat entrance concrete ($18.46), and Richmond invoice 1182 ($462.25), whose job is not coded.",
+      "Paid lines with no confirmed works phase. This holding line keeps the 2023 purchase inspections, three investigate lines the master still counts (including the $216 Bunnings PowerPass invoice 8210/09603046 of 16 Mar 2025, which has no line items on file), the granny-flat entrance concrete ($18.46), and Richmond invoice 1182 ($462.25), whose job is not coded. Zac Knight's $420 of 8 Nov is no longer here; it is now Outdoor pool shed slats labour.",
     milestones: [
-      "Zac Knight $420 — work area not confirmed",
-      "Do not move the $420 onto a phase without confirmation",
+      "2023 purchase inspections and other uncoded paid lines",
+      "16 Mar 2025 Bunnings $216 still has no item detail",
     ],
   },
 ];
@@ -1980,12 +1980,12 @@ export const SPEND_LOG: SpendEntry[] = [
   },
   {
     date: "8 Nov 2026",
-    description: "Saturday labour, work performed 7 Nov 2026",
+    description: "Pool shed slats labour (part), work performed 7 Nov 2026",
     supplier: "Zac Knight",
     amount: 420,
-    phase: "unallocated",
-    area: "Unknown",
-    receipt: "Unallocated — area unknown, not in outdoor total",
+    phase: "decking",
+    area: "Outdoor",
+    receipt: "Pool shed slats (labour, part)",
   },
   {
     date: "8 Nov 2026",

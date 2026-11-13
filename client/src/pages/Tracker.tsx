@@ -60,6 +60,10 @@ export default function Tracker() {
   const totalBudgetHigh = PHASES.reduce((s, p) => s + p.budgetHigh, 0);
   const totalSpent = SPEND_LOG.reduce((s, e) => s + e.amount, 0);
   const outdoorSpent = SPEND_LOG.filter((e) => e.area === "Outdoor").reduce((s, e) => s + e.amount, 0);
+  const slabEntries = SPEND_LOG.filter(
+    (e) => e.area === "Outdoor" && (e.receipt || "").startsWith("Slab/concrete"),
+  );
+  const slabSpent = slabEntries.reduce((s, e) => s + e.amount, 0);
   const phasesComplete = PHASES.filter((p) => p.status === "complete").length;
   const phasesInProgress = PHASES.filter((p) => p.status === "in-progress").length;
 
@@ -115,7 +119,7 @@ export default function Tracker() {
             Project Tracker
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>
-            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({SPEND_LOG.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. One labour payment is unallocated because its work area is unknown.
+            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({SPEND_LOG.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. Within outdoor, slab and concrete is {fmt(slabSpent)} across {slabEntries.length} lines. One labour payment is unallocated because its work area is unknown.
           </p>
         </div>
       </header>
@@ -136,6 +140,22 @@ export default function Tracker() {
                 <div className="text-xs" style={{ color: "oklch(0.58 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>{card.sub}</div>
               </div>
             ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+            <div className="py-6 px-6 border-r" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+              <div className="text-xs mb-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" }}>Outdoor</div>
+              <div className="text-2xl md:text-3xl mb-1" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)", fontWeight: 300 }}>{fmt(outdoorSpent)}</div>
+              <div className="text-xs" style={{ color: "oklch(0.58 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                {SPEND_LOG.filter((e) => e.area === "Outdoor").length} paid lines
+              </div>
+            </div>
+            <div className="py-6 px-6">
+              <div className="text-xs mb-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" }}>Slab / concrete</div>
+              <div className="text-2xl md:text-3xl mb-1" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)", fontWeight: 300 }}>{fmt(slabSpent)}</div>
+              <div className="text-xs" style={{ color: "oklch(0.58 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                {slabEntries.length} paid lines within Outdoor, including the $8,500 main bill
+              </div>
+            </div>
           </div>
         </div>
       </section>

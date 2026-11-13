@@ -2,7 +2,8 @@
 // Keep entries factual and use whole AUD dollars unless a receipt requires cents.
 // All new spend belongs in SPEND_LOG — including small DIY and Bunnings purchases.
 // Paid spend replaced the retired $15,000 pre-tracker estimate on 13 Nov 2026.
-// Totals: $81,389.85 across 196 lines, of which Outdoor is $43,485.92.
+// Totals: $89,889.85 across 197 lines, of which Outdoor is $51,985.92.
+// Slab/concrete within Outdoor is $12,633.54 across 15 lines.
 // Phase ids are stable. Quotes and allowances stay on the phase budgets.
 
 export const LAST_UPDATED = "13 Nov 2026";
@@ -59,10 +60,10 @@ export const PHASES: Phase[] = [
     budgetLow: 8000,
     budgetHigh: 12000,
     notes:
-      "Composite decking is not the plan. The pour on 3–4 Oct 2026 covered the pool surround, the pool-shed base, and the side access. Paid so far $4,133.54, including $1,350 cash to the pump crew. The main concrete supply and labour bill (about $8,500) is still outstanding and is not in the spend log. The pool bench is mostly built ($1,767.47): the long decking cap rows and face palings are largely in, the bottom paling row stays off until after tiling, and the decking row closest to the fence still needs ripping to fit. The pool shed screen is in progress ($340.20 net). Pool pipe and stormwater were paid on 15 Oct, plumber invoice 2488, $1,517.13.",
+      "Composite decking is not the plan. The pour on 3–4 Oct 2026 covered the pool surround, the pool-shed base, and the side access. Slab and concrete are paid, $12,633.54 across 15 lines. That includes the earlier $4,133.54 (prep, fence-side step pad, and $1,350 cash to the pump crew) plus the main concrete supply and labour bill of $8,500, paid to Zac Knight on 6 Oct 2026. Payment method was not stated; invoice or receipt is still pending. The pool bench is mostly built ($1,767.47): the long decking cap rows and face palings are largely in, the bottom paling row stays off until after tiling, and the decking row closest to the fence still needs ripping to fit. The pool shed screen is in progress ($340.20 net). Pool pipe and stormwater were paid on 15 Oct, plumber invoice 2488, $1,517.13.",
     milestones: [
       "Slab poured 3–4 Oct 2026",
-      "Main concrete bill still outstanding (about $8,500)",
+      "Main concrete bill paid $8,500 on 6 Oct 2026",
       "Pool bench mostly built — bottom palings wait until after tiling",
       "Fence-side decking row still to rip and fit",
       "Pool shed screen started",
@@ -223,7 +224,7 @@ export const PHASES: Phase[] = [
     budgetLow: 0,
     budgetHigh: 0,
     notes:
-      "Paid lines with no confirmed works phase. Zac Knight's $420, paid 8 Nov for labour on 7 Nov, has area Unknown, so it is not in the outdoor total. If that labour was outdoor, outdoor spend would be $43,905.92. This holding line also keeps the 2023 purchase inspections, three investigate lines the master still counts, the granny-flat entrance concrete ($18.46), and Richmond invoice 1182 ($462.25), whose job is not coded.",
+      "Paid lines with no confirmed works phase. Zac Knight's $420, paid 8 Nov for labour on 7 Nov, has area Unknown, so it is not in the outdoor total. If that labour was outdoor, outdoor spend would be $52,405.92. This holding line also keeps the 2023 purchase inspections, three investigate lines the master still counts, the granny-flat entrance concrete ($18.46), and Richmond invoice 1182 ($462.25), whose job is not coded.",
     milestones: [
       "Zac Knight $420 — work area not confirmed",
       "Do not move the $420 onto a phase without confirmation",
@@ -1832,6 +1833,15 @@ export const SPEND_LOG: SpendEntry[] = [
     phase: "decking",
     area: "Outdoor",
     receipt: "Pool bench",
+  },
+  {
+    date: "6 Oct 2026",
+    description: "Main concrete supply + labour (slab pour 3-4 Oct 2026)",
+    supplier: "Zac Knight",
+    amount: 8500,
+    phase: "decking",
+    area: "Outdoor",
+    receipt: "Slab/concrete (main bill)",
   },
   {
     date: "9 Oct 2026",

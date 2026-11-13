@@ -80,10 +80,10 @@ export const PHASES: Phase[] = [
     budgetLow: 1500,
     budgetHigh: 2200,
     notes:
-      "Rolling, and underway. The 3–4 Oct pour included the side access slab, 16.1 m² (2.2 × 7.3). The Absco Space Saver shed (WG30152SK, Woodland Grey) was erected in October and anchored to the slab on the weekend of 7–8 Nov. The shed kit purchase has not been found as a labelled spend-master or PowerPass line, so no kit cost is in the log yet. This phase also holds outdoor Bunnings charges the spend master leaves as general/unclear ($3,230.19). Those lines are in the outdoor total, and they are not a measured side-access cost.",
+      "Rolling, and underway. The 3–4 Oct pour included the side access slab, 16.1 m² (2.2 × 7.3). The Absco Space Saver shed (WG30152SK, Woodland Grey) was erected in October and anchored to the slab on the weekend of 7–8 Nov. Jeremy believes the kit purchase is the already-paid 17 Jan 2026 Bunnings PowerPass invoice 8085/01608534 of $757.63. That line was already Outdoor, so the outdoor total is unchanged. There is no line-item receipt yet. This phase also holds outdoor Bunnings charges the spend master still leaves as general/unclear ($2,472.56). Those lines are in the outdoor total, and they are not a measured side-access cost.",
     milestones: [
       "Side access slab poured with the 3–4 Oct pour (16.1 m²)",
-      "Absco shed erected in October and anchored 7–8 Nov",
+      "Absco shed erected in October and anchored 7–8 Nov; kit tagged to 17 Jan 2026 $757.63 (Jeremy believes)",
       "Path and garden finishing still rolling",
     ],
   },
@@ -1593,12 +1593,12 @@ export const SPEND_LOG: SpendEntry[] = [
   },
   {
     date: "17 Jan 2026",
-    description: "BUNNINGS WAREHOUSE VICT VICTORIA POINT",
+    description: "Absco Space Saver shed (WG30152SK / 0079542) - BUNNINGS WAREHOUSE VICT VICTORIA POINT",
     supplier: "Bunnings",
     amount: 757.63,
     phase: "side-access",
     area: "Outdoor",
-    receipt: "Outdoor · general/unclear",
+    receipt: "Absco shed",
   },
   {
     date: "14 Feb 2026",

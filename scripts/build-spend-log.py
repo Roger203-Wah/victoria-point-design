@@ -40,8 +40,8 @@ SECTION_ORDER = [
     ("bathrooms", "Bathrooms"),
     ("living", "Living Room"),
     ("master", "Master Bedroom"),
-    ("bedroom2", "Bedroom 2"),
-    ("bedroom3", "Bedroom 3"),
+    ("bedroom-2", "Bedroom 2"),
+    ("bedroom-3", "Bedroom 3"),
     ("bedroom4", "Bedroom 4"),
     ("general", "General"),
 ]

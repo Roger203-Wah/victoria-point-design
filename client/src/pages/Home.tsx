@@ -783,7 +783,7 @@ export default function Home() {
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                 The lounge anchors the interior palette. White painted brick feature wall adds texture without colour, the floating oak TV unit grounds the space, and the warm mid-grey carpet flows through to all bedrooms. The matte black DC ceiling fan and recessed downlights replace the dated fitting. No feature wall paint — the design relies on material quality and furniture to create character.
               </p>
-              <BudgetIndicator amount="$3,000" status="green" className="mt-4" />
+              <BudgetIndicator amount="$1,000" status="green" className="mt-4" />
             </FadeUp>
           </div>
           <FadeUp delay={300}>
@@ -796,7 +796,7 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Curtains", value: "Sheer linen + blockout roller blind" },
               { label: "Coffee Table", value: "Matte black frame, stone or glass top" },
-              { label: "Budget", value: "$3,000: mainly carpet and small upgrades, keeping changes light" },
+              { label: "Budget", value: "$1,000: mainly carpet and small upgrades, keeping changes light" },
             ]} />
           </FadeUp>
         </div>
@@ -848,7 +848,7 @@ export default function Home() {
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
               The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
             </p>
-            <BudgetIndicator amount="$4,000" status="green" className="mt-4" />
+            <BudgetIndicator amount="$3,500" status="green" className="mt-4" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -861,7 +861,7 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
               { label: "Dresser", value: "Oak timber with matte black handles and mirror above" },
-              { label: "Budget", value: "$4,000: mainly the new walk-in wardrobe fit-out" },
+              { label: "Budget", value: "$3,500: mainly the new walk-in wardrobe fit-out" },
             ]} />
           </FadeUp>
         </div>
@@ -1062,8 +1062,8 @@ export default function Home() {
                     { phase: "Kitchen", scope: "IKEA kitchen (paid), install, electrical, plumbing", approach: "Trade + DIY", estimate: "$17,500", confirmed: false },
                     { phase: "Laundry", scope: "Oak floor, subway tile, plumbing, electrical", approach: "Trade + DIY", estimate: "$3,000", confirmed: false },
                     { phase: "Bathrooms", scope: "Full build of both bathrooms", approach: "Builder + Plumber", estimate: "$60,000", confirmed: false },
-                    { phase: "Living Room", scope: "Carpet and small upgrades", approach: "DIY + Trade", estimate: "$3,000", confirmed: false },
-                    { phase: "Master Bedroom", scope: "Walk-in wardrobe fit-out", approach: "DIY + Trade", estimate: "$4,000", confirmed: false },
+                    { phase: "Living Room", scope: "Carpet and small upgrades", approach: "DIY + Trade", estimate: "$1,000", confirmed: false },
+                    { phase: "Master Bedroom", scope: "Walk-in wardrobe fit-out", approach: "DIY + Trade", estimate: "$3,500", confirmed: false },
                     { phase: "Bedroom 2", scope: "Paint, trims, carpet and a basic wardrobe update", approach: "DIY", estimate: "$2,500", confirmed: false },
                     { phase: "Bedroom 3", scope: "Paint, trims, carpet and wardrobe, plus a new wall and door entrance", approach: "DIY + Trade", estimate: "$5,500", confirmed: false },
                     { phase: "Bedroom 4 / Office", scope: "Paint, trims, carpet and a custom cupboard", approach: "DIY + Trade", estimate: "$3,500", confirmed: false },
@@ -1084,7 +1084,7 @@ export default function Home() {
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
                     <td className="py-4 pr-4 hidden md:table-cell"></td>
-                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$169,600</td>
+                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$167,100</td>
                   </tr>
                 </tbody>
               </table>
@@ -1170,9 +1170,9 @@ export default function Home() {
                     { scenario: "May 2025 (at purchase / valuation)", value: "$1,180,000", basis: "Independent valuation, 3br / 1ba / 1,002m²", highlight: false },
                     { scenario: "Current (pre-reno, Feb 2026)", value: "~$1,265,000", basis: "$1.18M + 9.5% annual growth pro-rated 9 months", highlight: false },
                     { scenario: "Post-renovation (4br / 2ba / pool)", value: "$1,380,000 – $1,500,000", basis: "4br median $1.05M + 1,002m² block premium + pool + granny flat + full reno", highlight: true },
-                    { scenario: "Renovation cost", value: "$169,600", basis: "Project budget", highlight: false },
-                    { scenario: "Net uplift (low case)", value: "~-$54,600", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
-                    { scenario: "Net uplift (high case)", value: "~$65,400", basis: "$1.50M – $1.265M – $169.6K", highlight: false },
+                    { scenario: "Renovation cost", value: "$167,100", basis: "Project budget", highlight: false },
+                    { scenario: "Net uplift (low case)", value: "~-$52,100", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
+                    { scenario: "Net uplift (high case)", value: "~$67,900", basis: "$1.50M – $1.265M – $167.1K", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
                       <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.scenario}</td>

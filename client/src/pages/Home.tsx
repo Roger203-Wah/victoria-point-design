@@ -654,8 +654,8 @@ export default function Home() {
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Option A Cabinets", value: "White shaker — upper and lower" },
-              { label: "Benchtop", value: "White laminate — both options" },
+              { label: "Cabinets", value: "White shaker" },
+              { label: "Benchtop", value: "Grey concrete-look laminate, same as the kitchen" },
               { label: "Splashback", value: "White subway tile" },
               { label: "Floor", value: "Oak flooring to match the rest of the house" },
               { label: "Dryer", value: "Wall-mounted above bench" },
@@ -857,7 +857,7 @@ export default function Home() {
               num: "08",
               title: "Bathrooms + Laundry",
               timing: "Feb–Apr 2027",
-              body: "Later stage, after the kitchen, with temporary facilities. The bathroom package went to Jason (plumber) and John (builder) on 30 Sep. ShawCon Projects builds both bathrooms — quote $45,300 inc. GST. Plumbing quote $7,485 inc. GST. Laundry floor and splashback tiles are meant to match the bathrooms and are not chosen yet. Laundry cabinetry is already on the paid IKEA order."
+              body: "Later stage, after the kitchen, with temporary facilities. The bathroom package went to Jason (plumber) and John (builder) on 30 Sep. ShawCon Projects builds both bathrooms — quote $45,300 inc. GST. Plumbing quote $7,485 inc. GST. Laundry floor is oak to match the rest of the house; splashback is white subway tile. Laundry cabinetry is already on the paid IKEA order."
             },
             {
               num: "09",

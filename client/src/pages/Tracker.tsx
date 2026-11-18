@@ -55,25 +55,39 @@ export default function Tracker() {
   const [expandedPhase, setExpandedPhase] = useState<string | null>(null);
   const [spendFilter, setSpendFilter] = useState<string>("all");
 
-  // Budget totals
-  const totalBudgetLow = PHASES.reduce((s, p) => s + p.budgetLow, 0);
-  const totalBudgetHigh = PHASES.reduce((s, p) => s + p.budgetHigh, 0);
-  const totalSpent = SPEND_LOG.reduce((s, e) => s + e.amount, 0);
-  const outdoorSpent = SPEND_LOG.filter((e) => e.area === "Outdoor").reduce((s, e) => s + e.amount, 0);
+  const listedPhases = PHASES.filter((p) => !p.hidden);
+  const budgetPhases = listedPhases.filter((p) => !p.excludeFromTotals);
+  const excludedPhaseIds = new Set(PHASES.filter((p) => p.excludeFromTotals).map((p) => p.id));
+  const countsInProject = (phaseId: string) => !excludedPhaseIds.has(phaseId);
+  const phaseBySpendId = (phaseId: string) =>
+    PHASES.find((p) => p.id === phaseId) ?? PHASES.find((p) => p.spendPhaseIds?.includes(phaseId));
+  const entriesForPhase = (phaseId: string) => {
+    const phase = PHASES.find((p) => p.id === phaseId);
+    const ids = new Set([phaseId, ...(phase?.spendPhaseIds ?? [])]);
+    return SPEND_LOG.filter((e) => ids.has(e.phase));
+  };
+
+  // Budget totals. The granny flat bucket is excluded.
+  const totalBudgetLow = budgetPhases.reduce((s, p) => s + p.budgetLow, 0);
+  const totalBudgetHigh = budgetPhases.reduce((s, p) => s + p.budgetHigh, 0);
+  const totalSpent = SPEND_LOG.filter((e) => countsInProject(e.phase)).reduce((s, e) => s + e.amount, 0);
+  const outdoorSpent = SPEND_LOG.filter((e) => e.area === "Outdoor" && countsInProject(e.phase)).reduce((s, e) => s + e.amount, 0);
   const slabEntries = SPEND_LOG.filter(
-    (e) => e.area === "Outdoor" && (e.receipt || "").startsWith("Slab/concrete"),
+    (e) => e.area === "Outdoor" && countsInProject(e.phase) && (e.receipt || "").startsWith("Slab/concrete"),
   );
   const slabSpent = slabEntries.reduce((s, e) => s + e.amount, 0);
-  const phasesComplete = PHASES.filter((p) => p.status === "complete").length;
-  const phasesInProgress = PHASES.filter((p) => p.status === "in-progress").length;
+  const phasesComplete = budgetPhases.filter((p) => p.status === "complete").length;
+  const phasesInProgress = budgetPhases.filter((p) => p.status === "in-progress").length;
+  const budgetLabel = totalBudgetLow === totalBudgetHigh
+    ? fmt(totalBudgetLow)
+    : `${fmt(totalBudgetLow)} – ${fmt(totalBudgetHigh)}`;
 
-  // Spend by phase
   const spentByPhase = (phaseId: string) =>
-    SPEND_LOG.filter((e) => e.phase === phaseId).reduce((s, e) => s + e.amount, 0);
+    entriesForPhase(phaseId).reduce((s, e) => s + e.amount, 0);
 
   const filteredSpend = spendFilter === "all"
     ? SPEND_LOG
-    : SPEND_LOG.filter((e) => e.phase === spendFilter);
+    : entriesForPhase(spendFilter);
 
   const pill = (label: string) => (
     <span style={{
@@ -129,7 +143,7 @@ export default function Tracker() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
             {[
-              { label: "Total Budget", value: `${fmt(totalBudgetLow)} – ${fmt(totalBudgetHigh)}`, sub: "Phase allowances" },
+              { label: "Total Budget", value: budgetLabel, sub: "15 phase allowances" },
               { label: "Total Spent", value: fmt(totalSpent), sub: `${SPEND_LOG.length} paid lines · outdoor ${fmt(outdoorSpent)}` },
               { label: "Remaining (low)", value: fmt(totalBudgetLow - totalSpent), sub: "Allowances minus all paid spend" },
               { label: "Phases", value: `${phasesComplete} done · ${phasesInProgress} active`, sub: `${PHASES.length} total phases` },
@@ -169,7 +183,7 @@ export default function Tracker() {
           </div>
 
           <div className="flex flex-col gap-0">
-            {PHASES.map((phase) => {
+            {listedPhases.map((phase) => {
               const spent = spentByPhase(phase.id);
               const isExpanded = expandedPhase === phase.id;
               const budgetMid = (phase.budgetLow + phase.budgetHigh) / 2;
@@ -260,12 +274,12 @@ export default function Tracker() {
                       )}
 
                       {/* Phase spend entries */}
-                      {SPEND_LOG.filter((e) => e.phase === phase.id).length > 0 && (
+                      {entriesForPhase(phase.id).length > 0 && (
                         <div className="mt-6">
                           <div className="text-xs mb-3" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Spend Entries</div>
                           <table className="w-full text-xs">
                             <tbody>
-                              {SPEND_LOG.filter((e) => e.phase === phase.id).map((e, i) => (
+                              {entriesForPhase(phase.id).map((e, i) => (
                                 <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
                                   <td className="py-2 pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, whiteSpace: "nowrap" }}>{e.date}</td>
                                   <td className="py-2 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 400 }}>{e.description}</td>
@@ -306,7 +320,7 @@ export default function Tracker() {
                   color: spendFilter === "all" ? "oklch(0.97 0.005 75)" : "oklch(0.42 0.02 60)",
                 }}
               >All</button>
-              {PHASES.map((p) => (
+              {listedPhases.map((p) => (
                 <button
                   key={p.id}
                   onClick={() => setSpendFilter(p.id)}
@@ -337,7 +351,7 @@ export default function Tracker() {
                 </thead>
                 <tbody>
                   {[...filteredSpend].reverse().map((e, i) => {
-                    const phase = PHASES.find((p) => p.id === e.phase);
+                    const phase = phaseBySpendId(e.phase);
                     return (
                       <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
                         <td className="py-3 pr-4 whitespace-nowrap" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.78rem" }}>{e.date}</td>
@@ -353,7 +367,7 @@ export default function Tracker() {
                   })}
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={4} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "0.95rem", fontWeight: 400 }}>
-                      {spendFilter === "all" ? "Total Spent" : `${PHASES.find(p => p.id === spendFilter)?.title ?? ""} — Total`}
+                      {spendFilter === "all" ? "Total Spent" : `${PHASES.find(p => p.id === spendFilter)?.title ?? ""} total`}
                     </td>
                     <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "0.95rem", fontWeight: 400 }}>
                       {fmt(filteredSpend.reduce((s, e) => s + e.amount, 0))}

@@ -50,7 +50,7 @@ const SIDE_BEFORE_SLIDES: ImageSlide[] = [
 const SIDE_AFTER_SLIDES: ImageSlide[] = [
   { src: publicAsset("images/side_after_1_passage.webp"), alt: "Side passage after, locked design" },
   { src: publicAsset("images/side_after_2_shed_slab.webp"), alt: "Side passage after: Monument garden bed and full slab from the shed to the house" },
-  { src: publicAsset("images/side_after_3_gate_bins.webp"), alt: "Side access after: full slab to the gate, timber fence painted Monument, three bins neatly against the gate" },
+  { src: publicAsset("images/side_after_3_gate_bins.webp"), alt: "Side access after: full slab to the gate, Monument Colorbond and painted timber, three bins neatly against the gate" },
 ];
 
 const OFFICE_BEFORE_SLIDES: ImageSlide[] = [
@@ -79,9 +79,9 @@ const POOL_AFTER_SLIDES: ImageSlide[] = [
 
 const PALETTE = [
   { name: "Natural White", code: "Dulux Natural White", hex: "#F5F2EE", use: "All interior walls throughout" },
-  { name: "Warm Mid-Grey", code: "Carpet — Feltex / Godfrey Hirst", hex: "#9A9490", use: "All carpeted areas: lounge, master, bedrooms 2 & 3" },
-  { name: "Natural Oak", code: "Karndean / Hybrid LVP", hex: "#C8A97A", use: "Kitchen, hallway, dining — European oak LVP" },
-  { name: "Charcoal", code: "Colorbond Ironstone", hex: "#3D3D3B", use: "Exterior fence, retaining wall, roof, garage door, trim" },
+  { name: "Warm Mid-Grey", code: "Carpet — Feltex / Godfrey Hirst", hex: "#9A9490", use: "Lounge, master, bedrooms 2, 3 and 4" },
+  { name: "Natural Oak", code: "Karndean / Hybrid LVP", hex: "#C8A97A", use: "Kitchen, laundry, hallway and dining" },
+  { name: "Monument", code: "Colorbond Monument", hex: "#3D3D3B", use: "Roof, fences, pool bench, shed screen, patio beams, trim" },
   { name: "Sage Green", code: "IKEA NICKEBO", hex: "#7A8C7E", use: "Kitchen lower cabinets and plinth" },
   { name: "Light Concrete", code: "IKEA EKBACKEN", hex: "#D8D4CE", use: "Kitchen benchtop — light grey concrete effect laminate" },
   { name: "Matte Black", code: "Hardware finish", hex: "#1C1C1A", use: "All handles, tapware, fans, light fittings, door furniture" },
@@ -399,7 +399,7 @@ export default function Home() {
                 The renovation is designed as a single, unified project rather than a collection of individual room upgrades. Every space shares the same material vocabulary: natural oak timber, warm mid-grey carpet, matte black hardware, and Dulux Natural White walls. This consistency means the house photographs as a premium, considered property — not a patchwork of renovations completed at different times.
               </p>
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The design prioritises durability and rental performance without sacrificing quality. Every finish selection has been made with a long-term tenant in mind: LVP flooring over tiles, matte black hardware over chrome, DC ceiling fans for energy efficiency, and low-maintenance tropical planting throughout the exterior.
+                The design prioritises durability and rental performance without sacrificing quality. Every finish selection has been made with a long-term tenant in mind: LVP flooring over tiles, matte black hardware over chrome, DC ceiling fans for energy efficiency, and low-maintenance planting like star jasmine and aloe throughout the exterior.
               </p>
             </FadeUp>
           </div>
@@ -407,7 +407,7 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-16 border-t border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
               {[
                 { num: "10", label: "Spaces Designed" },
-                { num: "100%", label: "Spaces Locked In" },
+                { num: "Most", label: "Spaces Locked In" },
                 { num: "1", label: "Unified Palette" },
                 { num: "QLD", label: "Victoria Point" },
               ].map((stat, i) => (
@@ -478,16 +478,16 @@ export default function Home() {
             <SpecTable items={[
               { label: "Roof", value: "Being repainted in Monument" },
               { label: "Garage Door", value: "Charcoal panel-lift, horizontal ribbing" },
-              { label: "Retaining Wall", value: "Smooth charcoal render over existing timber sleepers" },
+              { label: "Retaining Wall", value: "Existing timber sleepers painted Monument" },
               { label: "Fascia & Eaves", value: "Charcoal — all trim unified" },
               { label: "Window Frames", value: "Charcoal — consistent with trim" },
               { label: "Front Door", value: "Matte black" },
-              { label: "Entry Lighting", value: "Matte black wall sconces flanking door" },
+              { label: "Entry Lighting", value: "Black wall light by the door and a slim black LED ceiling light" },
               { label: "Driveway", value: "Stays as-is" },
               { label: "Lawn", value: "Sir Walter buffalo — fresh turf, well-edged" },
               { label: "Trees", value: "2–3 columnar Lilly Pilly 'Slim' from lawn behind retaining wall" },
-              { label: "Entry Pots", value: "2× large black ceramic pots with Agave, flanking front door" },
-              { label: "Budget", value: "$20,000: roof repaint, colour uplift and front landscaping" },
+              { label: "Entry Pots", value: "Two black pots: one in the back corner, one on white pebbles at the front" },
+              { label: "Budget", value: "$20,000: retaining wall and front landscaping (about $10,200 paid), roof repaint (about $6k), trim paint and some electrical" },
             ]} />
           </FadeUp>
         </div>
@@ -555,7 +555,7 @@ export default function Home() {
                 The Nimbus granite crazy pave is the feature, and we invested heavily in it. It set the colour palette for everything else, with Monument fencing, bench and roof keeping a darker backdrop that makes the stone and water stand out. A slatted Monument pool shed screen separates the area and hides storage. It also marks the line between the raised pool area and the existing concrete slab. Sparse star jasmine on wires softens the fences without taking over.
               </p>
             </div>
-            <BudgetIndicator amount="$35,000" status="green" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$35,000" status="amber" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -569,8 +569,9 @@ export default function Home() {
               { label: "Fence", value: "Monument Colorbond fence and gate, done" },
               { label: "Pool fence", value: "Black, on the grass and tile line" },
               { label: "Shade sail", value: "Existing sail going back up over the pool" },
-              { label: "Roof", value: "Monument, to be painted (quotes underway)" },
+              { label: "Roof", value: "Monument, to be painted (costed under Street Presence)" },
               { label: "Lawn", value: "Sir Walter buffalo, rear yard, cleaned up" },
+              { label: "Budget", value: "$35,000: coping and slab done, still to do the crazy pave, black pool fence, trees and planting" },
             ]} />
           </FadeUp>
         </div>
@@ -606,7 +607,7 @@ export default function Home() {
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Budget", value: "$1,500: paint, lighting and clean up" },
+              { label: "Budget", value: "$1,500: paint, lighting and clean up. Any work on the slab is still to decide" },
             ]} />
           </FadeUp>
         </div>
@@ -639,11 +640,12 @@ export default function Home() {
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Fence", value: "Replaced, Monument Colorbond with sparse star jasmine on wires" },
+              { label: "Fence", value: "Replaced, Monument Colorbond and painted timber, with sparse star jasmine on wires" },
               { label: "Garden bed", value: "Vege and fruit garden, edged in Monument, mulched, with stepping pavers through it" },
               { label: "Slab and path", value: "Light grey concrete, about 16 m², poured 3 to 4 Oct, runs flush to the house wall towards the street" },
               { label: "Storage", value: "Absco shed on the slab near the gate, plus space for bins and large items" },
               { label: "Lawn", value: "Small patches at the front left and front-right corner" },
+              { label: "Budget", value: "$4,600, as paid. The last concrete is in the bathroom budget and gets done after the bathrooms" },
             ]} />
           </FadeUp>
         </div>
@@ -689,7 +691,8 @@ export default function Home() {
               { label: "Lighting", value: "Two matte black dome pendants over the island, plus MITTLED LED strips under the uppers" },
               { label: "Doorway", value: "Existing doorway removed, fully open to living" },
               { label: "IKEA Order", value: "$11,666.44 paid (234146073, incl. delivery). Delivered 17 Nov, cabinets being assembled in the garage" },
-              { label: "Install", value: "Self-installed by Jeremy, Zac and John. Demo and install dates not booked yet" },
+              { label: "Install", value: "Self-installed by Jeremy, Zac and John before Christmas. Exact dates not booked" },
+              { label: "Budget", value: "$17,500: IKEA kitchen ($11,666 paid, shared with the laundry), benchtop, install, plumbing, electrical and splashback" },
             ]} />
           </FadeUp>
         </div>
@@ -698,7 +701,7 @@ export default function Home() {
       {/* 05 — Bathrooms */}
       <section id="bathrooms" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="05 — Bathrooms" title="Ensuite & Main Bathroom" status="locked" />
+          <SectionHeader label="05 — Bathrooms" title="Ensuite & Main Bathroom" status="pending" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
               <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
@@ -715,7 +718,7 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Both bathrooms are being fully renovated within a combined PC allowance. The main bathroom features large format dark concrete tiles, an oak floating vanity with vessel basin, backlit square mirror, and a bath/shower combination. The ensuite connects directly through the walk-in wardrobe from the master bedroom, creating a genuine suite sequence.
+              Both bathrooms are being fully renovated on a $45,000 budget: John on the carpentry, Jason on the plumbing, plus a tiler, a waterproofer and fittings. Jeremy does the demo and painting. The main bathroom features large format dark concrete tiles, an oak floating vanity with vessel basin, backlit square mirror, and a bath/shower combination. The ensuite connects directly through the walk-in wardrobe from the master bedroom, creating a genuine suite sequence.
             </p>
             <BudgetIndicator amount="$45,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
@@ -727,7 +730,7 @@ export default function Home() {
               { label: "Shower", value: "Frameless glass screen, rail shower + overhead" },
               { label: "Ensuite Tiles", value: "Large format — warm white / light grey" },
               { label: "Tapware", value: "Brushed nickel / matte black throughout" },
-              { label: "Toilet", value: "Close-coupled — white" },
+              { label: "Toilet", value: "Back-to-wall, white" },
               { label: "Lighting", value: "Recessed downlights + backlit mirror" },
               { label: "Towel Rail", value: "Heated towel rail" },
             ]} />
@@ -764,7 +767,8 @@ export default function Home() {
               { label: "Dryer", value: "Wall-mounted above bench" },
               { label: "Washing Machine", value: "Under-bench, front-load" },
               { label: "Lighting", value: "Recessed downlights" },
-              { label: "Budget", value: "$3,000: covers flooring, tiles, plumbing and electrical" },
+              { label: "Skirting", value: "Plain white" },
+              { label: "Budget", value: "$3,000: mainly flooring, plus splashback tiles and small plumbing and electrical. Cabinets are already paid in the IKEA order" },
             ]} />
           </FadeUp>
         </div>
@@ -782,7 +786,7 @@ export default function Home() {
             </FadeUp>
             <FadeUp delay={200} className="lg:col-span-2">
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The lounge anchors the interior palette. White painted brick feature wall adds texture without colour, the floating oak TV unit grounds the space, and the warm mid-grey carpet flows through to all bedrooms. The matte black DC ceiling fan and recessed downlights replace the dated fitting. No feature wall paint — the design relies on material quality and furniture to create character.
+                The lounge is a light touch. New warm mid-grey carpet that runs through to the bedrooms, a fresh coat of Natural White and a few small upgrades. The furniture and styling do the rest.
               </p>
               <BudgetIndicator amount="$1,000" status="green" className="mt-4" />
             </FadeUp>
@@ -792,11 +796,11 @@ export default function Home() {
               { label: "Walls", value: "Dulux Natural White throughout" },
               { label: "Brick Wall", value: "Painted white — texture retained, colour unified" },
               { label: "Carpet", value: "Warm mid-grey — Feltex or Godfrey Hirst" },
-              { label: "TV Unit", value: "Floating oak timber with matte black legs" },
+              { label: "Styling: TV Unit", value: "Floating oak timber with matte black legs" },
               { label: "Ceiling Fan", value: "Matte black DC fan — no light fitting" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Curtains", value: "Sheer linen + blockout roller blind" },
-              { label: "Coffee Table", value: "Matte black frame, stone or glass top" },
+              { label: "Styling: Coffee Table", value: "Matte black frame, stone or glass top" },
               { label: "Budget", value: "$1,000: mainly carpet and small upgrades, keeping changes light" },
             ]} />
           </FadeUp>
@@ -847,7 +851,7 @@ export default function Home() {
           </div>
           <FadeUp delay={100} className="mb-12">
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
+              The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware. The walk-in robe stays open, with one white shelf each side, an LED strip under it, a raised black rail, and low drawers with a bag and jewellery strip on the left.
             </p>
             <BudgetIndicator amount="$3,500" status="green" className="mt-4" />
           </FadeUp>
@@ -862,6 +866,7 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
               { label: "Dresser", value: "Oak timber with matte black handles and mirror above" },
+              { label: "Walk-in robe", value: "Open, white shelves with LED strip, raised black rails, low drawers on the left" },
               { label: "Budget", value: "$3,500: mainly the new walk-in wardrobe fit-out" },
             ]} />
           </FadeUp>
@@ -881,7 +886,7 @@ export default function Home() {
             <FadeUp delay={200} className="lg:col-span-2">
               <div className="[direction:ltr]">
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                  Bedrooms 2 and 3 share the same layout and design approach — cohesive with the master bedroom but self-contained. The oatmeal linen bedhead and warm mid-grey carpet create a calm, restful palette. White sliding robe doors with matte black handles span the full right wall.
+                  Bedrooms 2 and 3 share the same layout and design approach — cohesive with the master bedroom but self-contained. The oatmeal linen bedhead and warm mid-grey carpet create a calm, restful palette. Each room gets a basic wardrobe update with matte black handles.
                 </p>
                 <p className="text-base leading-relaxed mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                   Bedroom 3 doesn't exist yet. It's being created as part of the renovation and will match Bedroom 2 exactly. Both rooms are about 3 x 3 m, but Bedroom 3 gives up a 1 x 1 m corner. That space becomes a new entry for Bedroom 2, because its current door is being filled in to make room for Bedroom 3.
@@ -895,12 +900,12 @@ export default function Home() {
               { label: "Walls", value: "Dulux Natural White" },
               { label: "Bedhead", value: "Upholstered — oatmeal linen, queen size" },
               { label: "Carpet", value: "Warm mid-grey — same as master and lounge" },
-              { label: "Built-in Robe", value: "Full-wall sliding doors — white with matte black handles" },
+              { label: "Wardrobe", value: "Basic update, white with matte black handles" },
               { label: "Bedside Tables", value: "Oak timber, compact" },
               { label: "Ceiling Fan", value: "Matte black DC fan" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
-              { label: "Budget", value: "$8,000: new walls to build Bedroom 3, electrical, and new built-in wardrobes in both rooms" },
+              { label: "Budget", value: "$8,000: Bedroom 2 $2,500 (paint, trims, carpet, basic wardrobe update). Bedroom 3 $5,500 (the same, plus a new wall and door entrance by John Puna)" },
             ]} />
           </FadeUp>
         </div>
@@ -952,7 +957,7 @@ export default function Home() {
               <span className="section-label mb-4 block">Project Approach</span>
               <h2 className="text-5xl md:text-6xl leading-none mb-8" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>How We're Doing This</h2>
               <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The renovation runs as a series of smaller projects, one flowing into the next, rather than one big build. We live in the house and run a business from home the whole way through, so the order is deliberate. Outdoor work comes first, then the kitchen and laundry, then the rooms one by one, and the bathrooms last. Demo is done in-house, and trades come in only for specialist work.
+                The renovation runs as a series of smaller projects, one flowing into the next, rather than one big build. We live in the house and run a business from home the whole way through, so the order is deliberate. Outdoor work comes first, then the kitchen and laundry, then the rooms one by one, and the bathrooms last. Jeremy does the demo, painting and plastering, and trades come in only for specialist work.
               </p>
             </div>
           </FadeUp>
@@ -962,7 +967,7 @@ export default function Home() {
               num: "01",
               title: "Pool area",
               timing: "Crazy pave next",
-              body: "Coping, slab, fence and landscaping are done, and the bench is nearly finished. Next is the Nimbus crazy pave, which starts around December and gets worked through slowly into the new year."
+              body: "Coping, slab and the Colorbond fence are done, and the bench is nearly finished. Next is the Nimbus crazy pave from around December, worked through slowly into the new year, then the black pool fence and planting."
             },
             {
               num: "02",
@@ -990,21 +995,21 @@ export default function Home() {
             },
             {
               num: "06",
-              title: "Bedroom 4 and plastering",
+              title: "Bedroom 3 wall and plastering",
               timing: "After the kitchen",
-              body: "The new wall and doorway go in, then the plasterer sheets and sets them and touches up ceilings through the house."
+              body: "John Puna builds the new wall and door for Bedroom 3. Jeremy then does the plastering and ceiling touch-ups through the house himself."
             },
             {
               num: "07",
               title: "Lounge and bedrooms",
               timing: "Room by room",
-              body: "These are done room by room: repairs, Natural White paint, new architraves and black fans. Carpet goes in, with oak flooring laid at the end."
+              body: "These are done room by room: repairs, Natural White paint, new architraves, black fans, basic wardrobe updates and the office custom cupboard. Carpet goes in, with oak flooring laid at the end."
             },
             {
               num: "08",
               title: "Bathrooms",
               timing: "Later stage",
-              body: "ShawCon builds both bathrooms in the later stage, with temporary facilities while that's happening. The side access gets finished after this."
+              body: "John, Jason, a tiler and a waterproofer do both bathrooms in the later stage, with temporary facilities while that is happening. The side access gets finished after this."
             },
             {
               num: "09",
@@ -1038,7 +1043,7 @@ export default function Home() {
             <span className="section-label mb-4 block">Project Budget</span>
             <h2 className="text-5xl md:text-6xl leading-none mb-4" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>Budget Overview</h2>
             <p className="text-base leading-relaxed max-w-3xl mb-12" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Each row matches a section above and uses its budget. Estimates include supply and labour where applicable. DIY labour is not costed. Pool coping is a confirmed quote. All other figures are allowances.
+              Each row matches a section above and uses its budget. Estimates include supply and labour where applicable. DIY labour is not costed. Pool coping is done and paid. All other figures are allowances.
             </p>
           </FadeUp>
           <FadeUp delay={100}>
@@ -1054,15 +1059,15 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {[
-                    { phase: "Street Presence", scope: "Retaining wall done, Monument roof paint, charcoal trim, front lawn and planting", approach: "Trade + DIY", estimate: "$20,000", confirmed: false },
+                    { phase: "Street Presence", scope: "Retaining wall done, Monument roof paint, charcoal trim, some electrical, front lawn and planting", approach: "Trade + DIY", estimate: "$20,000", confirmed: false },
                     { phase: "Entrance", scope: "Crazy pave over old tiles, awning off, paint, lighting, pots", approach: "DIY", estimate: "$1,500", confirmed: false },
-                    { phase: "Pool & Outdoor Living", scope: "Coping (done), slab, bench, crazy pave, fence, landscaping", approach: "Trade + DIY", estimate: "$35,000", confirmed: true },
+                    { phase: "Pool & Outdoor Living", scope: "Coping and slab done, bench, crazy pave, black pool fence, trees and planting", approach: "Trade + DIY", estimate: "$35,000", confirmed: false },
                     { phase: "Back Covered Patio", scope: "Paint, lighting and clean up", approach: "DIY", estimate: "$1,500", confirmed: false },
                     { phase: "Back Yard Area", scope: "Lawn, jasmine fence, path to side access", approach: "DIY", estimate: "$3,000", confirmed: false },
                     { phase: "Side Passage", scope: "Slab poured, shed anchored, finished after the bathrooms", approach: "DIY + Trade (slab)", estimate: "$4,600", confirmed: false },
                     { phase: "Kitchen", scope: "IKEA kitchen (paid), install, electrical, plumbing", approach: "Trade + DIY", estimate: "$17,500", confirmed: false },
                     { phase: "Laundry", scope: "Oak floor, subway tile, plumbing, electrical", approach: "Trade + DIY", estimate: "$3,000", confirmed: false },
-                    { phase: "Bathrooms", scope: "Full build of both bathrooms", approach: "Builder + Plumber", estimate: "$45,000", confirmed: false },
+                    { phase: "Bathrooms", scope: "Both bathrooms: carpentry, plumbing, tiling, waterproofing, fittings, plus the last side passage concrete", approach: "Trades + DIY (demo)", estimate: "$45,000", confirmed: false },
                     { phase: "Living Room", scope: "Carpet and small upgrades", approach: "DIY + Trade", estimate: "$1,000", confirmed: false },
                     { phase: "Master Bedroom", scope: "Walk-in wardrobe fit-out", approach: "DIY + Trade", estimate: "$3,500", confirmed: false },
                     { phase: "Bedroom 2", scope: "Paint, trims, carpet and a basic wardrobe update", approach: "DIY", estimate: "$2,500", confirmed: false },
@@ -1191,7 +1196,7 @@ export default function Home() {
             <div className="mt-16 mb-4">
               <span className="section-label block mb-3">Rental Projection</span>
               <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 16 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
+                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 17 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
               </p>
             </div>
             <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
@@ -1236,7 +1241,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-6">
             <Link href="/tracker" style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "0.72rem", fontWeight: 500, color: "oklch(0.48 0.06 155)", letterSpacing: "0.04em", textDecoration: "none" }}>Project Tracker →</Link>
-            <div className="text-xs" style={{ color: "oklch(0.62 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>Prepared February 2026</div>
+            <div className="text-xs" style={{ color: "oklch(0.62 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>Updated November 2026</div>
           </div>
         </div>
       </footer>

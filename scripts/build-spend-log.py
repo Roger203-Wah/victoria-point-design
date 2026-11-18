@@ -197,12 +197,19 @@ def matches(row: dict, rule: dict) -> bool:
         return False
     if "notes" in spec and row["notes"] != spec["notes"]:
         return False
+    if "notesContains" in spec and spec["notesContains"] not in row["notes"]:
+        return False
+    if "usedFor" in spec and row["used_for"] != spec["usedFor"]:
+        return False
     if "zone" in spec and row["zone"] != spec["zone"]:
         return False
     return True
 
 
 def section_for(row: dict, mapping: dict) -> str:
+    zone_section = mapping["zoneToSection"].get(row["zone"])
+    if zone_section in {"general", "side-access", "exterior", "decking", "granny-flat", "kitchen", "laundry", "bathrooms", "pool-fence", "coping", "unallocated", "interior"}:
+        return zone_section
     used = row["used_for"]
     if used == "Landscaping" and row["date"] < "2025-01-01":
         return mapping["landscapingBefore2025Section"]

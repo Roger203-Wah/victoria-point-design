@@ -951,10 +951,7 @@ export default function Home() {
               <span className="section-label mb-4 block">Project Approach</span>
               <h2 className="text-5xl md:text-6xl leading-none mb-8" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>How We're Doing This</h2>
               <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The renovation is structured as a series of independent mini-projects rather than one continuous build. Each phase has its own scope, budget, and trades — meaning work can progress without everything depending on everything else, and disruption to daily life stays manageable. The house is occupied throughout, with a business running from home, so the sequencing is deliberate.
-              </p>
-              <p className="text-base leading-relaxed max-w-3xl mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The guiding principle: <strong>outdoor work first, then kitchen, then interior rooms, then bathrooms last</strong>. Bathrooms are the later stage, around February–April 2027, with temporary facilities. There is no interior demolition before the 14–15 Nov visit. Demo on each phase is handled in-house. Trades are brought in for specialist work only.
+                The renovation runs as a series of smaller projects, one flowing into the next, rather than one big build. We live in the house and run a business from home the whole way through, so the order is deliberate. Outdoor work comes first, then the kitchen and laundry, then the rooms one by one, and the bathrooms last. Demo is done in-house, and trades come in only for specialist work.
               </p>
             </div>
           </FadeUp>
@@ -962,63 +959,57 @@ export default function Home() {
           {[
             {
               num: "01",
-              title: "Pool Coping",
-              timing: "Done — paid",
-              body: "Done and paid. Project Dream Pools, $11,539.60. The confirmed quote was $10,939 inc. GST. Coping is not sealed yet; the plan is to have it sealed with the crazy paving after the grout cures."
+              title: "Pool area",
+              timing: "Crazy pave next",
+              body: "Coping, slab, fence and landscaping are done, and the bench is nearly finished. Next is the Nimbus crazy pave, which starts around December and gets worked through slowly into the new year."
             },
             {
               num: "02",
-              title: "Pool Slab + Bench",
-              timing: "Poured 3–4 Oct 2026 — bench in progress",
-              body: "Composite decking is not the plan. The pool surround, pool-shed base, and side access were poured on 3–4 Oct 2026. Paid so far $4,133.54, including $1,350 cash to the pump crew. The main concrete supply and labour bill (about $8,500) is still outstanding. The pool bench is mostly built. The bottom paling row stays off until after tiling, and the decking row closest to the fence still needs ripping to fit."
-            },
-            {
-              num: "Side Project",
-              title: "Side Access",
-              timing: "Rolling — slab poured, shed anchored",
-              body: "Rolling, and underway. The 3–4 Oct pour included the side access slab, 16.1 m² (2.2 × 7.3). The Absco Space Saver shed (WG30152SK, Woodland Grey) was erected in October and anchored on the weekend of 7–8 Nov. Garden and path finishing continue with no hard deadline."
+              title: "Side access",
+              timing: "Largely done",
+              body: "This is largely done: the slab is poured and the shed is up and anchored. The last bits wait until after the bathrooms, because that work needs the access."
             },
             {
               num: "03",
-              title: "Crazy Paving",
-              timing: "Not started — no firm date",
-              body: "Not started, and there is no firm laying date. Chosen system: Pool Tile Company Nimbus granite crazy pave, flamed finish, with Dunlop 20 kg Rubber Modified tile adhesive from Bunnings. About 40 m² for the pool surround. The patio is deferred. Leftover scrap still needs measuring before any extra stone is ordered."
+              title: "Kitchen",
+              timing: "Before Christmas",
+              body: "The IKEA kitchen arrived on 17 Nov. The cabinets are built in the garage, then the old kitchen comes out and the new one goes in before Christmas."
             },
             {
               num: "04",
-              title: "Pool Fence + Landscaping",
-              timing: "Fence in — sunshade going back up",
-              body: "The Colorbond fence and gate are in, paid $6,940.09. Landscaping is paid ($4,581.89) and the garden bed and palm removal are paid ($3,390.00). The back garden was set up by 8 Nov. The sunshade is going back up; the hardware was bought on 12 Nov."
+              title: "Laundry",
+              timing: "Before Christmas",
+              body: "This happens at the same time as the kitchen, before Christmas, with an oak floor and white subway tile splashback."
             },
             {
               num: "05",
-              title: "Kitchen",
-              timing: "Paid — delivery 17 Nov 2026",
-              body: "IKEA kitchen and laundry order 234146073 is paid ($11,666.44, including delivery) and arrives 17 Nov 2026. After delivery the priority is assembling cabinet shells in the garage. Demolition and installation are not booked, and there is no interior demo before the 14–15 Nov visit. Splashbacks (2× LYSEKIL, $134.30) arrive the same day. Benchtops and some panels are still unpaid, about $1,083 at full price."
+              title: "Entrance",
+              timing: "Anytime",
+              body: "A quick, low-cost refresh that can happen whenever there's a gap."
             },
             {
               num: "06",
-              title: "Bedroom 4 + Plastering",
+              title: "Bedroom 4 and plastering",
               timing: "After the kitchen",
-              body: "Not started. The office is Bedroom 4. Bedroom 4 becomes the second office and character room. A new wall, doorway, and door still create Bedroom 4, and the Bedroom 3 door opening is filled. DIY framing with chippy mates, then a plasterer for sheeting, setting, and whole-house ceiling touch-ups. This waits until after the kitchen."
+              body: "The new wall and doorway go in, then the plasterer sheets and sets them and touches up ceilings through the house."
             },
             {
               num: "07",
-              title: "Lounge + Bedrooms Interior",
-              timing: "After the kitchen",
-              body: "Done room by room. Sequence within each room: plasterboard repairs → paint (Dulux Natural White throughout) → replace architraves → replace ceiling fans (matte black DC) → update cupboard doors (DIY). Room order: Lounge first, then Master (temporarily move into Bedroom 3), then Bedrooms 3 & 4 simultaneously (back in master), then Bedroom 2 last (the office is Bedroom 4). Carpet ordered in full at the start — single dye lot, held by supplier, installed in two visits. LVP flooring (kitchen, hallway, entry) laid last: existing vinyl stripped DIY, supply + install with a mate."
+              title: "Lounge and bedrooms",
+              timing: "Room by room",
+              body: "These are done room by room: repairs, Natural White paint, new architraves and black fans. Carpet goes in, with oak flooring laid at the end."
             },
             {
               num: "08",
-              title: "Bathrooms + Laundry",
-              timing: "Feb–Apr 2027",
-              body: "Later stage, after the kitchen, with temporary facilities. The bathroom package went to Jason (plumber) and John (builder) on 30 Sep. ShawCon Projects builds both bathrooms — quote $45,300 inc. GST. Plumbing quote $7,485 inc. GST. Laundry floor is oak to match the rest of the house; splashback is white subway tile. Laundry cabinetry is already on the paid IKEA order."
+              title: "Bathrooms",
+              timing: "Later stage",
+              body: "ShawCon builds both bathrooms in the later stage, with temporary facilities while that's happening. The side access gets finished after this."
             },
             {
               num: "09",
               title: "Exterior",
-              timing: "Rolling throughout 2026",
-              body: "The front retaining wall is done. Roof paint has not started: allowance $3–6k, not on the critical path, colour leaning Monument. The lean is Perfect Glaze Option 3 ($6,300 inc. GST), with Colour Seal as the fallback. Gutters are Jeremy's plumber, not part of the roof job, and a rusted section still needs a quote. Other exterior painting and the front garden are still DIY. The driveway stays as-is."
+              timing: "Ongoing",
+              body: "This runs alongside everything else: the Monument roof paint, gutters with our plumber, and the front garden."
             },
           ].map((phase, i) => (
             <FadeUp key={i} delay={i * 60}>

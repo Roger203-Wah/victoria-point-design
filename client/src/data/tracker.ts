@@ -4,6 +4,8 @@
 // Paid spend replaced the retired $15,000 pre-tracker estimate on 13 Nov 2026.
 // Phase budgets match the presentation: 15 rows, total $152,100.
 // Five palm and garden-bed lines ($3,390) are on granny-flat and do not count.
+// Lines dated before 1 Jan 2025 stay in SPEND_LOG on their original phase ids.
+// They do not count in project totals. The tracker shows them under Before this project (pre 2025).
 // Older spend phase ids still roll up to the matching budget row.
 
 export const LAST_UPDATED = "18 Nov 2026";
@@ -18,6 +20,18 @@ export interface SpendEntry {
   phase: string; // must match Phase.id
   area: string; // spend-master area; "Outdoor" sums to the outdoor total
   receipt?: string; // optional invoice or receipt reference
+}
+
+const SPEND_MONTHS: Record<string, number> = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+};
+
+/** True when the line is dated before 1 Jan 2025 and must not count in this project. */
+export function spendIsBeforeProject(entry: SpendEntry): boolean {
+  const [day, month, year] = entry.date.split(" ");
+  const parsed = new Date(Number(year), SPEND_MONTHS[month], Number(day));
+  return parsed < new Date(2025, 0, 1);
 }
 
 export interface Phase {

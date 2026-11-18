@@ -52,6 +52,7 @@ const SIDE_BEFORE_SLIDES: ImageSlide[] = [
 
 const SIDE_AFTER_SLIDES: ImageSlide[] = [
   { src: publicAsset("images/side_after_1_passage.webp"), alt: "Side passage after, locked design" },
+  { src: publicAsset("images/side_after_2_shed_slab.webp"), alt: "Side passage after: Monument garden bed and full slab from the shed to the house" },
 ];
 
 const POOL_AFTER_SLIDES: ImageSlide[] = [

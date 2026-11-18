@@ -85,8 +85,9 @@ export default function Tracker() {
   const spentByPhase = (phaseId: string) =>
     entriesForPhase(phaseId).reduce((s, e) => s + e.amount, 0);
 
+  const projectSpend = SPEND_LOG.filter((e) => countsInProject(e.phase));
   const filteredSpend = spendFilter === "all"
-    ? SPEND_LOG
+    ? projectSpend
     : entriesForPhase(spendFilter);
 
   const pill = (label: string) => (
@@ -133,7 +134,7 @@ export default function Tracker() {
             Project Tracker
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>
-            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({SPEND_LOG.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. Within outdoor, slab and concrete is {fmt(slabSpent)} across {slabEntries.length} lines.
+            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({projectSpend.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. Within outdoor, slab and concrete is {fmt(slabSpent)} across {slabEntries.length} lines. Five granny flat lines are kept on their own phase and are not in these totals.
           </p>
         </div>
       </header>
@@ -144,9 +145,9 @@ export default function Tracker() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
             {[
               { label: "Total Budget", value: budgetLabel, sub: "15 phase allowances" },
-              { label: "Total Spent", value: fmt(totalSpent), sub: `${SPEND_LOG.length} paid lines · outdoor ${fmt(outdoorSpent)}` },
+              { label: "Total Spent", value: fmt(totalSpent), sub: `${projectSpend.length} paid lines · outdoor ${fmt(outdoorSpent)}` },
               { label: "Remaining (low)", value: fmt(totalBudgetLow - totalSpent), sub: "Allowances minus all paid spend" },
-              { label: "Phases", value: `${phasesComplete} done · ${phasesInProgress} active`, sub: `${PHASES.length} total phases` },
+              { label: "Phases", value: `${phasesComplete} done · ${phasesInProgress} active`, sub: `${budgetPhases.length} budget phases` },
             ].map((card, i) => (
               <div key={i} className="py-8 px-6 border-r last:border-r-0" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
                 <div className="text-xs mb-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" }}>{card.label}</div>
@@ -160,7 +161,7 @@ export default function Tracker() {
               <div className="text-xs mb-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" }}>Outdoor</div>
               <div className="text-2xl md:text-3xl mb-1" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)", fontWeight: 300 }}>{fmt(outdoorSpent)}</div>
               <div className="text-xs" style={{ color: "oklch(0.58 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                {SPEND_LOG.filter((e) => e.area === "Outdoor").length} paid lines
+                {SPEND_LOG.filter((e) => e.area === "Outdoor" && countsInProject(e.phase)).length} paid lines
               </div>
             </div>
             <div className="py-6 px-6">

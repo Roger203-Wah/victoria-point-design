@@ -22,7 +22,6 @@ const ASSETS = {
   master_bedroom: publicAsset("images/master_bedroom.webp"),
   bedroom2: publicAsset("images/bedroom2.webp"),
   kitchen_locked: publicAsset("images/kitchen_locked.webp"),
-  hallway: publicAsset("images/hallway.webp"),
   // Bathrooms (new renders)
   main_bathroom: publicAsset("images/main_bathroom.webp"),
   ensuite: publicAsset("images/ensuite.webp"),
@@ -30,7 +29,6 @@ const ASSETS = {
   before_facade: publicAsset("images/before_facade.webp"),
   before_master: publicAsset("images/before_master.webp"),
   before_kitchen: publicAsset("images/before_kitchen.webp"),
-  before_hallway: publicAsset("images/before_hallway.webp"),
   before_bedroom2: publicAsset("images/before_bedroom2.webp"),
 };
 
@@ -51,6 +49,16 @@ const SIDE_AFTER_SLIDES: ImageSlide[] = [
   { src: publicAsset("images/side_after_1_passage.webp"), alt: "Side passage after, locked design" },
   { src: publicAsset("images/side_after_2_shed_slab.webp"), alt: "Side passage after: Monument garden bed and full slab from the shed to the house" },
   { src: publicAsset("images/side_after_3_gate_bins.webp"), alt: "Side access after: full slab to the gate, timber fence painted Monument, three bins neatly against the gate" },
+];
+
+const OFFICE_BEFORE_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/office_before_1.webp"), alt: "Office before: open robe, white walls, white fan, whiteboard" },
+  { src: publicAsset("images/office_before_2.webp"), alt: "Office before: desk facing the robe wall" },
+];
+
+const OFFICE_AFTER_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/office_after_1_window_slats.webp"), alt: "Office after: Magic Forest green, walnut slat backdrop wall, recessed wardrobe" },
+  { src: publicAsset("images/office_after_2_wardrobe.webp"), alt: "Office after: recessed walnut and green built-in wardrobe" },
 ];
 
 const LAUNDRY_BEFORE_SLIDES: ImageSlide[] = [
@@ -266,9 +274,9 @@ export default function Home() {
     { id: "bathrooms", label: "Bathrooms" },
     { id: "laundry", label: "Laundry" },
     { id: "lounge", label: "Living Room" },
-    { id: "hallway", label: "Hallway & Floors" },
     { id: "master", label: "Master Bedroom" },
     { id: "bedrooms", label: "Bedrooms 2 & 3" },
+    { id: "bedroom-4", label: "Bedroom 4 / Office" },
     { id: "project-plan", label: "Project Plan" },
     { id: "budget", label: "Budget" },
     { id: "investment", label: "Investment Case" },
@@ -698,37 +706,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 08 — Hallway & Floors */}
-      <section id="hallway" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-        <div className="container">
-          <SectionHeader label="08 — Hallway & Flooring" title="Hallway & Flooring" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <BeforeAfter before={ASSETS.before_hallway} after={ASSETS.hallway} />
-            </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The existing honey-orange timber vinyl is replaced throughout the kitchen, hallway, and dining area with a natural European oak LVP — cooler, lighter, and more contemporary. The pale natural oak bridges the warm mid-grey carpet at every bedroom threshold without clashing, and the subtle timber grain reads as genuine rather than synthetic.
-              </p>
-            </FadeUp>
-          </div>
-          <FadeUp delay={300}>
-            <SpecTable items={[
-              { label: "Product", value: "Karndean Van Gogh 'Classic Oak' or equivalent" },
-              { label: "Alternatives", value: "Hybrid Flooring 'French Oak' / Quick-Step 'Natural Oak'" },
-              { label: "Finish", value: "Matte — no gloss" },
-              { label: "Tone", value: "Pale natural oak — no orange or yellow cast" },
-              { label: "Areas", value: "Kitchen, hallway, dining, entry" },
-              { label: "Transition", value: "Carpet to LVP at all bedroom doorways" },
-            ]} />
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* 09 — Master Bedroom */}
+      {/* 08 — Master Bedroom */}
       <section id="master" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="09 — Master Bedroom" title="Master Bedroom" status="locked" />
+          <SectionHeader label="08 — Master Bedroom" title="Master Bedroom" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
             <FadeUp delay={100} className="lg:col-span-3">
               <BeforeAfter before={ASSETS.before_master} after={ASSETS.master_bedroom} />
@@ -755,10 +736,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10 — Bedrooms 2 & 3 */}
+      {/* 09 — Bedrooms 2 & 3 */}
       <section id="bedrooms" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="10 — Secondary Bedrooms" title="Bedrooms 2 & 3" status="locked" />
+          <SectionHeader label="09 — Secondary Bedrooms" title="Bedrooms 2 & 3" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start lg:[direction:rtl]">
             <FadeUp delay={100} className="lg:col-span-3">
               <div className="[direction:ltr]">
@@ -783,6 +764,43 @@ export default function Home() {
               { label: "Ceiling Fan", value: "Matte black DC fan" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
+            ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* 10 — Bedroom 4 / Office */}
+      <section id="bedroom-4" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="10 — Bedroom 4 / Office" title="Bedroom 4 / Office" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <ImageSlider slides={OFFICE_BEFORE_SLIDES} label="Before" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
+            </FadeUp>
+            <FadeUp delay={200}>
+              <ImageSlider slides={OFFICE_AFTER_SLIDES} label="After, locked design" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After, locked design</p>
+            </FadeUp>
+          </div>
+          <FadeUp delay={100}>
+            <div className="max-w-3xl space-y-4">
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                Bedroom 4 becomes a proper home office, a moody wood and forest green space built for long days of deep work. The walls, ceiling and trim are all Taubmans Magic Forest, so the room wraps around you. The old open robe becomes a recessed built-in with walnut shelves, a slat panel, a brass hanging rail and green drawers. The wall behind the desk is the video-call backdrop, with walnut slat panels and brass sconces either side of three floating shelves. Warm mid-grey carpet matches the master bedroom, and a matt black fan finishes it off.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                We're deliberately making this a highly custom room, which makes it slightly less suited to renting or investment. The wardrobe is built so it can still work as a normal bedroom wardrobe, though. It would just need doors added later and probably a repaint.
+              </p>
+            </div>
+            <BudgetIndicator amount="$5,000" status="green" className="mt-4 mb-10" />
+          </FadeUp>
+          <FadeUp delay={300}>
+            <SpecTable items={[
+              { label: "Walls and ceiling", value: "Taubmans Magic Forest satin" },
+              { label: "Wardrobe", value: "Recessed built-in, walnut and Magic Forest, brass hardware" },
+              { label: "Feature wall", value: "Walnut slat panels with brass sconces and floating shelves" },
+              { label: "Carpet", value: "Warm mid-grey, same as master bedroom" },
+              { label: "Fan", value: "Matt black" },
             ]} />
           </FadeUp>
         </div>
@@ -845,13 +863,13 @@ export default function Home() {
               num: "06",
               title: "Bedroom 4 + Plastering",
               timing: "After the kitchen",
-              body: "Not started. The office stays in Bedroom 2 while outdoor work is the focus. Bedroom 4 becomes the second office and character room. A new wall, doorway, and door still create Bedroom 4, and the Bedroom 3 door opening is filled. DIY framing with chippy mates, then a plasterer for sheeting, setting, and whole-house ceiling touch-ups. This waits until after the kitchen."
+              body: "Not started. The office is Bedroom 4. Bedroom 4 becomes the second office and character room. A new wall, doorway, and door still create Bedroom 4, and the Bedroom 3 door opening is filled. DIY framing with chippy mates, then a plasterer for sheeting, setting, and whole-house ceiling touch-ups. This waits until after the kitchen."
             },
             {
               num: "07",
               title: "Lounge + Bedrooms Interior",
               timing: "After the kitchen",
-              body: "Done room by room. Sequence within each room: plasterboard repairs → paint (Dulux Natural White throughout) → replace architraves → replace ceiling fans (matte black DC) → update cupboard doors (DIY). Room order: Lounge first, then Master (temporarily move into Bedroom 3), then Bedrooms 3 & 4 simultaneously (back in master), then Bedroom 2 / home office last (move into Bedroom 4). Carpet ordered in full at the start — single dye lot, held by supplier, installed in two visits. LVP flooring (kitchen, hallway, entry) laid last: existing vinyl stripped DIY, supply + install with a mate."
+              body: "Done room by room. Sequence within each room: plasterboard repairs → paint (Dulux Natural White throughout) → replace architraves → replace ceiling fans (matte black DC) → update cupboard doors (DIY). Room order: Lounge first, then Master (temporarily move into Bedroom 3), then Bedrooms 3 & 4 simultaneously (back in master), then Bedroom 2 last (the office is Bedroom 4). Carpet ordered in full at the start — single dye lot, held by supplier, installed in two visits. LVP flooring (kitchen, hallway, entry) laid last: existing vinyl stripped DIY, supply + install with a mate."
             },
             {
               num: "08",

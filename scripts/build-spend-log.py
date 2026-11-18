@@ -250,6 +250,7 @@ def build(rows: list[dict], mapping: dict) -> list[dict]:
     skip_status = set(mapping["skipMatchStatus"])
     split = mapping["slabSplit"]
     entries = []
+    splits_seen = { (spec["date"], money(spec["amount"])): 0 for spec in split["only"] }
     for row in rows:
         if row["property"] != include or row["match_status"] in skip_status:
             continue
@@ -272,15 +273,37 @@ def build(rows: list[dict], mapping: dict) -> list[dict]:
             continue
         field = {}
         for rule in overrides:
-            field.update({k: v for k, v in rule.items() if k in {"phase", "receipt", "area", "excluded", "poolAmount", "sideAmount"}})
+            field.update({k: v for k, v in rule.items() if k in {"phase", "receipt", "area", "excluded"}})
         if row["zone"] == split["zone"]:
-            pool_amount = money(field.get("poolAmount", row["zone_pool"]))
-            side_amount = money(field.get("sideAmount", row["zone_side"]))
-            if row["zone_pool"] is None or row["zone_side"] is None:
-                raise SystemExit(f"Slab split row has no zone amounts: {row['date']} {row['description']}")
-            if abs((pool_amount + side_amount) - row["amount"]) > 0.02:
+            agreed = next(
+                (
+                    spec
+                    for spec in split["only"]
+                    if row["date"] == spec["date"] and abs(row["amount"] - float(spec["amount"])) < 0.001
+                ),
+                None,
+            )
+            if agreed is not None:
+                key = (agreed["date"], money(agreed["amount"]))
+                splits_seen[key] = splits_seen.get(key, 0) + 1
+            if agreed is None:
+                whole = {
+                    "date": display_date(row["date"]),
+                    "iso": row["date"],
+                    "description": row["description"],
+                    "supplier": row["vendor"],
+                    "amount": row["amount"],
+                    "phase": split["poolSection"],
+                    "area": area_for(row, mapping),
+                    "receipt": receipt_for(row, mapping),
+                }
+                entries.append(whole)
+                continue
+            pool_amount = money(agreed["poolAmount"])
+            side_amount = money(agreed["sideAmount"])
+            if abs((pool_amount + side_amount) - row["amount"]) > 0.001:
                 raise SystemExit(
-                    f"Slab split does not add up on {row['date']} {row['description']}: {pool_amount} + {side_amount} != {row['amount']}"
+                    f"Concrete split does not add up on {row['date']} {row['description']}: {pool_amount} + {side_amount} != {row['amount']}"
                 )
             base = {
                 "date": display_date(row["date"]),
@@ -300,6 +323,9 @@ def build(rows: list[dict], mapping: dict) -> list[dict]:
             entries.append(side)
             continue
         entries.append(one_line(row, mapping, field or None))
+    missing = [f"{date} ${amount:,.2f}" for (date, amount), count in splits_seen.items() if count != 1]
+    if missing:
+        raise SystemExit("Concrete 70/30 lines were not found once each: " + "; ".join(missing))
     entries.sort(key=lambda entry: entry["iso"])
     return entries
 

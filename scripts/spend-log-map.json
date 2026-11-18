@@ -14,12 +14,12 @@
     "P7 Retaining wall (John Puna) + Pointform fence": "Street Presence, except Pointform INV-358 (granny flat) and the hardwood posts (pool fence).",
     "P8 Mid outdoor / SEQ AC / Nuway": "Side access, Street Presence landscaping, air con, and the small IKEA lines.",
     "P9 Pool coping (Project Dream Pools)": "Pool coping, plus three small side-access lines.",
-    "P10 Concrete prep / Zac Knight labour": "Slab split, pool bench, and the front wall lines.",
+    "P10 Concrete prep / Zac Knight labour": "Only the main concrete bill and the pump are split 70/30. Other slab-zone lines stay on decking.",
     "P11 Kitchen + laundry (IKEA)": "Order 234146073 is split. Later IKEA lines stay on the kitchen.",
     "Ops (excluded)": "Not Vic Point reno spend. Omitted."
   },
   "zoneToSection": {
-    "Split 70/30 pool/side": "Two lines: 70% decking (rolls up to Pool & Outdoor Living) and 30% side-access.",
+    "Split 70/30 pool/side": "Only the 6 Oct 2026 $8,500 concrete bill and the 3 Oct 2026 $1,350 pump are split 70% decking and 30% side-access. Every other row with this zone is 100% decking.",
     "Pool area": "Pool rollup (coping, decking, or pool-fence) unless a line override sends it to granny-flat.",
     "Front yard / granny flat (not this project)": "exterior for the front wall and 2025+ landscaping. side-access when Used_For is General/unclear.",
     "Granny flat (not this project)": "granny-flat. Shown, not counted.",
@@ -67,7 +67,23 @@
     "zone": "Split 70/30 pool/side",
     "poolSection": "decking",
     "sideSection": "side-access",
-    "sideDescriptionSuffix": " (30% side passage share)"
+    "sideDescriptionSuffix": " (30% side passage share)",
+    "only": [
+      {
+        "comment": "Zac Knight main concrete supply and labour bill.",
+        "date": "2026-10-06",
+        "amount": 8500,
+        "poolAmount": 5950,
+        "sideAmount": 2550
+      },
+      {
+        "comment": "Concrete pump cash on pour day.",
+        "date": "2026-10-03",
+        "amount": 1350,
+        "poolAmount": 945,
+        "sideAmount": 405
+      }
+    ]
   },
   "receiptWhenUsedFor": {
     "General/unclear": "Outdoor · general/unclear",
@@ -122,18 +138,6 @@
       "phase": "unallocated",
       "excluded": true,
       "receipt": "Investigate — counted in the paid total"
-    },
-    {
-      "comment": "Slab 70/30 cent. Master stores pool 393.34 and side 168.57. The hand recode uses 393.35 and 168.56. The pair still sums to 561.91.",
-      "match": { "date": "2026-06-27", "amount": 561.91 },
-      "poolAmount": 393.35,
-      "sideAmount": 168.56
-    },
-    {
-      "comment": "Slab 70/30 cent the other way. Master stores pool 63.67 and side 27.28. The hand recode uses 63.66 and 27.29. The pair still sums to 90.95, and the two cent moves cancel in the section totals.",
-      "match": { "date": "2026-07-11", "amount": 90.95 },
-      "poolAmount": 63.66,
-      "sideAmount": 27.29
     }
   ]
 }

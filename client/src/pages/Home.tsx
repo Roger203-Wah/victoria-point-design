@@ -21,8 +21,7 @@ const ASSETS = {
   lounge: publicAsset("images/lounge.webp"),
   master_bedroom: publicAsset("images/master_bedroom.webp"),
   bedroom2: publicAsset("images/bedroom2.webp"),
-  kitchen_pendants: publicAsset("images/kitchen_pendants.webp"),
-  kitchen_clean: publicAsset("images/kitchen_clean.webp"),
+  kitchen_locked: publicAsset("images/kitchen_locked.webp"),
   hallway: publicAsset("images/hallway.webp"),
   // Pool — after renders (new)
   pool_after_deck: publicAsset("images/pool_after_deck.webp"),
@@ -161,6 +160,24 @@ function BeforeAfter({ before, after, beforeLabel = "Before", afterLabel = "Afte
           {beforeLabel}
         </button>
       </div>
+    </div>
+  );
+}
+
+// Small budget line other sections can reuse. status is green, amber, or red.
+function BudgetIndicator({
+  amount,
+  status,
+  className = "",
+}: {
+  amount: string;
+  status: "green" | "amber" | "red";
+  className?: string;
+}) {
+  return (
+    <div className={`budget-status ${className}`.trim()} data-status={status}>
+      <span className="budget-status-dot" aria-hidden="true" />
+      Budget {amount}
     </div>
   );
 }
@@ -514,37 +531,41 @@ export default function Home() {
           <SectionHeader label="04 — Kitchen" title="Kitchen" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <FadeUp delay={100}>
-              <BeforeAfter before={ASSETS.before_kitchen} after={ASSETS.kitchen_pendants} />
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Option A — With pendant lights</p>
+              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
+                <img src={ASSETS.before_kitchen} alt="Kitchen before" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
+              </div>
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
             </FadeUp>
             <FadeUp delay={200}>
               <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.kitchen_clean} alt="Kitchen — downlights only" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
+                <img src={ASSETS.kitchen_locked} alt="Kitchen after — locked design" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
               </div>
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Option B — Downlights only</p>
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After — locked design</p>
             </FadeUp>
           </div>
           <FadeUp delay={100}>
-            <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              A full IKEA METOD kitchen in NICKEBO matt grey-green lower cabinets with VOXTORP matt white uppers and HEJSTA white/clear glass uppers on the peninsula side. The EKBACKEN light grey concrete effect benchtop and KILSVIKEN black quartz composite sink are the key material moments. The existing doorway between kitchen and living is removed to create a fully open-plan flow.
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              The kitchen sits right in the middle of the house, so space is tight. The goal was to get as much storage as possible without eating into a dining area that's already small. Instead of leaving the wall outside the kitchen blank, we've added a double bench along it. That gives extra bench and storage space without pushing further into the room. The sage green lower cabinets make the kitchen a feature spot that stands apart from the rest of the house. They still sit comfortably with the clean white uppers and light grey concrete-look benchtop, so nothing clashes. Glass-front uppers on the island side keep it feeling open. Removing the old doorway between kitchen and living makes the whole space flow as one open-plan area.
             </p>
+            <BudgetIndicator amount="$17,500" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Lower Cabinets", value: "IKEA NICKEBO — matt grey-green" },
-              { label: "Upper Cabinets (back)", value: "IKEA VOXTORP — matt white" },
-              { label: "Upper Cabinets (island)", value: "IKEA HEJSTA — white frame / clear glass" },
-              { label: "Benchtop", value: "IKEA EKBACKEN — light grey concrete effect. Still unpaid" },
-              { label: "Splashback", value: "2× IKEA LYSEKIL panels — paid, due 17 Nov" },
-              { label: "Sink", value: "IKEA KILSVIKEN — black quartz composite, 1 bowl" },
-              { label: "Tap", value: "IKEA SALLSJÖN — black pull-out" },
-              { label: "Oven", value: "IKEA SPJUTBO — pyrolytic, IKEA 300, black" },
-              { label: "Cooktop", value: "IKEA KOLSTAN 500 — induction, black, 58cm" },
-              { label: "Rangehood", value: "IKEA UNDERVERK — built-in, stainless, 60cm" },
-              { label: "Handles", value: "IKEA BAGGANÄS — black knobs, 21mm" },
-              { label: "Lighting", value: "MITTLED LED strips under uppers + pendant option" },
-              { label: "Doorway", value: "Existing doorway removed — fully open to living" },
-              { label: "IKEA Order", value: "$11,666.44 paid (234146073, incl. delivery) — arrives 17 Nov" },
+              { label: "Lower Cabinets", value: "IKEA NICKEBO, matt grey-green" },
+              { label: "Upper Cabinets (back)", value: "IKEA VOXTORP, matt white" },
+              { label: "Upper Cabinets (island)", value: "IKEA HEJSTA, white frame / clear glass" },
+              { label: "Benchtop", value: "IKEA EKBACKEN, light grey concrete effect. Still unpaid, IKEA stock expected mid to late Nov" },
+              { label: "Splashback", value: "Still deciding between 2× IKEA LYSEKIL panels (paid $134.30, order 234859665, delivered 17 Nov) and white subway tile" },
+              { label: "Sink", value: "IKEA KILSVIKEN, black quartz composite, 1 bowl" },
+              { label: "Tap", value: "IKEA SALLSJÖN, black pull-out" },
+              { label: "Oven", value: "IKEA SPJUTBO, pyrolytic, IKEA 300, black" },
+              { label: "Cooktop", value: "IKEA KOLSTAN 500, induction, black, 58cm" },
+              { label: "Rangehood", value: "IKEA UNDERVERK, built-in, stainless, 60cm" },
+              { label: "Handles", value: "IKEA BAGGANÄS, black knobs, 21mm" },
+              { label: "Lighting", value: "Two matte black dome pendants over the island, plus MITTLED LED strips under the uppers" },
+              { label: "Doorway", value: "Existing doorway removed, fully open to living" },
+              { label: "IKEA Order", value: "$11,666.44 paid (234146073, incl. delivery). Delivered 17 Nov, cabinets being assembled in the garage" },
+              { label: "Install", value: "Self-installed by Jeremy, Zac and John. Demo and install dates not booked yet" },
             ]} />
           </FadeUp>
         </div>

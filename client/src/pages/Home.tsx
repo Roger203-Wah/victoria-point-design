@@ -8,6 +8,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { ImageSlider, type ImageSlide } from "@/components/ImageSlider";
 
 // Public files keep their names. BASE_URL is "/" locally and the repo path on GitHub Pages.
 const publicAsset = (file: string) =>
@@ -17,18 +18,11 @@ const publicAsset = (file: string) =>
 const ASSETS = {
   // Renders (after)
   front_facade: publicAsset("images/front_facade.webp"),
-  side_access: publicAsset("images/side_access.webp"),
   lounge: publicAsset("images/lounge.webp"),
   master_bedroom: publicAsset("images/master_bedroom.webp"),
   bedroom2: publicAsset("images/bedroom2.webp"),
   kitchen_locked: publicAsset("images/kitchen_locked.webp"),
   hallway: publicAsset("images/hallway.webp"),
-  // Pool — after renders (new)
-  pool_after_deck: publicAsset("images/pool_after_deck.webp"),
-  pool_after_patio: publicAsset("images/pool_after_patio.webp"),
-  // Pool — before photos (new)
-  pool_before_1: publicAsset("images/pool_before_1.webp"),
-  pool_before_2: publicAsset("images/pool_before_2.webp"),
   // Bathrooms (new renders)
   main_bathroom: publicAsset("images/main_bathroom.webp"),
   ensuite: publicAsset("images/ensuite.webp"),
@@ -42,6 +36,29 @@ const ASSETS = {
   before_hallway: publicAsset("images/before_hallway.webp"),
   before_bedroom2: publicAsset("images/before_bedroom2.webp"),
 };
+
+// Viewing order for the pool sliders. Both sets share one 3:4 cover frame.
+const POOL_BEFORE_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/pool_before_1_wide_from_lawn.webp"), alt: "Pool before, wide view from the lawn" },
+  { src: publicAsset("images/pool_before_2_from_patio.webp"), alt: "Pool before, view from the patio" },
+  { src: publicAsset("images/pool_before_3_back_corner_sleepers.webp"), alt: "Pool before, back corner and timber sleepers" },
+  { src: publicAsset("images/pool_before_4_right_fence_to_house.webp"), alt: "Pool before, right fence toward the house" },
+];
+
+const SIDE_BEFORE_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/side_before_1_bins_and_pavers.webp"), alt: "Side passage before, bins and pavers" },
+  { src: publicAsset("images/side_before_2_garden_bed_and_path.webp"), alt: "Side passage before, garden bed and path" },
+];
+
+const SIDE_AFTER_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/side_after_1_passage.webp"), alt: "Side passage after, locked design" },
+];
+
+const POOL_AFTER_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/pool_after_1_view.webp"), alt: "Pool after, locked design, view across the lawn to the pool" },
+  { src: publicAsset("images/pool_after_2_corner.webp"), alt: "Pool after, locked design, paved corner and pool bench" },
+  { src: publicAsset("images/pool_after_3_shed_slats.webp"), alt: "Pool after, locked design, shed screen and shade sail" },
+];
 
 const PALETTE = [
   { name: "Natural White", code: "Dulux Natural White", hex: "#F5F2EE", use: "All interior walls throughout" },
@@ -445,32 +462,42 @@ export default function Home() {
           <SectionHeader label="02 — Pool & Outdoor Living" title="Pool & Outdoor Living" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
-              <BeforeAfter before={ASSETS.pool_before_1} after={ASSETS.pool_after_deck} afterLabel="Concept" badge="original concept (superseded)" />
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>original concept (superseded) — composite deck around the pool. Not the current plan.</p>
+              <ImageSlider slides={POOL_BEFORE_SLIDES} label="Before" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
             </FadeUp>
             <FadeUp delay={200}>
-              <BeforeAfter before={ASSETS.pool_before_2} after={ASSETS.pool_after_patio} afterLabel="Concept" badge="original concept (superseded)" />
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>original concept (superseded) — deck and shade-sail render. Not the current plan.</p>
+              <ImageSlider slides={POOL_AFTER_SLIDES} label="After — locked design" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After — locked design</p>
             </FadeUp>
           </div>
           <FadeUp delay={100}>
-            <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The pictures above are the original concept (superseded). They show a composite deck, not the work that is underway. The current outdoor plan is coping (done and paid), Nimbus granite crazy paving on the slab (not laid yet), the timber pool bench, the Absco shed, and the pool shed screen. Photos of that work are not on this site yet. Charcoal Colorbond fencing and the warm planting palette still carry through to the side access.
-            </p>
+            <div className="max-w-3xl space-y-4">
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                This is the most important upgrade in the house. Plenty of homes nearby are new four bed, two bath builds, but very few have a properly designed outdoor space. The house is an older brick home, and adding the fourth bedroom took up a lot of room inside. So the backyard needed to become a really usable retreat that shows off the big pool and flows from the house, so the whole place feels bigger.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                We needed a retaining wall to hold up the walkway built for the back house. Instead of a plain wall, we built a 20 m bench. It has plumbed drainage, heaps of seating and spots for plants, and it frames the whole space for a real wow factor.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The Nimbus granite crazy pave is the feature, and we invested heavily in it. It set the colour palette for everything else, with Monument fencing, bench and roof keeping a darker backdrop that makes the stone and water stand out. A slatted Monument pool shed screen separates the area and hides storage. It also marks the line between the raised pool area and the existing concrete slab. Sparse star jasmine on wires softens the fences without taking over.
+              </p>
+            </div>
+            <BudgetIndicator amount="$32,400" status="red" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Coping", value: "Done and paid — Project Dream Pools" },
-              { label: "Paving", value: "Nimbus granite crazy pave, flamed — about 40 m², not laid yet" },
-              { label: "Pool bench", value: "Mostly built — bottom palings wait until after tiling" },
-              { label: "Shed", value: "Absco Space Saver WG30152SK, Woodland Grey — erected and anchored" },
-              { label: "Shed screen", value: "In progress — first section partly fitted" },
-              { label: "Fence", value: "Charcoal Colorbond fence and gate — in" },
-              { label: "Shade sail", value: "Going back up over the pool area" },
-              { label: "Pergola", value: "original concept (superseded) — not in the current plan" },
-              { label: "Deck lighting", value: "original concept (superseded) — there is no composite deck" },
-              { label: "Planting", value: "Bromeliads, cordylines, clumping grasses — dark mulch" },
-              { label: "Lawn", value: "Sir Walter buffalo — rear yard" },
+              { label: "Coping", value: "Light grey Nimbus, done and paid (Project Dream Pools). To be sealed together with the paving" },
+              { label: "Paving", value: "Nimbus granite crazy pave, flamed, about 40 m², butted tight to the coping. Not laid yet" },
+              { label: "Pool bench", value: "Monument, one continuous run on the back and side fences. Mostly built; bottom palings go on after tiling" },
+              { label: "Bench planting", value: "Four pockets, flush with the seat: two aloe and small flower pockets, a small tree in the back corner and a small tree in the end planter" },
+              { label: "Fence planting", value: "Sparse trailing star jasmine on wires" },
+              { label: "Shed", value: "Absco Space Saver WG30152SK, Woodland Grey, erected and anchored" },
+              { label: "Shed screen", value: "Monument vertical slats running across to the right fence. First section in, rest in progress" },
+              { label: "Fence", value: "Monument Colorbond fence and gate, done" },
+              { label: "Pool fence", value: "Black, on the grass and tile line" },
+              { label: "Shade sail", value: "Existing sail going back up over the pool" },
+              { label: "Roof", value: "Monument, to be painted (quotes underway)" },
+              { label: "Lawn", value: "Sir Walter buffalo, rear yard, cleaned up" },
             ]} />
           </FadeUp>
         </div>
@@ -480,46 +507,34 @@ export default function Home() {
       <section id="side-access" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
           <SectionHeader label="03 — Side Access" title="Side Passage" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start lg:[direction:rtl]">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <div className="[direction:ltr]">
-                <div className="overflow-hidden relative" style={{ borderRadius: "2px" }}>
-                  <img src={ASSETS.side_access} alt="original concept (superseded) — side passage planting" className="w-full h-72 md:h-[480px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
-                  <div
-                    className="absolute top-3 left-3"
-                    style={{
-                      background: "oklch(0.15 0.01 55 / 0.82)",
-                      color: "oklch(0.97 0.005 75)",
-                      fontFamily: "Plus Jakarta Sans, sans-serif",
-                      fontSize: "0.68rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.04em",
-                      padding: "6px 10px",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    original concept (superseded)
-                  </div>
-                </div>
-                <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>original concept (superseded) — passage planting only. It does not show the Absco shed or the shed screen.</p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <ImageSlider slides={SIDE_BEFORE_SLIDES} label="Before" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
             </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <div className="[direction:ltr]">
-                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                  The side passage connects the street to the pool area. The picture is the original concept (superseded): it shows the planting idea only, not the Absco shed or the pool shed screen. The slab for this passage was poured on 3–4 Oct (16.1 m²). The charcoal Colorbond fence, dark mulch, and solar stake lights are still the passage palette.
-                </p>
-              </div>
+            <FadeUp delay={200}>
+              <ImageSlider slides={SIDE_AFTER_SLIDES} label="After — locked design" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After — locked design</p>
             </FadeUp>
           </div>
+          <FadeUp delay={100}>
+            <div className="max-w-3xl space-y-4">
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                Making the pool area the hero meant the rest of the yard had to work harder. The side passage runs from the back of the house towards the street, and it was mostly wasted space: a huge, tired garden bed, loose gravel, weeds and bins along a rotten fence. We wanted it to be useful but still a nice place to walk through.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                The big garden bed is being turned into a vege and fruit garden that doubles as a clean feature. The rotten fence was replaced, which was a big fix. Near the street gate we put down a concrete slab over a lot of the old gravel, so there's room for a garden shed for extra storage and a practical spot for large items and the bins.
+              </p>
+            </div>
+            <BudgetIndicator amount="$5,000" status="amber" className="mt-4 mb-10" />
+          </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Fence", value: "Charcoal Colorbond — matches pool area" },
-              { label: "Garden Bed", value: "Dark mulch, bromeliads, cordylines, clumping grasses" },
-              { label: "Edging", value: "River rock border along garden bed" },
-              { label: "Path Lighting", value: "Solar stake lights — warm amber, full length" },
-              { label: "Shed", value: "Absco Space Saver WG30152SK, Woodland Grey — erected and anchored" },
-              { label: "Path", value: "Slab poured 3–4 Oct — side access 16.1 m²" },
+              { label: "Fence", value: "Replaced, Monument Colorbond with sparse star jasmine on wires" },
+              { label: "Garden bed", value: "Vege and fruit garden, edged in Monument, mulched, with stepping pavers through it" },
+              { label: "Slab and path", value: "Light grey concrete, about 16 m², poured 3 to 4 Oct, runs flush to the house wall towards the street" },
+              { label: "Storage", value: "Absco shed on the slab near the gate, plus space for bins and large items" },
+              { label: "Lawn", value: "Small patches at the front left and front-right corner" },
             ]} />
           </FadeUp>
         </div>
@@ -891,7 +906,7 @@ export default function Home() {
                   {[
                     { phase: "1 — Pool Coping", scope: "Remove & replace 27lm stone coping + hide slimmer lid", approach: "Trade", estimate: "$10,939", confirmed: true },
                     { phase: "2 — Pool Slab + Bench", scope: "Pool surround slab and timber bench. Main concrete bill still outstanding", approach: "Trade + DIY", estimate: "$8,000 – $12,000", confirmed: false },
-                    { phase: "Side — Side Access", scope: "Side access slab poured, Absco shed anchored, garden still rolling", approach: "DIY + Trade (slab)", estimate: "$1,500 – $2,200", confirmed: false },
+                    { phase: "Side — Side Access", scope: "Side access slab poured, Absco shed anchored, garden still rolling", approach: "DIY + Trade (slab)", estimate: "$5,000", confirmed: false },
                     { phase: "3 — Crazy Paving", scope: "About 40 m² Nimbus granite crazy pave. Not started", approach: "DIY", estimate: "$4,800 – $5,500", confirmed: false },
                     { phase: "4 — Pool Fence + Landscaping", scope: "Colorbond fence and gate in. Landscaping paid. Sunshade going back up", approach: "DIY", estimate: "$2,500 – $4,000", confirmed: false },
                     { phase: "5 — Kitchen", scope: "IKEA supply + installer + electrical + plumbing", approach: "Trade + DIY demo", estimate: "$17,500 – $20,000", confirmed: false },
@@ -915,7 +930,7 @@ export default function Home() {
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
                     <td className="py-4 pr-4 hidden md:table-cell"></td>
-                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$118,000 – $142,000</td>
+                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$121,500 – $144,800</td>
                   </tr>
                 </tbody>
               </table>

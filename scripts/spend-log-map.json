@@ -60,6 +60,14 @@
     "Pool shed slats (labour, part)": "decking",
     "Purchase inspections": "unallocated",
     "Shed": "side-access",
+    "Front fence repair": "exterior",
+    "Pool retaining wall (original)": "decking",
+    "Pool area (H4 sleepers)": "decking",
+    "Pool bench (drain fittings)": "decking",
+    "Front letterbox (new)": "exterior",
+    "Laundry (dryer wall brackets)": "laundry",
+    "Maintenance, not reno (wardrobe repair)": "general",
+    "Maintenance, not reno (cleaning products)": "general",
     "Side passage garden (soil/plants)": "side-access",
     "Site clean-up / waste disposal": "general",
     "Slab/concrete (fence-side step pad)": "decking",
@@ -98,6 +106,26 @@
     "Granny flat entrance (palm / garden bed removal)": "Outdoor"
   },
   "lineOverrides": [
+    {
+      "comment": "PowerPass items: Chrome wardrobe rod and fittings. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2026-03-08",
+        "amount": 24.73,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Cleaning products and dishwasher powder. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2026-11-01",
+        "amount": 57.79,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
     {
       "comment": "IKEA order 234146073. Agreed split, not a fresh pro-rata: kitchen $9,744.90 (goods $11,239.99) and laundry $1,921.54 (goods $2,154.00). The two shares sum to the paid $11,666.44.",
       "match": {

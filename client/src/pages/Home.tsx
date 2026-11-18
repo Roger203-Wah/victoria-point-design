@@ -1037,7 +1037,7 @@ export default function Home() {
             <span className="section-label mb-4 block">Project Budget</span>
             <h2 className="text-5xl md:text-6xl leading-none mb-4" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>Budget Overview</h2>
             <p className="text-base leading-relaxed max-w-3xl mb-12" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Estimates include supply and labour where applicable. DIY labour is not costed. Bathroom and plumbing figures are based on confirmed quotes. Pool coping based on confirmed quote. All other figures are provisional allowances pending formal quotes.
+              Each row matches a section above and uses its budget. Estimates include supply and labour where applicable. DIY labour is not costed. Pool coping is a confirmed quote. All other figures are allowances.
             </p>
           </FadeUp>
           <FadeUp delay={100}>
@@ -1045,24 +1045,28 @@ export default function Home() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Phase</th>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Section</th>
                     <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Scope</th>
                     <th className="py-3 text-left pr-4 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Approach</th>
-                    <th className="py-3 text-right" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Estimate</th>
+                    <th className="py-3 text-right" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Budget</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { phase: "1 — Pool Coping", scope: "Remove & replace 27lm stone coping + hide slimmer lid", approach: "Trade", estimate: "$10,939", confirmed: true },
-                    { phase: "2 — Pool Slab + Bench", scope: "Pool surround slab and timber bench. Main concrete bill still outstanding", approach: "Trade + DIY", estimate: "$8,000 – $12,000", confirmed: false },
-                    { phase: "Side — Side Access", scope: "Side access slab poured, Absco shed anchored, garden still rolling", approach: "DIY + Trade (slab)", estimate: "$5,000", confirmed: false },
-                    { phase: "3 — Crazy Paving", scope: "About 40 m² Nimbus granite crazy pave. Not started", approach: "DIY", estimate: "$4,800 – $5,500", confirmed: false },
-                    { phase: "4 — Pool Fence + Landscaping", scope: "Colorbond fence and gate in. Landscaping paid. Sunshade going back up", approach: "DIY", estimate: "$2,500 – $4,000", confirmed: false },
-                    { phase: "5 — Kitchen", scope: "IKEA supply + installer + electrical + plumbing", approach: "Trade + DIY demo", estimate: "$17,500 – $20,000", confirmed: false },
-                    { phase: "6 — Bedroom 4 + Plastering", scope: "Framing, doors, plaster, ceiling touch-ups whole house", approach: "DIY + Trade", estimate: "$3,000 – $5,000", confirmed: false },
-                    { phase: "7 — Lounge + Bedrooms", scope: "Carpet, paint, fans, architraves, cupboard doors, LVP flooring", approach: "DIY + Trade (carpet, LVP supply)", estimate: "$11,100 – $16,100", confirmed: false },
-                    { phase: "8 — Bathrooms + Laundry", scope: "Full build — both bathrooms + laundry", approach: "Builder + Plumber", estimate: "$53,000 – $57,000", confirmed: true },
-                    { phase: "9 — Exterior", scope: "Retaining wall done. Roof paint not started. Driveway stays as-is", approach: "Trade + DIY", estimate: "$6,000 – $10,000", confirmed: false },
+                    { phase: "Street Presence", scope: "Retaining wall done, Monument roof paint, charcoal trim, front lawn and planting", approach: "Trade + DIY", estimate: "$20,000", confirmed: false },
+                    { phase: "Entrance", scope: "Crazy pave over old tiles, awning off, paint, lighting, pots", approach: "DIY", estimate: "$3,000", confirmed: false },
+                    { phase: "Pool & Outdoor Living", scope: "Coping (done), slab, bench, crazy pave, fence, landscaping", approach: "Trade + DIY", estimate: "$40,000", confirmed: true },
+                    { phase: "Back Covered Patio", scope: "Paint, lighting and clean up", approach: "DIY", estimate: "$3,000", confirmed: false },
+                    { phase: "Back Yard Area", scope: "Lawn, jasmine fence, path to side access", approach: "DIY", estimate: "$5,000", confirmed: false },
+                    { phase: "Side Passage", scope: "Slab poured, shed anchored, finished after the bathrooms", approach: "DIY + Trade (slab)", estimate: "$5,000", confirmed: false },
+                    { phase: "Kitchen", scope: "IKEA kitchen (paid), install, electrical, plumbing", approach: "Trade + DIY", estimate: "$17,500", confirmed: false },
+                    { phase: "Bathrooms", scope: "Full build of both bathrooms", approach: "Builder + Plumber", estimate: "$60,000", confirmed: false },
+                    { phase: "Laundry", scope: "Oak floor, subway tile, plumbing, electrical", approach: "Trade + DIY", estimate: "$6,000", confirmed: false },
+                    { phase: "Living Room", scope: "Carpet and small upgrades", approach: "DIY + Trade", estimate: "$5,000", confirmed: false },
+                    { phase: "Master Bedroom", scope: "Walk-in wardrobe fit-out", approach: "DIY + Trade", estimate: "$6,000", confirmed: false },
+                    { phase: "Bedrooms 2 & 3", scope: "New walls, electrical, built-in wardrobes", approach: "DIY + Trade", estimate: "$8,000", confirmed: false },
+                    { phase: "Bedroom 4 / Office", scope: "Built-in wardrobe, slat panels, shelving", approach: "DIY + Trade", estimate: "$8,000", confirmed: false },
+                    { phase: "Plastering", scope: "Sheeting, setting and ceiling touch-ups through the whole house", approach: "Trade", estimate: "$3,000 – $5,000", confirmed: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
                       <td className="py-3 pr-4 whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>
@@ -1079,7 +1083,7 @@ export default function Home() {
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
                     <td className="py-4 pr-4 hidden md:table-cell"></td>
-                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$121,500 – $144,800</td>
+                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$189,500 – $191,500</td>
                   </tr>
                 </tbody>
               </table>
@@ -1165,9 +1169,9 @@ export default function Home() {
                     { scenario: "May 2025 (at purchase / valuation)", value: "$1,180,000", basis: "Independent valuation, 3br / 1ba / 1,002m²", highlight: false },
                     { scenario: "Current (pre-reno, Feb 2026)", value: "~$1,265,000", basis: "$1.18M + 9.5% annual growth pro-rated 9 months", highlight: false },
                     { scenario: "Post-renovation (4br / 2ba / pool)", value: "$1,380,000 – $1,500,000", basis: "4br median $1.05M + 1,002m² block premium + pool + granny flat + full reno", highlight: true },
-                    { scenario: "Renovation cost", value: "$118,000 – $142,000", basis: "Project budget", highlight: false },
-                    { scenario: "Net uplift (low case)", value: "~$0 – $15,000", basis: "Breaks even on paper; real return is rental uplift + vacancy risk removal", highlight: false },
-                    { scenario: "Net uplift (high case)", value: "~$93,000", basis: "$1.50M – $1.265M – $142K", highlight: false },
+                    { scenario: "Renovation cost", value: "$189,500 – $191,500", basis: "Project budget", highlight: false },
+                    { scenario: "Net uplift (low case)", value: "~-$76,500", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
+                    { scenario: "Net uplift (high case)", value: "~$45,500", basis: "$1.50M – $1.265M – $189.5K", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
                       <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.scenario}</td>
@@ -1185,7 +1189,7 @@ export default function Home() {
             <div className="mt-16 mb-4">
               <span className="section-label block mb-3">Rental Projection</span>
               <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 10–15 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
+                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 20 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
               </p>
             </div>
             <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>

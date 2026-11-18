@@ -1,0 +1,139 @@
+{
+  "comment": "Maps VicPoint_Spend_Master (sheet Master) onto tracker section ids. Category (Materials, Labour, Fees, and so on) does not choose a section. Pre-2025 lines are kept on these ids and are not marked excluded; the tracker drops them from totals because the date is before 1 Jan 2025. Match_Status duplicate_confirmed is left out: Jeremy confirmed those two John Puna labour lines duplicate bank payments already in the log.",
+  "includeProperty": "Vic Point main",
+  "skipMatchStatus": ["duplicate_confirmed"],
+  "masterPhaseNote": {
+    "P1 Market-ready Vic Point (2023)": "Pre-2025. Original section ids, not counted.",
+    "P1b Vic Point investment / tenant period (pre-move)": "Pre-2025 side access refunds, not counted.",
+    "P2 Adelaide granny flat build (late 2023–early 2024)": "Adelaide. Not this project. Omitted.",
+    "P3 Adelaide deck (John Puna)": "Adelaide. Not this project. Omitted.",
+    "P3b Adelaide Patio Verandah (ART Builders)": "Adelaide. Not this project. Omitted.",
+    "P4 Adelaide front landscaping (John Puna)": "Adelaide. Not this project. Omitted.",
+    "P5 Adelaide bathroom + balcony roof (exit)": "Adelaide. Not this project. Omitted.",
+    "P6 Move to Prescoter + early outdoor": "Vic Point 2025. Section comes from Used_For, then the line overrides.",
+    "P7 Retaining wall (John Puna) + Pointform fence": "Street Presence, except Pointform INV-358 (granny flat) and the hardwood posts (pool fence).",
+    "P8 Mid outdoor / SEQ AC / Nuway": "Side access, Street Presence landscaping, air con, and the small IKEA lines.",
+    "P9 Pool coping (Project Dream Pools)": "Pool coping, plus three small side-access lines.",
+    "P10 Concrete prep / Zac Knight labour": "Slab split, pool bench, and the front wall lines.",
+    "P11 Kitchen + laundry (IKEA)": "Order 234146073 is split. Later IKEA lines stay on the kitchen.",
+    "Ops (excluded)": "Not Vic Point reno spend. Omitted."
+  },
+  "zoneToSection": {
+    "Split 70/30 pool/side": "Two lines: 70% decking (rolls up to Pool & Outdoor Living) and 30% side-access.",
+    "Pool area": "Pool rollup (coping, decking, or pool-fence) unless a line override sends it to granny-flat.",
+    "Front yard / granny flat (not this project)": "exterior for the front wall and 2025+ landscaping. side-access when Used_For is General/unclear.",
+    "Granny flat (not this project)": "granny-flat. Shown, not counted.",
+    "Side access": "side-access.",
+    "Unsure - small": "side-access.",
+    "Excluded - pre-2024": "Original section id. Not counted, because the date is before 2025."
+  },
+  "categoryNote": "Ignored. Category does not map to a section id.",
+  "usedForToSection": {
+    "2023 market-ready refresh (general)": "interior",
+    "Absco shed": "side-access",
+    "Air conditioning": "general",
+    "Bathroom (2023)": "bathrooms",
+    "Electrical": "interior",
+    "Fencing": "pool-fence",
+    "Front retaining wall": "exterior",
+    "General/unclear": "side-access",
+    "Granny flat entrance (concrete)": "granny-flat",
+    "Granny flat entrance (palm / garden bed removal)": "granny-flat",
+    "Hot water": "bathrooms",
+    "Kitchen (2023)": "kitchen",
+    "Kitchen/laundry": "kitchen",
+    "Landscaping": "exterior",
+    "Laundry (2023)": "bathrooms",
+    "Painting (2023)": "interior",
+    "Pool bench": "decking",
+    "Pool bench (12.9 m run drainage)": "decking",
+    "Pool bench (cap & face)": "decking",
+    "Pool bench (cap)": "decking",
+    "Pool bench (charcoal paint)": "decking",
+    "Pool bench (frame/face)": "decking",
+    "Pool bench / general tools": "decking",
+    "Pool coping/tiles": "coping",
+    "Pool pipe/stormwater": "decking",
+    "Pool shed screen": "decking",
+    "Pool shed slats (labour, part)": "decking",
+    "Purchase inspections": "unallocated",
+    "Shed": "side-access",
+    "Site clean-up / waste disposal": "side-access",
+    "Slab/concrete (fence-side step pad)": "decking",
+    "Sunshade/shade sail hardware": "pool-fence"
+  },
+  "landscapingBefore2025Section": "pool-fence",
+  "slabSplit": {
+    "zone": "Split 70/30 pool/side",
+    "poolSection": "decking",
+    "sideSection": "side-access",
+    "sideDescriptionSuffix": " (30% side passage share)"
+  },
+  "receiptWhenUsedFor": {
+    "General/unclear": "Outdoor · general/unclear",
+    "Purchase inspections": "Purchase inspection — not a works phase",
+    "Granny flat entrance (palm / garden bed removal)": "Garden bed / palm removal",
+    "Granny flat entrance (concrete)": "Granny flat entrance — not a main-house phase"
+  },
+  "areaWhenUsedFor": {
+    "Granny flat entrance (palm / garden bed removal)": "Outdoor"
+  },
+  "lineOverrides": [
+    {
+      "comment": "IKEA order 234146073. Agreed split, not a fresh pro-rata: kitchen $9,744.90 (goods $11,239.99) and laundry $1,921.54 (goods $2,154.00). The two shares sum to the paid $11,666.44.",
+      "match": { "date": "2026-10-11", "sourceContains": "234146073" },
+      "replaceWith": [
+        {
+          "description": "Kitchen share of order 234146073 (goods $11,239.99). Delivery and Family discount shared pro rata. Cabinets, appliances (KOLSTAN hob, SPJUTBO oven), sink/tap",
+          "amount": 9744.9,
+          "phase": "kitchen",
+          "area": "Kitchen",
+          "receipt": "Kitchen/laundry"
+        },
+        {
+          "description": "Laundry share of order 234146073 (goods $2,154.00). Delivery and Family discount shared pro rata",
+          "amount": 1921.54,
+          "phase": "laundry",
+          "area": "Laundry",
+          "receipt": "Kitchen/laundry"
+        }
+      ]
+    },
+    {
+      "comment": "Pointform Colorbond INV-358 is the granny flat fence, not the pool fence. Both the deposit and the balance.",
+      "match": { "descriptionContains": "INV-358" },
+      "phase": "granny-flat"
+    },
+    {
+      "comment": "PowerPass invoice 8210/09603046 ($216, 16 Mar 2025) counts on General.",
+      "match": { "descriptionContains": "8210/09603046" },
+      "phase": "general",
+      "receipt": "Investigate — counted in the paid total"
+    },
+    {
+      "comment": "Richmond INV-1182 ($462.25, 29 Nov 2025) counts on General.",
+      "match": { "descriptionContains": "INV-1182" },
+      "phase": "general",
+      "receipt": "Job not coded"
+    },
+    {
+      "comment": "The two Amex copies of the 22 Mar 2025 Bunnings lines ($11.31 and $138.79). The side-access copies are a different master row and stay counted.",
+      "match": { "notes": "duplicate" },
+      "phase": "unallocated",
+      "excluded": true,
+      "receipt": "Investigate — counted in the paid total"
+    },
+    {
+      "comment": "Slab 70/30 cent. Master stores pool 393.34 and side 168.57. The hand recode uses 393.35 and 168.56. The pair still sums to 561.91.",
+      "match": { "date": "2026-06-27", "amount": 561.91 },
+      "poolAmount": 393.35,
+      "sideAmount": 168.56
+    },
+    {
+      "comment": "Slab 70/30 cent the other way. Master stores pool 63.67 and side 27.28. The hand recode uses 63.66 and 27.29. The pair still sums to 90.95, and the two cent moves cancel in the section totals.",
+      "match": { "date": "2026-07-11", "amount": 90.95 },
+      "poolAmount": 63.66,
+      "sideAmount": 27.29
+    }
+  ]
+}

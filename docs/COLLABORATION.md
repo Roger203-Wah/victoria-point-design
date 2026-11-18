@@ -16,7 +16,15 @@ Each collaborator should pull the latest `main`, make a focused change, run `pnp
 
 ## Tracker updates
 
-Record all actual project spending in `client/src/data/tracker.ts`. Expenses should be granular enough to reconcile with receipts, including small purchases such as hardware, consumables, or delivery fees. Preserve existing phase IDs. Update `LAST_UPDATED` whenever phase data or spend changes. Keep quotes and budgets separate from actual spend.
+Record all actual project spending in the spend master, then regenerate the tracker log. Expenses should be granular enough to reconcile with receipts, including small purchases such as hardware, consumables, or delivery fees. Preserve existing phase IDs. Update `LAST_UPDATED` in `client/src/data/tracker.ts` whenever phase data or spend changes. Keep quotes and budgets separate from actual spend.
+
+The tracker line items are generated, not typed in by hand. `scripts/build-spend-log.py` reads an export of `VicPoint_Spend_Master` (xlsx sheet `Master`, or a csv with the same columns) and writes `client/src/data/spendLog.generated.ts`. Section ids, the slab split, and the agreed one-off lines are in `scripts/spend-log-map.json`. From the repo root:
+
+```bash
+python3 scripts/build-spend-log.py path/to/VicPoint_Spend_Master.xlsx
+```
+
+Commit the regenerated file with the mapping change. The script prints the counted section totals so they can be checked against the tracker.
 
 ## Running the live site
 

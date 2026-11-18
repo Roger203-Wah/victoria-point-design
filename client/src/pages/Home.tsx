@@ -756,6 +756,9 @@ export default function Home() {
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                   Bedrooms 2 and 3 share the same layout and design approach — cohesive with the master bedroom but self-contained. The oatmeal linen bedhead and warm mid-grey carpet create a calm, restful palette. White sliding robe doors with matte black handles span the full right wall.
                 </p>
+                <p className="text-base leading-relaxed mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                  Bedroom 3 doesn't exist yet. It's being created as part of the renovation and will match Bedroom 2 exactly. Both rooms are about 3 x 3 m, but Bedroom 3 gives up a 1 x 1 m corner. That space becomes a new entry for Bedroom 2, because its current door is being filled in to make room for Bedroom 3.
+                </p>
               </div>
             </FadeUp>
           </div>

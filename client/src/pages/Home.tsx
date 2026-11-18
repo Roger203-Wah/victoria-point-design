@@ -26,8 +26,6 @@ const ASSETS = {
   // Bathrooms (new renders)
   main_bathroom: publicAsset("images/main_bathroom.webp"),
   ensuite: publicAsset("images/ensuite.webp"),
-  // Laundry
-  laundry_white: publicAsset("images/laundry_white.webp"),
   // Before photos
   before_facade: publicAsset("images/before_facade.webp"),
   before_master: publicAsset("images/before_master.webp"),
@@ -60,7 +58,7 @@ const LAUNDRY_BEFORE_SLIDES: ImageSlide[] = [
 ];
 
 const LAUNDRY_AFTER_SLIDES: ImageSlide[] = [
-  { src: ASSETS.laundry_white, alt: "Laundry — white cabinets" },
+  { src: publicAsset("images/laundry_after_oak_subway.webp"), alt: "Laundry after: white shaker cabinets, grey concrete-look benchtop, white subway tile splashback, oak floor" },
 ];
 
 const POOL_AFTER_SLIDES: ImageSlide[] = [
@@ -657,10 +655,9 @@ export default function Home() {
           <FadeUp delay={300}>
             <SpecTable items={[
               { label: "Option A Cabinets", value: "White shaker — upper and lower" },
-              { label: "Option B Cabinets", value: "Warm oak timber shaker — upper and lower" },
               { label: "Benchtop", value: "White laminate — both options" },
-              { label: "Splashback", value: "Large format dark concrete tile" },
-              { label: "Floor", value: "Dark concrete tile — matches splashback" },
+              { label: "Splashback", value: "White subway tile" },
+              { label: "Floor", value: "Oak flooring to match the rest of the house" },
               { label: "Dryer", value: "Wall-mounted above bench" },
               { label: "Washing Machine", value: "Under-bench, front-load" },
               { label: "Sink", value: "Inset laundry tub, right side" },

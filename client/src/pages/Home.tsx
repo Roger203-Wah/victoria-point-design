@@ -270,6 +270,7 @@ function SectionHeader({ label, title, status }: { label: string; title: string;
 export default function Home() {
   const sections = [
     { id: "exterior", label: "Street Presence" },
+    { id: "entrance", label: "Entrance" },
     { id: "pool", label: "Pool & Outdoor" },
     { id: "side-access", label: "Side Passage" },
     { id: "kitchen", label: "Kitchen" },
@@ -486,6 +487,42 @@ export default function Home() {
               { label: "Trees", value: "2–3 columnar Lilly Pilly 'Slim' from lawn behind retaining wall" },
               { label: "Entry Pots", value: "2× large black ceramic pots with Agave, flanking front door" },
               { label: "Budget", value: "$20,000: roof repaint, colour uplift and front landscaping" },
+            ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Entrance */}
+      <section id="entrance" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="Entrance" title="Entrance" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <ImageSlider
+                slides={[{ src: publicAsset("images/before_entrance.webp"), alt: "Entrance before" }]}
+                label="Before"
+                frameClassName="aspect-[3/4] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
+            </FadeUp>
+            <FadeUp delay={200}>
+              <ImageSlider
+                slides={[{ src: publicAsset("images/after_entrance.webp"), alt: "Entrance after" }]}
+                label="After"
+                frameClassName="aspect-[3/4] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After</p>
+            </FadeUp>
+          </div>
+          <FadeUp delay={100}>
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              The entrance gets a simple, low-cost refresh to tie in with the new street look. We're laying the same Nimbus crazy pave from the pool area straight over the old orange tiles and the step, so the front and back of the house feel connected. The rest is a good clean up: the old awning comes off, the screen door and side slats go charcoal, the ceiling is painted Natural White, and new black lighting goes in by the door and overhead. A couple of black pots and fresh white pebbles finish it off. The red brick stays, and the driveway concrete runs right up to the new step.
+            </p>
+            <BudgetIndicator amount="$3,000" status="green" className="mt-4 mb-10" />
+          </FadeUp>
+          <FadeUp delay={300}>
+            <SpecTable items={[
+              { label: "Budget", value: "$3,000: mainly the crazy pave and clean up" },
             ]} />
           </FadeUp>
         </div>
@@ -732,20 +769,50 @@ export default function Home() {
       <section id="master" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
           <SectionHeader label="08 — Master Bedroom" title="Master Bedroom" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <BeforeAfter before={ASSETS.before_master} after={ASSETS.master_bedroom} />
-              <div className="mt-6">
-                <BeforeAfter before={ASSETS.master_wardrobe_before} after={ASSETS.master_walkin_after} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100} className="space-y-6">
+              <div>
+                <ImageSlider
+                  slides={[{ src: ASSETS.before_master, alt: "Master bedroom before" }]}
+                  label="Before"
+                  frameClassName="h-72 md:h-[480px] w-full"
+                />
+                <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
+              </div>
+              <div>
+                <ImageSlider
+                  slides={[{ src: ASSETS.master_wardrobe_before, alt: "Walk-in wardrobe before" }]}
+                  label="Before"
+                  frameClassName="h-72 md:h-[480px] w-full"
+                />
+                <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
               </div>
             </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
-              </p>
-              <BudgetIndicator amount="$6,000" status="green" className="mt-4" />
+            <FadeUp delay={200} className="space-y-6">
+              <div>
+                <ImageSlider
+                  slides={[{ src: ASSETS.master_bedroom, alt: "Master bedroom after" }]}
+                  label="After"
+                  frameClassName="h-72 md:h-[480px] w-full"
+                />
+                <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After</p>
+              </div>
+              <div>
+                <ImageSlider
+                  slides={[{ src: ASSETS.master_walkin_after, alt: "Walk-in wardrobe after" }]}
+                  label="After"
+                  frameClassName="h-72 md:h-[480px] w-full"
+                />
+                <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After</p>
+              </div>
             </FadeUp>
           </div>
+          <FadeUp delay={100} className="mb-12">
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
+            </p>
+            <BudgetIndicator amount="$6,000" status="green" className="mt-4" />
+          </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
               { label: "Walls", value: "Dulux Natural White — no feature wall" },

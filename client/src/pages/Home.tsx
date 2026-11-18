@@ -445,19 +445,32 @@ export default function Home() {
       <section id="exterior" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
           <SectionHeader label="01 — Exterior" title="Street Presence" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <BeforeAfter before={ASSETS.before_facade} after={ASSETS.front_facade} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <ImageSlider
+                slides={[{ src: ASSETS.before_facade, alt: "Street front before" }]}
+                label="Before"
+                frameClassName="h-72 md:h-[480px] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
             </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <p className="text-base leading-relaxed mb-6" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The existing red brick is retained as the hero material — warm, textural, and distinctive. Everything around it is resolved in a unified charcoal palette: a Monument roof, charcoal panel-lift garage door, charcoal rendered retaining wall, and charcoal fascia and window frames. The result is a deliberate, contemporary facade that photographs exceptionally well for rental listings.
-              </p>
+            <FadeUp delay={200}>
+              <ImageSlider
+                slides={[{ src: ASSETS.front_facade, alt: "Street front after" }]}
+                label="After, locked design"
+                frameClassName="h-72 md:h-[480px] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After, locked design</p>
             </FadeUp>
           </div>
+          <FadeUp delay={100}>
+            <p className="text-base leading-relaxed max-w-3xl mb-10" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              This is an older brick home getting a modern makeover. We're keeping the red brick rather than rendering over it, and lifting the whole front with colour instead. The roof is being repainted in Monument, with charcoal on the garage door, fascia, window frames and the rendered retaining wall. Together with the significant landscaping we've already done, it gives the house a fresh, contemporary look while keeping the warmth and character of the original brick.
+            </p>
+          </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Roof", value: "Professional repaint, colour leaning Monument — not started" },
+              { label: "Roof", value: "Being repainted in Monument" },
               { label: "Garage Door", value: "Charcoal panel-lift, horizontal ribbing" },
               { label: "Retaining Wall", value: "Smooth charcoal render over existing timber sleepers" },
               { label: "Fascia & Eaves", value: "Charcoal — all trim unified" },

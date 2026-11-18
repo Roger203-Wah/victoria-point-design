@@ -951,10 +951,7 @@ export default function Home() {
               <span className="section-label mb-4 block">Project Approach</span>
               <h2 className="text-5xl md:text-6xl leading-none mb-8" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>How We're Doing This</h2>
               <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The renovation is structured as a series of independent mini-projects rather than one continuous build. Each phase has its own scope, budget, and trades — meaning work can progress without everything depending on everything else, and disruption to daily life stays manageable. The house is occupied throughout, with a business running from home, so the sequencing is deliberate.
-              </p>
-              <p className="text-base leading-relaxed max-w-3xl mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The guiding principle: <strong>outdoor work first, then kitchen, then interior rooms, then bathrooms last</strong>. Bathrooms are the later stage, around February–April 2027, with temporary facilities. There is no interior demolition before the 14–15 Nov visit. Demo on each phase is handled in-house. Trades are brought in for specialist work only.
+                The renovation runs as a series of smaller projects, one flowing into the next, rather than one big build. We live in the house and run a business from home the whole way through, so the order is deliberate. Outdoor work comes first, then the kitchen and laundry, then the rooms one by one, and the bathrooms last. Demo is done in-house, and trades come in only for specialist work.
               </p>
             </div>
           </FadeUp>
@@ -962,63 +959,57 @@ export default function Home() {
           {[
             {
               num: "01",
-              title: "Pool Coping",
-              timing: "Done — paid",
-              body: "Done and paid. Project Dream Pools, $11,539.60. The confirmed quote was $10,939 inc. GST. Coping is not sealed yet; the plan is to have it sealed with the crazy paving after the grout cures."
+              title: "Pool area",
+              timing: "Crazy pave next",
+              body: "Coping, slab, fence and landscaping are done, and the bench is nearly finished. Next is the Nimbus crazy pave, which starts around December and gets worked through slowly into the new year."
             },
             {
               num: "02",
-              title: "Pool Slab + Bench",
-              timing: "Poured 3–4 Oct 2026 — bench in progress",
-              body: "Composite decking is not the plan. The pool surround, pool-shed base, and side access were poured on 3–4 Oct 2026. Paid so far $4,133.54, including $1,350 cash to the pump crew. The main concrete supply and labour bill (about $8,500) is still outstanding. The pool bench is mostly built. The bottom paling row stays off until after tiling, and the decking row closest to the fence still needs ripping to fit."
-            },
-            {
-              num: "Side Project",
-              title: "Side Access",
-              timing: "Rolling — slab poured, shed anchored",
-              body: "Rolling, and underway. The 3–4 Oct pour included the side access slab, 16.1 m² (2.2 × 7.3). The Absco Space Saver shed (WG30152SK, Woodland Grey) was erected in October and anchored on the weekend of 7–8 Nov. Garden and path finishing continue with no hard deadline."
+              title: "Side access",
+              timing: "Largely done",
+              body: "This is largely done: the slab is poured and the shed is up and anchored. The last bits wait until after the bathrooms, because that work needs the access."
             },
             {
               num: "03",
-              title: "Crazy Paving",
-              timing: "Not started — no firm date",
-              body: "Not started, and there is no firm laying date. Chosen system: Pool Tile Company Nimbus granite crazy pave, flamed finish, with Dunlop 20 kg Rubber Modified tile adhesive from Bunnings. About 40 m² for the pool surround. The patio is deferred. Leftover scrap still needs measuring before any extra stone is ordered."
+              title: "Kitchen",
+              timing: "Before Christmas",
+              body: "The IKEA kitchen arrived on 17 Nov. The cabinets are built in the garage, then the old kitchen comes out and the new one goes in before Christmas."
             },
             {
               num: "04",
-              title: "Pool Fence + Landscaping",
-              timing: "Fence in — sunshade going back up",
-              body: "The Colorbond fence and gate are in, paid $6,940.09. Landscaping is paid ($4,581.89) and the garden bed and palm removal are paid ($3,390.00). The back garden was set up by 8 Nov. The sunshade is going back up; the hardware was bought on 12 Nov."
+              title: "Laundry",
+              timing: "Before Christmas",
+              body: "This happens at the same time as the kitchen, before Christmas, with an oak floor and white subway tile splashback."
             },
             {
               num: "05",
-              title: "Kitchen",
-              timing: "Paid — delivery 17 Nov 2026",
-              body: "IKEA kitchen and laundry order 234146073 is paid ($11,666.44, including delivery) and arrives 17 Nov 2026. After delivery the priority is assembling cabinet shells in the garage. Demolition and installation are not booked, and there is no interior demo before the 14–15 Nov visit. Splashbacks (2× LYSEKIL, $134.30) arrive the same day. Benchtops and some panels are still unpaid, about $1,083 at full price."
+              title: "Entrance",
+              timing: "Anytime",
+              body: "A quick, low-cost refresh that can happen whenever there's a gap."
             },
             {
               num: "06",
-              title: "Bedroom 4 + Plastering",
+              title: "Bedroom 4 and plastering",
               timing: "After the kitchen",
-              body: "Not started. The office is Bedroom 4. Bedroom 4 becomes the second office and character room. A new wall, doorway, and door still create Bedroom 4, and the Bedroom 3 door opening is filled. DIY framing with chippy mates, then a plasterer for sheeting, setting, and whole-house ceiling touch-ups. This waits until after the kitchen."
+              body: "The new wall and doorway go in, then the plasterer sheets and sets them and touches up ceilings through the house."
             },
             {
               num: "07",
-              title: "Lounge + Bedrooms Interior",
-              timing: "After the kitchen",
-              body: "Done room by room. Sequence within each room: plasterboard repairs → paint (Dulux Natural White throughout) → replace architraves → replace ceiling fans (matte black DC) → update cupboard doors (DIY). Room order: Lounge first, then Master (temporarily move into Bedroom 3), then Bedrooms 3 & 4 simultaneously (back in master), then Bedroom 2 last (the office is Bedroom 4). Carpet ordered in full at the start — single dye lot, held by supplier, installed in two visits. LVP flooring (kitchen, hallway, entry) laid last: existing vinyl stripped DIY, supply + install with a mate."
+              title: "Lounge and bedrooms",
+              timing: "Room by room",
+              body: "These are done room by room: repairs, Natural White paint, new architraves and black fans. Carpet goes in, with oak flooring laid at the end."
             },
             {
               num: "08",
-              title: "Bathrooms + Laundry",
-              timing: "Feb–Apr 2027",
-              body: "Later stage, after the kitchen, with temporary facilities. The bathroom package went to Jason (plumber) and John (builder) on 30 Sep. ShawCon Projects builds both bathrooms — quote $45,300 inc. GST. Plumbing quote $7,485 inc. GST. Laundry floor is oak to match the rest of the house; splashback is white subway tile. Laundry cabinetry is already on the paid IKEA order."
+              title: "Bathrooms",
+              timing: "Later stage",
+              body: "ShawCon builds both bathrooms in the later stage, with temporary facilities while that's happening. The side access gets finished after this."
             },
             {
               num: "09",
               title: "Exterior",
-              timing: "Rolling throughout 2026",
-              body: "The front retaining wall is done. Roof paint has not started: allowance $3–6k, not on the critical path, colour leaning Monument. The lean is Perfect Glaze Option 3 ($6,300 inc. GST), with Colour Seal as the fallback. Gutters are Jeremy's plumber, not part of the roof job, and a rusted section still needs a quote. Other exterior painting and the front garden are still DIY. The driveway stays as-is."
+              timing: "Ongoing",
+              body: "This runs alongside everything else: the Monument roof paint, gutters with our plumber, and the front garden."
             },
           ].map((phase, i) => (
             <FadeUp key={i} delay={i * 60}>
@@ -1046,7 +1037,7 @@ export default function Home() {
             <span className="section-label mb-4 block">Project Budget</span>
             <h2 className="text-5xl md:text-6xl leading-none mb-4" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)" }}>Budget Overview</h2>
             <p className="text-base leading-relaxed max-w-3xl mb-12" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Estimates include supply and labour where applicable. DIY labour is not costed. Bathroom and plumbing figures are based on confirmed quotes. Pool coping based on confirmed quote. All other figures are provisional allowances pending formal quotes.
+              Each row matches a section above and uses its budget. Estimates include supply and labour where applicable. DIY labour is not costed. Pool coping is a confirmed quote. All other figures are allowances.
             </p>
           </FadeUp>
           <FadeUp delay={100}>
@@ -1054,24 +1045,28 @@ export default function Home() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Phase</th>
+                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Section</th>
                     <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Scope</th>
                     <th className="py-3 text-left pr-4 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Approach</th>
-                    <th className="py-3 text-right" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Estimate</th>
+                    <th className="py-3 text-right" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Budget</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { phase: "1 — Pool Coping", scope: "Remove & replace 27lm stone coping + hide slimmer lid", approach: "Trade", estimate: "$10,939", confirmed: true },
-                    { phase: "2 — Pool Slab + Bench", scope: "Pool surround slab and timber bench. Main concrete bill still outstanding", approach: "Trade + DIY", estimate: "$8,000 – $12,000", confirmed: false },
-                    { phase: "Side — Side Access", scope: "Side access slab poured, Absco shed anchored, garden still rolling", approach: "DIY + Trade (slab)", estimate: "$5,000", confirmed: false },
-                    { phase: "3 — Crazy Paving", scope: "About 40 m² Nimbus granite crazy pave. Not started", approach: "DIY", estimate: "$4,800 – $5,500", confirmed: false },
-                    { phase: "4 — Pool Fence + Landscaping", scope: "Colorbond fence and gate in. Landscaping paid. Sunshade going back up", approach: "DIY", estimate: "$2,500 – $4,000", confirmed: false },
-                    { phase: "5 — Kitchen", scope: "IKEA supply + installer + electrical + plumbing", approach: "Trade + DIY demo", estimate: "$17,500 – $20,000", confirmed: false },
-                    { phase: "6 — Bedroom 4 + Plastering", scope: "Framing, doors, plaster, ceiling touch-ups whole house", approach: "DIY + Trade", estimate: "$3,000 – $5,000", confirmed: false },
-                    { phase: "7 — Lounge + Bedrooms", scope: "Carpet, paint, fans, architraves, cupboard doors, LVP flooring", approach: "DIY + Trade (carpet, LVP supply)", estimate: "$11,100 – $16,100", confirmed: false },
-                    { phase: "8 — Bathrooms + Laundry", scope: "Full build — both bathrooms + laundry", approach: "Builder + Plumber", estimate: "$53,000 – $57,000", confirmed: true },
-                    { phase: "9 — Exterior", scope: "Retaining wall done. Roof paint not started. Driveway stays as-is", approach: "Trade + DIY", estimate: "$6,000 – $10,000", confirmed: false },
+                    { phase: "Street Presence", scope: "Retaining wall done, Monument roof paint, charcoal trim, front lawn and planting", approach: "Trade + DIY", estimate: "$20,000", confirmed: false },
+                    { phase: "Entrance", scope: "Crazy pave over old tiles, awning off, paint, lighting, pots", approach: "DIY", estimate: "$3,000", confirmed: false },
+                    { phase: "Pool & Outdoor Living", scope: "Coping (done), slab, bench, crazy pave, fence, landscaping", approach: "Trade + DIY", estimate: "$40,000", confirmed: true },
+                    { phase: "Back Covered Patio", scope: "Paint, lighting and clean up", approach: "DIY", estimate: "$3,000", confirmed: false },
+                    { phase: "Back Yard Area", scope: "Lawn, jasmine fence, path to side access", approach: "DIY", estimate: "$5,000", confirmed: false },
+                    { phase: "Side Passage", scope: "Slab poured, shed anchored, finished after the bathrooms", approach: "DIY + Trade (slab)", estimate: "$5,000", confirmed: false },
+                    { phase: "Kitchen", scope: "IKEA kitchen (paid), install, electrical, plumbing", approach: "Trade + DIY", estimate: "$17,500", confirmed: false },
+                    { phase: "Bathrooms", scope: "Full build of both bathrooms", approach: "Builder + Plumber", estimate: "$60,000", confirmed: false },
+                    { phase: "Laundry", scope: "Oak floor, subway tile, plumbing, electrical", approach: "Trade + DIY", estimate: "$6,000", confirmed: false },
+                    { phase: "Living Room", scope: "Carpet and small upgrades", approach: "DIY + Trade", estimate: "$5,000", confirmed: false },
+                    { phase: "Master Bedroom", scope: "Walk-in wardrobe fit-out", approach: "DIY + Trade", estimate: "$6,000", confirmed: false },
+                    { phase: "Bedrooms 2 & 3", scope: "New walls, electrical, built-in wardrobes", approach: "DIY + Trade", estimate: "$8,000", confirmed: false },
+                    { phase: "Bedroom 4 / Office", scope: "Built-in wardrobe, slat panels, shelving", approach: "DIY + Trade", estimate: "$8,000", confirmed: false },
+                    { phase: "Plastering", scope: "Sheeting, setting and ceiling touch-ups through the whole house", approach: "Trade", estimate: "$3,000 – $5,000", confirmed: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
                       <td className="py-3 pr-4 whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>
@@ -1088,7 +1083,7 @@ export default function Home() {
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
                     <td className="py-4 pr-4 hidden md:table-cell"></td>
-                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$121,500 – $144,800</td>
+                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$189,500 – $191,500</td>
                   </tr>
                 </tbody>
               </table>
@@ -1174,9 +1169,9 @@ export default function Home() {
                     { scenario: "May 2025 (at purchase / valuation)", value: "$1,180,000", basis: "Independent valuation, 3br / 1ba / 1,002m²", highlight: false },
                     { scenario: "Current (pre-reno, Feb 2026)", value: "~$1,265,000", basis: "$1.18M + 9.5% annual growth pro-rated 9 months", highlight: false },
                     { scenario: "Post-renovation (4br / 2ba / pool)", value: "$1,380,000 – $1,500,000", basis: "4br median $1.05M + 1,002m² block premium + pool + granny flat + full reno", highlight: true },
-                    { scenario: "Renovation cost", value: "$118,000 – $142,000", basis: "Project budget", highlight: false },
-                    { scenario: "Net uplift (low case)", value: "~$0 – $15,000", basis: "Breaks even on paper; real return is rental uplift + vacancy risk removal", highlight: false },
-                    { scenario: "Net uplift (high case)", value: "~$93,000", basis: "$1.50M – $1.265M – $142K", highlight: false },
+                    { scenario: "Renovation cost", value: "$189,500 – $191,500", basis: "Project budget", highlight: false },
+                    { scenario: "Net uplift (low case)", value: "~-$76,500", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
+                    { scenario: "Net uplift (high case)", value: "~$45,500", basis: "$1.50M – $1.265M – $189.5K", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
                       <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.scenario}</td>
@@ -1194,7 +1189,7 @@ export default function Home() {
             <div className="mt-16 mb-4">
               <span className="section-label block mb-3">Rental Projection</span>
               <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 10–15 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
+                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 20 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
               </p>
             </div>
             <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>

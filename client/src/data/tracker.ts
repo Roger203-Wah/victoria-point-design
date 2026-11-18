@@ -6,7 +6,7 @@
 // Slab/concrete within Outdoor is $12,633.54 across 15 lines.
 // Phase ids are stable. Quotes and allowances stay on the phase budgets.
 
-export const LAST_UPDATED = "13 Nov 2026";
+export const LAST_UPDATED = "18 Nov 2026";
 
 export type Status = "not-started" | "in-progress" | "complete" | "on-hold";
 
@@ -153,9 +153,9 @@ export const PHASES: Phase[] = [
     budgetLow: 3000,
     budgetHigh: 5000,
     notes:
-      "Not started. The office stays in Bedroom 2 while outdoor work is the focus, and Bedroom 4 becomes the second office and character room. A new wall, doorway, and door still create Bedroom 4, with the Bedroom 3 door opening filled. Framing is DIY with chippy mates, then a plasterer for sheeting, setting, and whole-house ceiling touch-ups. This waits until after the kitchen.",
+      "Not started. The office is Bedroom 4, and Bedroom 4 becomes the second office and character room. A new wall, doorway, and door still create Bedroom 4, with the Bedroom 3 door opening filled. Framing is DIY with chippy mates, then a plasterer for sheeting, setting, and whole-house ceiling touch-ups. This waits until after the kitchen.",
     milestones: [
-      "Office stays in Bedroom 2 for now",
+      "The office is Bedroom 4",
       "Bedroom 4 becomes the second office / character room",
       "Framing and plaster after the kitchen",
     ],
@@ -170,7 +170,7 @@ export const PHASES: Phase[] = [
     budgetLow: 11100,
     budgetHigh: 16100,
     notes:
-      "The room-by-room interior has not started. Skirtings, architraves, paint, and carpet follow the kitchen, and rooms on the bathroom path wait until after the bathrooms. The office stays in Bedroom 2. Spend already on this phase is earlier whole-house work: the 2023 market-ready refresh, 2023 painting, electrical, and air conditioning. It is not the forward interior fit-out.",
+      "The room-by-room interior has not started. Skirtings, architraves, paint, and carpet follow the kitchen, and rooms on the bathroom path wait until after the bathrooms. The office is Bedroom 4. Spend already on this phase is earlier whole-house work: the 2023 market-ready refresh, 2023 painting, electrical, and air conditioning. It is not the forward interior fit-out.",
     milestones: [
       "Interior fit-out waits until after the kitchen",
       "Rooms on the bathroom path wait until after the bathrooms",

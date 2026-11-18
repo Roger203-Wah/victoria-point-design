@@ -885,7 +885,7 @@ export default function Home() {
                 <p className="text-base leading-relaxed mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                   Bedroom 3 doesn't exist yet. It's being created as part of the renovation and will match Bedroom 2 exactly. Both rooms are about 3 x 3 m, but Bedroom 3 gives up a 1 x 1 m corner. That space becomes a new entry for Bedroom 2, because its current door is being filled in to make room for Bedroom 3.
                 </p>
-                <BudgetIndicator amount="$5,000" status="green" className="mt-4" />
+                <BudgetIndicator amount="$8,000" status="green" className="mt-4" />
               </div>
             </FadeUp>
           </div>
@@ -899,7 +899,7 @@ export default function Home() {
               { label: "Ceiling Fan", value: "Matte black DC fan" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
-              { label: "Budget", value: "$5,000: new walls to build Bedroom 3, electrical, and new built-in wardrobes in both rooms" },
+              { label: "Budget", value: "$8,000: new walls to build Bedroom 3, electrical, and new built-in wardrobes in both rooms" },
             ]} />
           </FadeUp>
         </div>
@@ -928,7 +928,7 @@ export default function Home() {
                 We're deliberately making this a highly custom room, which makes it slightly less suited to renting or investment. The wardrobe is built so it can still work as a normal bedroom wardrobe, though. It would just need doors added later and probably a repaint.
               </p>
             </div>
-            <BudgetIndicator amount="$8,000" status="green" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$3,500" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -937,7 +937,7 @@ export default function Home() {
               { label: "Feature wall", value: "Walnut slat panels with brass sconces and floating shelves" },
               { label: "Carpet", value: "Warm mid-grey, same as master bedroom" },
               { label: "Fan", value: "Matt black" },
-              { label: "Budget", value: "$8,000: covers the custom built-in wardrobe, slat panels and shelving" },
+              { label: "Budget", value: "$3,500: covers the custom built-in wardrobe, slat panels and shelving" },
             ]} />
           </FadeUp>
         </div>
@@ -1064,9 +1064,10 @@ export default function Home() {
                     { phase: "Bathrooms", scope: "Full build of both bathrooms", approach: "Builder + Plumber", estimate: "$60,000", confirmed: false },
                     { phase: "Living Room", scope: "Carpet and small upgrades", approach: "DIY + Trade", estimate: "$3,000", confirmed: false },
                     { phase: "Master Bedroom", scope: "Walk-in wardrobe fit-out", approach: "DIY + Trade", estimate: "$4,000", confirmed: false },
-                    { phase: "Bedrooms 2 & 3", scope: "New walls, electrical, built-in wardrobes", approach: "DIY + Trade", estimate: "$5,000", confirmed: false },
-                    { phase: "Bedroom 4 / Office", scope: "Built-in wardrobe, slat panels, shelving", approach: "DIY + Trade", estimate: "$8,000", confirmed: false },
-                    { phase: "General", scope: "Sheeting, setting and ceiling touch-ups through the whole house", approach: "Trade", estimate: "$5,000", confirmed: false },
+                    { phase: "Bedroom 2", scope: "Paint, trims, carpet and a basic wardrobe update", approach: "DIY", estimate: "$2,500", confirmed: false },
+                    { phase: "Bedroom 3", scope: "Paint, trims, carpet and wardrobe, plus a new wall and door entrance", approach: "DIY + Trade", estimate: "$5,500", confirmed: false },
+                    { phase: "Bedroom 4 / Office", scope: "Paint, trims, carpet and a custom cupboard", approach: "DIY + Trade", estimate: "$3,500", confirmed: false },
+                    { phase: "General", scope: "Plastering, patching and small extras through the house", approach: "DIY", estimate: "$5,000", confirmed: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
                       <td className="py-3 pr-4 whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>
@@ -1083,7 +1084,7 @@ export default function Home() {
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
                     <td className="py-4 pr-4 hidden md:table-cell"></td>
-                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$171,100</td>
+                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$169,600</td>
                   </tr>
                 </tbody>
               </table>
@@ -1169,9 +1170,9 @@ export default function Home() {
                     { scenario: "May 2025 (at purchase / valuation)", value: "$1,180,000", basis: "Independent valuation, 3br / 1ba / 1,002m²", highlight: false },
                     { scenario: "Current (pre-reno, Feb 2026)", value: "~$1,265,000", basis: "$1.18M + 9.5% annual growth pro-rated 9 months", highlight: false },
                     { scenario: "Post-renovation (4br / 2ba / pool)", value: "$1,380,000 – $1,500,000", basis: "4br median $1.05M + 1,002m² block premium + pool + granny flat + full reno", highlight: true },
-                    { scenario: "Renovation cost", value: "$171,100", basis: "Project budget", highlight: false },
-                    { scenario: "Net uplift (low case)", value: "~-$56,100", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
-                    { scenario: "Net uplift (high case)", value: "~$63,900", basis: "$1.50M – $1.265M – $171.1K", highlight: false },
+                    { scenario: "Renovation cost", value: "$169,600", basis: "Project budget", highlight: false },
+                    { scenario: "Net uplift (low case)", value: "~-$54,600", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
+                    { scenario: "Net uplift (high case)", value: "~$65,400", basis: "$1.50M – $1.265M – $169.6K", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
                       <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.scenario}</td>

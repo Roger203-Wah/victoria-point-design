@@ -216,6 +216,23 @@ function BudgetIndicator({
   );
 }
 
+function ProgressNote({
+  label = "Progress (18 Nov 2026):",
+  children,
+}: {
+  label?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="mt-4 max-w-3xl" style={{ background: "oklch(0.945 0.01 75)", borderRadius: "2px", padding: "12px 14px" }}>
+      <p className="text-sm leading-relaxed" style={{ color: "oklch(0.32 0.02 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+        <strong style={{ fontSize: "0.68rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>{label}</strong>{" "}
+        {children}
+      </p>
+    </div>
+  );
+}
+
 // Spec table
 function SpecTable({ items }: { items: { label: string; value: string }[] }) {
   return (
@@ -273,6 +290,7 @@ export default function Home() {
     { id: "entrance", label: "Entrance" },
     { id: "pool", label: "Pool & Outdoor" },
     { id: "back-patio", label: "Back Covered Patio" },
+    { id: "back-yard", label: "Back Yard Area" },
     { id: "side-access", label: "Side Passage" },
     { id: "kitchen", label: "Kitchen" },
     { id: "bathrooms", label: "Bathrooms" },
@@ -470,8 +488,11 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              This is an older brick home getting a modern makeover. The biggest change is the landscaping. We built a retaining wall just below the maximum allowed height, which turned the whole sloped, unusable front into a flat, defined lawn that frames the house. We're keeping the red brick rather than rendering over it, and lifting the whole front with colour instead. The roof is being repainted in Monument, with charcoal on the garage door, fascia, window frames and the rendered retaining wall. The result is a fresh, contemporary look that keeps the warmth and character of the original brick.
+              This is an older brick home getting a modern makeover. The biggest change is the landscaping. We built a retaining wall just below the maximum allowed height, which turned the whole sloped, unusable front into a flat, defined lawn that frames the house. We're keeping the red brick rather than rendering over it, and lifting the whole front with colour instead. The roof is being repainted in Monument, with charcoal on the garage door, fascia, window frames and the rendered retaining wall.               The result is a fresh, contemporary look that keeps the warmth and character of the original brick.
             </p>
+            <ProgressNote>
+              Most of the major landscaping is done. Still to go is the clean up, planting the lilly pillies, and painting the roof and restoring the gutters, none of it urgent. The roof is a trade job. Painting the retaining wall, cleaning up the gardens, and later painting the windows, fascia and garage door are all DIY.
+            </ProgressNote>
             <BudgetIndicator amount="$20,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -517,8 +538,11 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The entrance gets a simple, low-cost refresh to tie in with the new street look. We're laying the same Nimbus crazy pave from the pool area straight over the old orange tiles and the step, so the front and back of the house feel connected. The rest is a good clean up: the old awning comes off, the screen door and side slats go charcoal, the ceiling is painted Natural White, and new black lighting goes in by the door and overhead. A couple of black pots and fresh white pebbles finish it off. The red brick stays, and the driveway concrete runs right up to the new step.
+              The entrance gets a simple, low-cost refresh to tie in with the new street look. We're laying the same Nimbus crazy pave from the pool area straight over the old orange tiles and the step, so the front and back of the house feel connected. The rest is a good clean up: the old awning comes off, the screen door and side slats go charcoal, the ceiling is painted Natural White, and new black lighting goes in by the door and overhead. A couple of black pots and fresh white pebbles finish it off.               The red brick stays, and the driveway concrete runs right up to the new step.
             </p>
+            <ProgressNote>
+              No work has started yet, and this is one of the last jobs. The crazy pave gets ordered with the pool tiles, and the prep is the main job. It'll be done after the pool, so likely in 2027. The lights and electrical will be part of the bigger sparky job for the rest of the house. Painting the ceiling is a late DIY job that takes an afternoon, and everything else is just clean up.
+            </ProgressNote>
             <BudgetIndicator amount="$1,500" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -552,9 +576,12 @@ export default function Home() {
                 We needed a retaining wall to hold up the walkway built for the back house. Instead of a plain wall, we built a 20 m bench. It has plumbed drainage, heaps of seating and spots for plants, and it frames the whole space for a real wow factor.
               </p>
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The Nimbus granite crazy pave is the feature, and we invested heavily in it. It set the colour palette for everything else, with Monument fencing, bench and roof keeping a darker backdrop that makes the stone and water stand out. A slatted Monument pool shed screen separates the area and hides storage. It also marks the line between the raised pool area and the existing concrete slab. Sparse star jasmine on wires softens the fences without taking over.
+                The Nimbus granite crazy pave is the feature, and we invested heavily in it. It set the colour palette for everything else, with Monument fencing, bench and roof keeping a darker backdrop that makes the stone and water stand out. A slatted Monument pool shed screen separates the area and hides storage. It also marks the line between the raised pool area and the existing concrete slab.                 Sparse star jasmine on wires softens the fences without taking over.
               </p>
             </div>
+            <ProgressNote>
+              Most of the big work is done, and the tiling is the last major job. The bench needs a bit more building, then sanding and painting along with the fence. The slats are all bought and about half up. After that it's mostly planting the planter boxes and installing the pool fence, which hasn't been bought yet. The wires and climbing jasmine on the fence come last so nothing gets damaged.
+            </ProgressNote>
             <BudgetIndicator amount="$35,000" status="amber" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -601,14 +628,57 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The back covered patio gets a refresh rather than a rebuild. The pool area does the heavy lifting for seating, so this space is about good light and an easy, tidy covered spot to walk into. All the beams, roof, posts, eaves and window trims are painted Monument to match the rest of the outdoors, and modern black downlights and wall lights replace the old fittings. The concrete gets a proper clean, a small strip of grass leads up to the slab, and the black pool fence turns neatly into the brick. We're keeping the wicker sofa, BBQ and dining table, and adding a simple round coffee table and a small rug.
+              The back covered patio gets a refresh rather than a rebuild. The pool area does the heavy lifting for seating, so this space is about good light and an easy, tidy covered spot to walk into. All the beams, roof, posts, eaves and window trims are painted Monument to match the rest of the outdoors, and modern black downlights and wall lights replace the old fittings. The concrete gets a proper clean, a small strip of grass leads up to the slab, and the black pool fence turns neatly into the brick.               We're keeping the wicker sofa, BBQ and dining table, and adding a simple round coffee table and a small rug.
             </p>
+            <ProgressNote>
+              The main job is a clean up render along the pool edge so it isn't exposed. Once the pool fence is in, it's painting everything and the electrical for the lights. The slab needs some work to look nice, but that's still undecided. It won't be tiled, but it may be painted or covered in some way. A sill on the garage door to manage water is also a maybe. Mostly it's just painting.
+            </ProgressNote>
             <BudgetIndicator amount="$1,500" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
               { label: "Budget", value: "$1,500: paint, lighting and clean up. Any work on the slab is still to decide" },
             ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Back Yard Area */}
+      <section id="back-yard" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="Back Yard Area" title="Back Yard Area" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <ImageSlider
+                slides={[
+                  { src: publicAsset("images/backyard_before_1.webp"), alt: "Back yard before, beside the pool slab" },
+                  { src: publicAsset("images/backyard_before_2.webp"), alt: "Back yard before, wide view towards the hedge" },
+                ]}
+                label="Before"
+                frameClassName="aspect-[3/4] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
+            </FadeUp>
+            <FadeUp delay={200}>
+              <ImageSlider
+                slides={[
+                  { src: publicAsset("images/backyard_after_1.webp"), alt: "Back yard after, open lawn beside the pool" },
+                  { src: publicAsset("images/backyard_after_2.webp"), alt: "Back yard after, path along the house to the side access" },
+                ]}
+                label="After"
+                frameClassName="aspect-[3/4] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After</p>
+            </FadeUp>
+          </div>
+          <FadeUp delay={100}>
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              The back yard is turned into one simple, open lawn that sits right beside the new pool area. A black pool fence runs along the real edge of the pool, partly over the grass, with the lawn laid level with the tiles. The Colorbond fence is painted Monument and covered in white star jasmine, with a low Monument edge on the garden bed. The back hedge is trimmed neat, and a narrow gravel and stepping stone path runs along the house to the side access. The old citrus, shrubs and clutter come out, so the space is clean and easy to use.
+            </p>
+            <ProgressNote>
+              This stays as it is for now, because it's where all the waste gets stored during the reno, so there's no point cleaning it up yet. It'll likely be the last thing done.
+            </ProgressNote>
+            <BudgetIndicator amount="$3,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
         </div>
       </section>
@@ -633,9 +703,12 @@ export default function Home() {
                 Making the pool area the hero meant the rest of the yard had to work harder. The side passage runs from the back of the house towards the street, and it was mostly wasted space: a huge, tired garden bed, loose gravel, weeds and bins along a rotten fence. We wanted it to be useful but still a nice place to walk through.
               </p>
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The big garden bed is being turned into a vege and fruit garden that doubles as a clean feature. The rotten fence was replaced, which was a big fix. Near the street gate we put down a concrete slab over a lot of the old gravel, so there's room for a garden shed for extra storage and a practical spot for large items and the bins.
+                The big garden bed is being turned into a vege and fruit garden that doubles as a clean feature. The rotten fence was replaced, which was a big fix. Near the street gate we put down a concrete slab over a lot of the old gravel,                 so there's room for a garden shed for extra storage and a practical spot for large items and the bins.
               </p>
             </div>
+            <ProgressNote>
+              About 90% done. The fence and garden bed still need painting, plus a general clean up and some mulch. The slab gets finished after the bathroom reno. There's nothing major left to spend here, because the slab concrete is covered in the bathrooms budget.
+            </ProgressNote>
             <BudgetIndicator amount="$4,600" status="amber" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -671,8 +744,11 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The kitchen sits right in the middle of the house, so space is tight. The goal was to get as much storage as possible without eating into a dining area that's already small. Instead of leaving the wall outside the kitchen blank, we've added a double bench along it. That gives extra bench and storage space without pushing further into the room. The sage green lower cabinets make the kitchen a feature spot that stands apart from the rest of the house. They still sit comfortably with the clean white uppers and light grey concrete-look benchtop, so nothing clashes. Glass-front uppers on the island side keep it feeling open. Removing the old doorway between kitchen and living makes the whole space flow as one open-plan area.
+              The kitchen sits right in the middle of the house, so space is tight. The goal was to get as much storage as possible without eating into a dining area that's already small. Instead of leaving the wall outside the kitchen blank, we've added a double bench along it. That gives extra bench and storage space without pushing further into the room. The sage green lower cabinets make the kitchen a feature spot that stands apart from the rest of the house. They still sit comfortably with the clean white uppers and light grey concrete-look benchtop, so nothing clashes. Glass-front uppers on the island side keep it feeling open.               Removing the old doorway between kitchen and living makes the whole space flow as one open-plan area.
             </p>
+            <ProgressNote>
+              The kitchen has arrived flat packed, so the carcasses get built first. Then it's a quick demo, the plumber fits off to the plans, and we install. Some sparky work is planned too, but it can probably wait. The splashback won't be fully tiled until everything else is done.
+            </ProgressNote>
             <BudgetIndicator amount="$17,500" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -718,8 +794,11 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Both bathrooms are being fully renovated on a $45,000 budget: John on the carpentry, Jason on the plumbing, plus a tiler, a waterproofer and fittings. Jeremy does the demo and painting. The main bathroom features large format dark concrete tiles, an oak floating vanity with vessel basin, backlit square mirror, and a bath/shower combination. The ensuite connects directly through the walk-in wardrobe from the master bedroom, creating a genuine suite sequence.
+              Both bathrooms are being fully renovated on a $45,000 budget: John on the carpentry, Jason on the plumbing, plus a tiler, a waterproofer and fittings. Jeremy does the demo and painting. The main bathroom features large format dark concrete tiles, an oak floating vanity with vessel basin, backlit square mirror, and a bath/shower combination. The ensuite connects directly through the walk-in wardrobe from the master bedroom,               creating a genuine suite sequence.
             </p>
+            <ProgressNote>
+              Not started yet, and this is the biggest job in the house. John does the first carpentry and framing, then Jason does the plumbing (still being confirmed). After that come the waterproofer, the tiler, the electrical and the new window, then the fittings go in: back-to-wall toilets, vanities, a shower bath and glass panels. The side passage slab gets finished once the bathrooms are done.
+            </ProgressNote>
             <BudgetIndicator amount="$45,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -754,8 +833,11 @@ export default function Home() {
           </div>
           <FadeUp delay={100}>
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The laundry is part of the same IKEA order as the kitchen, with white shaker cabinets and the same concrete-look benchtop. The big idea is to work with the space we already have but give it far more purposeful storage and a proper bench. That means tall storage, upper cabinets beside a wall-mounted dryer, the washer tucked under the bench and an inset sink. New flooring goes down too, so this stops being a pass-through and becomes a genuine mud room and laundry by the back door.
+              The laundry is part of the same IKEA order as the kitchen, with white shaker cabinets and the same concrete-look benchtop. The big idea is to work with the space we already have but give it far more purposeful storage and a proper bench. That means tall storage, upper cabinets beside a wall-mounted dryer, the washer tucked under the bench and an inset sink. New flooring goes down too,               so this stops being a pass-through and becomes a genuine mud room and laundry by the back door.
             </p>
+            <ProgressNote>
+              This gets done at the same time as the kitchen. The cabinets arrived flat packed, so we build the carcasses, do a quick demo, have the plumber fit off to the plans, and install. Some sparky work can probably wait. The oak floors for the kitchen and laundry go down together later, after the install.
+            </ProgressNote>
             <BudgetIndicator amount="$3,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -786,8 +868,11 @@ export default function Home() {
             </FadeUp>
             <FadeUp delay={200} className="lg:col-span-2">
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The lounge is a light touch. New warm mid-grey carpet that runs through to the bedrooms, a fresh coat of Natural White and a few small upgrades. The furniture and styling do the rest.
+                The lounge is a light touch. New warm mid-grey carpet that runs through to the bedrooms, a fresh coat of Natural White and a few small upgrades.                 The furniture and styling do the rest.
               </p>
+              <ProgressNote>
+                Very basic. The carpet goes in at the same time as the other rooms.
+              </ProgressNote>
               <BudgetIndicator amount="$1,000" status="green" className="mt-4" />
             </FadeUp>
           </div>
@@ -851,8 +936,11 @@ export default function Home() {
           </div>
           <FadeUp delay={100} className="mb-12">
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware. The walk-in robe stays open, with one white shelf each side, an LED strip under it, a raised black rail, and low drawers with a bag and jewellery strip on the left.
+              The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware. The walk-in robe stays open, with one white shelf each side, an LED strip under it, a raised black rail, and               low drawers with a bag and jewellery strip on the left.
             </p>
+            <ProgressNote>
+              The room is in good shape and just needs touch ups, new architraves and trims, and paint. The main jobs are the carpet, a new fan and the wardrobe, which I'll design and install myself.
+            </ProgressNote>
             <BudgetIndicator amount="$3,500" status="green" className="mt-4" />
           </FadeUp>
           <FadeUp delay={300}>
@@ -889,8 +977,14 @@ export default function Home() {
                   Bedrooms 2 and 3 share the same layout and design approach — cohesive with the master bedroom but self-contained. The oatmeal linen bedhead and warm mid-grey carpet create a calm, restful palette. Each room gets a basic wardrobe update with matte black handles.
                 </p>
                 <p className="text-base leading-relaxed mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                  Bedroom 3 doesn't exist yet. It's being created as part of the renovation and will match Bedroom 2 exactly. Both rooms are about 3 x 3 m, but Bedroom 3 gives up a 1 x 1 m corner. That space becomes a new entry for Bedroom 2, because its current door is being filled in to make room for Bedroom 3.
+                  Bedroom 3 doesn't exist yet. It's being created as part of the renovation and will match Bedroom 2 exactly. Both rooms are about 3 x 3 m, but Bedroom 3 gives up a 1 x 1 m corner. That space becomes a new entry for Bedroom 2,                   because its current door is being filled in to make room for Bedroom 3.
                 </p>
+                <ProgressNote label="Bedroom 2 progress (18 Nov 2026):">
+                  Not started yet. The walls stay as they are, but the trims and architraves get updated and the old doorway being changed needs plastering. Then it's just sanding, painting and carpet.
+                </ProgressNote>
+                <ProgressNote label="Bedroom 3 progress (18 Nov 2026):">
+                  John will frame the new wall, wardrobe and entrance for this room and Bedroom 2, and fill in the old opening in Bedroom 2. The sparky does the electrical before I insulate, plaster and paint, and then the doors get hung. The room stays empty until the carpets go in, at the same time as the lounge, master and Bedrooms 2 and 4.
+                </ProgressNote>
                 <BudgetIndicator amount="$8,000" status="green" className="mt-4" />
               </div>
             </FadeUp>
@@ -931,9 +1025,12 @@ export default function Home() {
                 Bedroom 4 becomes a proper home office, a moody wood and forest green space built for long days of deep work. The walls, ceiling and trim are all Taubmans Magic Forest, so the room wraps around you. The old open robe becomes a recessed built-in with walnut shelves, a slat panel, a brass hanging rail and green drawers. The wall behind the desk is the video-call backdrop, with walnut slat panels and brass sconces either side of three floating shelves. Warm mid-grey carpet matches the master bedroom, and a matt black fan finishes it off.
               </p>
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                We're deliberately making this a highly custom room, which makes it slightly less suited to renting or investment. The wardrobe is built so it can still work as a normal bedroom wardrobe, though. It would just need doors added later and probably a repaint.
+                We're deliberately making this a highly custom room, which makes it slightly less suited to renting or investment. The wardrobe is built so it can still work as a normal bedroom wardrobe, though.                 It would just need doors added later and probably a repaint.
               </p>
             </div>
+            <ProgressNote>
+              The wardrobe still needs a custom design. I'll order it and install it myself. The plaster stays, but the architraves and trims get updated. Because it's an office, it'll get extra sparky work and new lights. Then it's paint, finishings and carpet.
+            </ProgressNote>
             <BudgetIndicator amount="$3,500" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>

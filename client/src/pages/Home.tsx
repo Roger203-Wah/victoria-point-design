@@ -28,6 +28,8 @@ const ASSETS = {
   // Before photos
   before_facade: publicAsset("images/before_facade.webp"),
   before_master: publicAsset("images/before_master.webp"),
+  master_wardrobe_before: publicAsset("images/master_wardrobe_before_1.webp"),
+  master_walkin_after: publicAsset("images/master_walkin_after.webp"),
   before_kitchen: publicAsset("images/before_kitchen.webp"),
   before_bedroom2: publicAsset("images/before_bedroom2.webp"),
 };
@@ -443,19 +445,36 @@ export default function Home() {
       <section id="exterior" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
           <SectionHeader label="01 — Exterior" title="Street Presence" status="locked" />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
-            <FadeUp delay={100} className="lg:col-span-3">
-              <BeforeAfter before={ASSETS.before_facade} after={ASSETS.front_facade} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <ImageSlider
+                slides={[
+                  { src: publicAsset("images/before_facade_original.webp"), alt: "Street front before landscaping" },
+                  { src: ASSETS.before_facade, alt: "Street front before" },
+                ]}
+                label="Before"
+                frameClassName="h-72 md:h-[480px] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
             </FadeUp>
-            <FadeUp delay={200} className="lg:col-span-2">
-              <p className="text-base leading-relaxed mb-6" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The existing red brick is retained as the hero material — warm, textural, and distinctive. Everything around it is resolved in a unified charcoal palette: a Monument roof, charcoal panel-lift garage door, charcoal rendered retaining wall, and charcoal fascia and window frames. The result is a deliberate, contemporary facade that photographs exceptionally well for rental listings.
-              </p>
+            <FadeUp delay={200}>
+              <ImageSlider
+                slides={[{ src: ASSETS.front_facade, alt: "Street front after" }]}
+                label="After, locked design"
+                frameClassName="h-72 md:h-[480px] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After, locked design</p>
             </FadeUp>
           </div>
+          <FadeUp delay={100}>
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              This is an older brick home getting a modern makeover. The biggest change is the landscaping. We built a retaining wall just below the maximum allowed height, which turned the whole sloped, unusable front into a flat, defined lawn that frames the house. We're keeping the red brick rather than rendering over it, and lifting the whole front with colour instead. The roof is being repainted in Monument, with charcoal on the garage door, fascia, window frames and the rendered retaining wall. The result is a fresh, contemporary look that keeps the warmth and character of the original brick.
+            </p>
+            <BudgetIndicator amount="$20,000" status="green" className="mt-4 mb-10" />
+          </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Roof", value: "Professional repaint, colour leaning Monument — not started" },
+              { label: "Roof", value: "Being repainted in Monument" },
               { label: "Garage Door", value: "Charcoal panel-lift, horizontal ribbing" },
               { label: "Retaining Wall", value: "Smooth charcoal render over existing timber sleepers" },
               { label: "Fascia & Eaves", value: "Charcoal — all trim unified" },
@@ -466,6 +485,7 @@ export default function Home() {
               { label: "Lawn", value: "Sir Walter buffalo — fresh turf, well-edged" },
               { label: "Trees", value: "2–3 columnar Lilly Pilly 'Slim' from lawn behind retaining wall" },
               { label: "Entry Pots", value: "2× large black ceramic pots with Agave, flanking front door" },
+              { label: "Budget", value: "$20,000: roof repaint, colour uplift and front landscaping" },
             ]} />
           </FadeUp>
         </div>
@@ -497,7 +517,7 @@ export default function Home() {
                 The Nimbus granite crazy pave is the feature, and we invested heavily in it. It set the colour palette for everything else, with Monument fencing, bench and roof keeping a darker backdrop that makes the stone and water stand out. A slatted Monument pool shed screen separates the area and hides storage. It also marks the line between the raised pool area and the existing concrete slab. Sparse star jasmine on wires softens the fences without taking over.
               </p>
             </div>
-            <BudgetIndicator amount="$32,400" status="amber" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$40,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -658,7 +678,7 @@ export default function Home() {
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
               The laundry is part of the same IKEA order as the kitchen, with white shaker cabinets and the same concrete-look benchtop. The big idea is to work with the space we already have but give it far more purposeful storage and a proper bench. That means tall storage, upper cabinets beside a wall-mounted dryer, the washer tucked under the bench and an inset sink. New flooring goes down too, so this stops being a pass-through and becomes a genuine mud room and laundry by the back door.
             </p>
-            <BudgetIndicator amount="$4,000" status="green" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$6,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -668,8 +688,8 @@ export default function Home() {
               { label: "Floor", value: "Oak flooring to match the rest of the house" },
               { label: "Dryer", value: "Wall-mounted above bench" },
               { label: "Washing Machine", value: "Under-bench, front-load" },
-              { label: "Sink", value: "Inset laundry tub, right side" },
               { label: "Lighting", value: "Recessed downlights" },
+              { label: "Budget", value: "$6,000: covers flooring, tiles, plumbing and electrical" },
             ]} />
           </FadeUp>
         </div>
@@ -689,6 +709,7 @@ export default function Home() {
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                 The lounge anchors the interior palette. White painted brick feature wall adds texture without colour, the floating oak TV unit grounds the space, and the warm mid-grey carpet flows through to all bedrooms. The matte black DC ceiling fan and recessed downlights replace the dated fitting. No feature wall paint — the design relies on material quality and furniture to create character.
               </p>
+              <BudgetIndicator amount="$5,000" status="green" className="mt-4" />
             </FadeUp>
           </div>
           <FadeUp delay={300}>
@@ -701,6 +722,7 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Curtains", value: "Sheer linen + blockout roller blind" },
               { label: "Coffee Table", value: "Matte black frame, stone or glass top" },
+              { label: "Budget", value: "$5,000: mainly carpet and small upgrades, keeping changes light" },
             ]} />
           </FadeUp>
         </div>
@@ -713,11 +735,15 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
             <FadeUp delay={100} className="lg:col-span-3">
               <BeforeAfter before={ASSETS.before_master} after={ASSETS.master_bedroom} />
+              <div className="mt-6">
+                <BeforeAfter before={ASSETS.master_wardrobe_before} after={ASSETS.master_walkin_after} />
+              </div>
             </FadeUp>
             <FadeUp delay={200} className="lg:col-span-2">
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                 The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
               </p>
+              <BudgetIndicator amount="$6,000" status="green" className="mt-4" />
             </FadeUp>
           </div>
           <FadeUp delay={300}>
@@ -731,6 +757,7 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
               { label: "Dresser", value: "Oak timber with matte black handles and mirror above" },
+              { label: "Budget", value: "$6,000: mainly the new walk-in wardrobe fit-out" },
             ]} />
           </FadeUp>
         </div>
@@ -751,6 +778,10 @@ export default function Home() {
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                   Bedrooms 2 and 3 share the same layout and design approach — cohesive with the master bedroom but self-contained. The oatmeal linen bedhead and warm mid-grey carpet create a calm, restful palette. White sliding robe doors with matte black handles span the full right wall.
                 </p>
+                <p className="text-base leading-relaxed mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+                  Bedroom 3 doesn't exist yet. It's being created as part of the renovation and will match Bedroom 2 exactly. Both rooms are about 3 x 3 m, but Bedroom 3 gives up a 1 x 1 m corner. That space becomes a new entry for Bedroom 2, because its current door is being filled in to make room for Bedroom 3.
+                </p>
+                <BudgetIndicator amount="$8,000" status="green" className="mt-4" />
               </div>
             </FadeUp>
           </div>
@@ -764,6 +795,7 @@ export default function Home() {
               { label: "Ceiling Fan", value: "Matte black DC fan" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
+              { label: "Budget", value: "$8,000: new walls to build Bedroom 3, electrical, and new built-in wardrobes in both rooms" },
             ]} />
           </FadeUp>
         </div>
@@ -792,7 +824,7 @@ export default function Home() {
                 We're deliberately making this a highly custom room, which makes it slightly less suited to renting or investment. The wardrobe is built so it can still work as a normal bedroom wardrobe, though. It would just need doors added later and probably a repaint.
               </p>
             </div>
-            <BudgetIndicator amount="$5,000" status="green" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$8,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -801,6 +833,7 @@ export default function Home() {
               { label: "Feature wall", value: "Walnut slat panels with brass sconces and floating shelves" },
               { label: "Carpet", value: "Warm mid-grey, same as master bedroom" },
               { label: "Fan", value: "Matt black" },
+              { label: "Budget", value: "$8,000: covers the custom built-in wardrobe, slat panels and shelving" },
             ]} />
           </FadeUp>
         </div>

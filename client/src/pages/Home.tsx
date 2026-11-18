@@ -660,7 +660,7 @@ export default function Home() {
             <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
               The laundry is part of the same IKEA order as the kitchen, with white shaker cabinets and the same concrete-look benchtop. The big idea is to work with the space we already have but give it far more purposeful storage and a proper bench. That means tall storage, upper cabinets beside a wall-mounted dryer, the washer tucked under the bench and an inset sink. New flooring goes down too, so this stops being a pass-through and becomes a genuine mud room and laundry by the back door.
             </p>
-            <BudgetIndicator amount="$4,000" status="green" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$6,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -670,8 +670,8 @@ export default function Home() {
               { label: "Floor", value: "Oak flooring to match the rest of the house" },
               { label: "Dryer", value: "Wall-mounted above bench" },
               { label: "Washing Machine", value: "Under-bench, front-load" },
-              { label: "Sink", value: "Inset laundry tub, right side" },
               { label: "Lighting", value: "Recessed downlights" },
+              { label: "Budget", value: "$6,000: covers flooring, tiles, plumbing and electrical" },
             ]} />
           </FadeUp>
         </div>
@@ -691,6 +691,7 @@ export default function Home() {
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                 The lounge anchors the interior palette. White painted brick feature wall adds texture without colour, the floating oak TV unit grounds the space, and the warm mid-grey carpet flows through to all bedrooms. The matte black DC ceiling fan and recessed downlights replace the dated fitting. No feature wall paint — the design relies on material quality and furniture to create character.
               </p>
+              <BudgetIndicator amount="$5,000" status="green" className="mt-4" />
             </FadeUp>
           </div>
           <FadeUp delay={300}>
@@ -703,6 +704,7 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Curtains", value: "Sheer linen + blockout roller blind" },
               { label: "Coffee Table", value: "Matte black frame, stone or glass top" },
+              { label: "Budget", value: "$5,000: mainly carpet and small upgrades, keeping changes light" },
             ]} />
           </FadeUp>
         </div>
@@ -723,6 +725,7 @@ export default function Home() {
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                 The master bedroom is resolved through furniture quality rather than wall treatments. A tall fluted upholstered bedhead in oatmeal linen becomes the visual anchor — sculptural and premium without any paint or wallpaper treatment. The palette flows directly from the lounge: warm mid-grey carpet, oak bedside tables, matte black fan and hardware.
               </p>
+              <BudgetIndicator amount="$6,000" status="green" className="mt-4" />
             </FadeUp>
           </div>
           <FadeUp delay={300}>
@@ -736,6 +739,7 @@ export default function Home() {
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
               { label: "Dresser", value: "Oak timber with matte black handles and mirror above" },
+              { label: "Budget", value: "$6,000: mainly the new walk-in wardrobe fit-out" },
             ]} />
           </FadeUp>
         </div>
@@ -759,6 +763,7 @@ export default function Home() {
                 <p className="text-base leading-relaxed mt-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
                   Bedroom 3 doesn't exist yet. It's being created as part of the renovation and will match Bedroom 2 exactly. Both rooms are about 3 x 3 m, but Bedroom 3 gives up a 1 x 1 m corner. That space becomes a new entry for Bedroom 2, because its current door is being filled in to make room for Bedroom 3.
                 </p>
+                <BudgetIndicator amount="$8,000" status="green" className="mt-4" />
               </div>
             </FadeUp>
           </div>
@@ -772,6 +777,7 @@ export default function Home() {
               { label: "Ceiling Fan", value: "Matte black DC fan" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
+              { label: "Budget", value: "$8,000: new walls to build Bedroom 3, electrical, and new built-in wardrobes in both rooms" },
             ]} />
           </FadeUp>
         </div>
@@ -800,7 +806,7 @@ export default function Home() {
                 We're deliberately making this a highly custom room, which makes it slightly less suited to renting or investment. The wardrobe is built so it can still work as a normal bedroom wardrobe, though. It would just need doors added later and probably a repaint.
               </p>
             </div>
-            <BudgetIndicator amount="$5,000" status="green" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$8,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -809,6 +815,7 @@ export default function Home() {
               { label: "Feature wall", value: "Walnut slat panels with brass sconces and floating shelves" },
               { label: "Carpet", value: "Warm mid-grey, same as master bedroom" },
               { label: "Fan", value: "Matt black" },
+              { label: "Budget", value: "$8,000: covers the custom built-in wardrobe, slat panels and shelving" },
             ]} />
           </FadeUp>
         </div>

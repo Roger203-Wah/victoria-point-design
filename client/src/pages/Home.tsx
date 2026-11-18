@@ -26,9 +26,6 @@ const ASSETS = {
   // Bathrooms (new renders)
   main_bathroom: publicAsset("images/main_bathroom.webp"),
   ensuite: publicAsset("images/ensuite.webp"),
-  // Laundry
-  laundry_white: publicAsset("images/laundry_white.webp"),
-  laundry_oak: publicAsset("images/laundry_oak.webp"),
   // Before photos
   before_facade: publicAsset("images/before_facade.webp"),
   before_master: publicAsset("images/before_master.webp"),
@@ -54,6 +51,14 @@ const SIDE_AFTER_SLIDES: ImageSlide[] = [
   { src: publicAsset("images/side_after_1_passage.webp"), alt: "Side passage after, locked design" },
   { src: publicAsset("images/side_after_2_shed_slab.webp"), alt: "Side passage after: Monument garden bed and full slab from the shed to the house" },
   { src: publicAsset("images/side_after_3_gate_bins.webp"), alt: "Side access after: full slab to the gate, timber fence painted Monument, three bins neatly against the gate" },
+];
+
+const LAUNDRY_BEFORE_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/laundry_before_1.webp"), alt: "Laundry before: dryer on wall, washer and old tub, timber floor" },
+];
+
+const LAUNDRY_AFTER_SLIDES: ImageSlide[] = [
+  { src: publicAsset("images/laundry_after_oak_subway.webp"), alt: "Laundry after: white shaker cabinets, grey concrete-look benchtop, white subway tile splashback, oak floor" },
 ];
 
 const POOL_AFTER_SLIDES: ImageSlide[] = [
@@ -633,30 +638,26 @@ export default function Home() {
           <SectionHeader label="06 — Laundry" title="Laundry" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
-              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.laundry_white} alt="Laundry — white cabinets" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
-              </div>
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Option A — White shaker cabinets</p>
+              <ImageSlider slides={LAUNDRY_BEFORE_SLIDES} label="Before" frameClassName="h-72 md:h-[420px] w-full" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
             </FadeUp>
             <FadeUp delay={200}>
-              <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.laundry_oak} alt="Laundry — oak cabinets" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
-              </div>
-              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Option B — Oak timber cabinets</p>
+              <ImageSlider slides={LAUNDRY_AFTER_SLIDES} label="After — locked design" frameClassName="h-72 md:h-[420px] w-full" />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After — locked design</p>
             </FadeUp>
           </div>
           <FadeUp delay={100}>
-            <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-              Option A is the chosen laundry: white shaker cabinets, ordered with the kitchen. Both options share the same layout, dark concrete tile splashback and floor, wall-mounted dryer, and under-bench washing machine. Option B, warm oak shaker, is the earlier alternative and is not the order. Laundry floor and splashback tiles are meant to match the bathrooms and are not chosen yet.
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              The laundry is part of the same IKEA order as the kitchen, with white shaker cabinets and the same concrete-look benchtop. The big idea is to work with the space we already have but give it far more purposeful storage and a proper bench. That means tall storage, upper cabinets beside a wall-mounted dryer, the washer tucked under the bench and an inset sink. New flooring goes down too, so this stops being a pass-through and becomes a genuine mud room and laundry by the back door.
             </p>
+            <BudgetIndicator amount="$4,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
-              { label: "Option A Cabinets", value: "White shaker — upper and lower" },
-              { label: "Option B Cabinets", value: "Warm oak timber shaker — upper and lower" },
-              { label: "Benchtop", value: "White laminate — both options" },
-              { label: "Splashback", value: "Large format dark concrete tile" },
-              { label: "Floor", value: "Dark concrete tile — matches splashback" },
+              { label: "Cabinets", value: "White shaker" },
+              { label: "Benchtop", value: "Grey concrete-look laminate, same as the kitchen" },
+              { label: "Splashback", value: "White subway tile" },
+              { label: "Floor", value: "Oak flooring to match the rest of the house" },
               { label: "Dryer", value: "Wall-mounted above bench" },
               { label: "Washing Machine", value: "Under-bench, front-load" },
               { label: "Sink", value: "Inset laundry tub, right side" },
@@ -856,7 +857,7 @@ export default function Home() {
               num: "08",
               title: "Bathrooms + Laundry",
               timing: "Feb–Apr 2027",
-              body: "Later stage, after the kitchen, with temporary facilities. The bathroom package went to Jason (plumber) and John (builder) on 30 Sep. ShawCon Projects builds both bathrooms — quote $45,300 inc. GST. Plumbing quote $7,485 inc. GST. Laundry floor and splashback tiles are meant to match the bathrooms and are not chosen yet. Laundry cabinetry is already on the paid IKEA order."
+              body: "Later stage, after the kitchen, with temporary facilities. The bathroom package went to Jason (plumber) and John (builder) on 30 Sep. ShawCon Projects builds both bathrooms — quote $45,300 inc. GST. Plumbing quote $7,485 inc. GST. Laundry floor is oak to match the rest of the house; splashback is white subway tile. Laundry cabinetry is already on the paid IKEA order."
             },
             {
               num: "09",

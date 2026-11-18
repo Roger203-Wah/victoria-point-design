@@ -8,6 +8,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { PhaseStatusList } from "@/components/PhaseStatusList";
 import { ImageSlider, type ImageSlide } from "@/components/ImageSlider";
 
 // Public files keep their names. BASE_URL is "/" locally and the repo path on GitHub Pages.
@@ -1144,54 +1145,7 @@ export default function Home() {
             </p>
           </FadeUp>
           <FadeUp delay={100}>
-            <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
-                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Section</th>
-                    <th className="py-3 text-left pr-4" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Scope</th>
-                    <th className="py-3 text-left pr-4 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Approach</th>
-                    <th className="py-3 text-right" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.72rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>Budget</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { phase: "Street Presence", scope: "Retaining wall done, Monument roof paint, charcoal trim, some electrical, front lawn and planting", approach: "Trade + DIY", estimate: "$20,000", confirmed: false },
-                    { phase: "Entrance", scope: "Crazy pave over old tiles, awning off, paint, lighting, pots", approach: "DIY", estimate: "$1,500", confirmed: false },
-                    { phase: "Pool & Outdoor Living", scope: "Coping and slab done, bench, crazy pave, black pool fence, trees and planting", approach: "Trade + DIY", estimate: "$35,000", confirmed: false },
-                    { phase: "Back Covered Patio", scope: "Paint, lighting and clean up", approach: "DIY", estimate: "$1,500", confirmed: false },
-                    { phase: "Back Yard Area", scope: "Lawn, jasmine fence, path to side access", approach: "DIY", estimate: "$3,000", confirmed: false },
-                    { phase: "Side Passage", scope: "Slab poured, shed anchored, finished after the bathrooms", approach: "DIY + Trade (slab)", estimate: "$4,600", confirmed: false },
-                    { phase: "Kitchen", scope: "IKEA kitchen (paid), install, electrical, plumbing", approach: "Trade + DIY", estimate: "$17,500", confirmed: false },
-                    { phase: "Laundry", scope: "Oak floor, subway tile, plumbing, electrical", approach: "Trade + DIY", estimate: "$3,000", confirmed: false },
-                    { phase: "Bathrooms", scope: "Both bathrooms: carpentry, plumbing, tiling, waterproofing, fittings, plus the last side passage concrete", approach: "Trades + DIY (demo)", estimate: "$45,000", confirmed: false },
-                    { phase: "Living Room", scope: "Carpet and small upgrades", approach: "DIY + Trade", estimate: "$1,000", confirmed: false },
-                    { phase: "Master Bedroom", scope: "Walk-in wardrobe fit-out", approach: "DIY + Trade", estimate: "$3,500", confirmed: false },
-                    { phase: "Bedroom 2", scope: "Paint, trims, carpet and a basic wardrobe update", approach: "DIY", estimate: "$2,500", confirmed: false },
-                    { phase: "Bedroom 3", scope: "Paint, trims, carpet and wardrobe, plus a new wall and door entrance", approach: "DIY + Trade", estimate: "$5,500", confirmed: false },
-                    { phase: "Bedroom 4 / Office", scope: "Paint, trims, carpet and a custom cupboard", approach: "DIY + Trade", estimate: "$3,500", confirmed: false },
-                    { phase: "General", scope: "Plastering, patching and small extras through the house", approach: "DIY", estimate: "$5,000", confirmed: false },
-                  ].map((row, i) => (
-                    <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)" }}>
-                      <td className="py-3 pr-4 whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>
-                        <div className="flex items-center gap-2">
-                          {row.phase}
-                          {row.confirmed && <span style={{ fontSize: "0.6rem", background: "oklch(0.88 0.04 155)", color: "oklch(0.32 0.06 155)", padding: "1px 6px", borderRadius: "100px", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>Quoted</span>}
-                        </div>
-                      </td>
-                      <td className="py-3 pr-4" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.8rem" }}>{row.scope}</td>
-                      <td className="py-3 pr-4 hidden md:table-cell" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.8rem" }}>{row.approach}</td>
-                      <td className="py-3 text-right whitespace-nowrap" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, fontSize: "0.8rem" }}>{row.estimate}</td>
-                    </tr>
-                  ))}
-                  <tr style={{ background: "oklch(0.95 0.008 75)" }}>
-                    <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
-                    <td className="py-4 pr-4 hidden md:table-cell"></td>
-                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$152,100</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <PhaseStatusList showTotal />
           </FadeUp>
         </div>
       </section>

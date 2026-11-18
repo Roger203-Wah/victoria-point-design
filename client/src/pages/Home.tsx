@@ -709,7 +709,7 @@ export default function Home() {
             <ProgressNote>
               About 90% done. The fence and garden bed still need painting, plus a general clean up and some mulch. The slab gets finished after the bathroom reno. There's nothing major left to spend here, because the slab concrete is covered in the bathrooms budget.
             </ProgressNote>
-            <BudgetIndicator amount="$7,500" status="amber" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$4,600" status="amber" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -718,7 +718,7 @@ export default function Home() {
               { label: "Slab and path", value: "Light grey concrete, about 16 m², poured 3 to 4 Oct, runs flush to the house wall towards the street" },
               { label: "Storage", value: "Absco shed on the slab near the gate, plus space for bins and large items" },
               { label: "Lawn", value: "Small patches at the front left and front-right corner" },
-              { label: "Budget", value: "$7,500, including the 30% slab share. The last concrete is in the bathroom budget and gets done after the bathrooms" },
+              { label: "Budget", value: "$4,600. Spend includes the 30% slab share, so it shows over budget. The last concrete is in the bathroom budget and gets done after the bathrooms" },
             ]} />
           </FadeUp>
         </div>
@@ -1161,7 +1161,7 @@ export default function Home() {
                     { phase: "Pool & Outdoor Living", scope: "Coping and slab done, bench, crazy pave, black pool fence, trees and planting", approach: "Trade + DIY", estimate: "$35,000", confirmed: false },
                     { phase: "Back Covered Patio", scope: "Paint, lighting and clean up", approach: "DIY", estimate: "$1,500", confirmed: false },
                     { phase: "Back Yard Area", scope: "Lawn, jasmine fence, path to side access", approach: "DIY", estimate: "$3,000", confirmed: false },
-                    { phase: "Side Passage", scope: "Slab poured, shed anchored, finished after the bathrooms", approach: "DIY + Trade (slab)", estimate: "$7,500", confirmed: false },
+                    { phase: "Side Passage", scope: "Slab poured, shed anchored, finished after the bathrooms", approach: "DIY + Trade (slab)", estimate: "$4,600", confirmed: false },
                     { phase: "Kitchen", scope: "IKEA kitchen (paid), install, electrical, plumbing", approach: "Trade + DIY", estimate: "$17,500", confirmed: false },
                     { phase: "Laundry", scope: "Oak floor, subway tile, plumbing, electrical", approach: "Trade + DIY", estimate: "$3,000", confirmed: false },
                     { phase: "Bathrooms", scope: "Both bathrooms: carpentry, plumbing, tiling, waterproofing, fittings, plus the last side passage concrete", approach: "Trades + DIY (demo)", estimate: "$45,000", confirmed: false },
@@ -1187,7 +1187,7 @@ export default function Home() {
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={2} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>Total Project Estimate</td>
                     <td className="py-4 pr-4 hidden md:table-cell"></td>
-                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$155,000</td>
+                    <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "1rem", fontWeight: 400 }}>$152,100</td>
                   </tr>
                 </tbody>
               </table>
@@ -1273,9 +1273,9 @@ export default function Home() {
                     { scenario: "May 2025 (at purchase / valuation)", value: "$1,180,000", basis: "Independent valuation, 3br / 1ba / 1,002m²", highlight: false },
                     { scenario: "Current (pre-reno, Feb 2026)", value: "~$1,265,000", basis: "$1.18M + 9.5% annual growth pro-rated 9 months", highlight: false },
                     { scenario: "Post-renovation (4br / 2ba / pool)", value: "$1,380,000 – $1,500,000", basis: "4br median $1.05M + 1,002m² block premium + pool + granny flat + full reno", highlight: true },
-                    { scenario: "Renovation cost", value: "$155,000", basis: "Project budget", highlight: false },
-                    { scenario: "Net uplift (low case)", value: "~-$40,000", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
-                    { scenario: "Net uplift (high case)", value: "~$80,000", basis: "$1.50M – $1.265M – $155K", highlight: false },
+                    { scenario: "Renovation cost", value: "$152,100", basis: "Project budget", highlight: false },
+                    { scenario: "Net uplift (low case)", value: "~-$37,100", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
+                    { scenario: "Net uplift (high case)", value: "~$82,900", basis: "$1.50M – $1.265M – $152.1K", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
                       <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.scenario}</td>
@@ -1293,7 +1293,7 @@ export default function Home() {
             <div className="mt-16 mb-4">
               <span className="section-label block mb-3">Rental Projection</span>
               <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 16 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
+                The current 3-bed / 1-bath configuration was renting at $625/week and described as difficult to place. Post-renovation, the property becomes a 4-bed / 2-bath with pool, new kitchen, and modern finishes — a genuinely different product in the rental market. At $800/week, the renovation pays back in rental income alone in approximately 17 years, but the real return is the combination of rental uplift, capital growth, and the removal of vacancy risk.
               </p>
             </div>
             <div className="border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>

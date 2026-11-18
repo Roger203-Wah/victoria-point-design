@@ -4,7 +4,7 @@
 // Rerun: python3 scripts/build-spend-log.py path/to/VicPoint_Spend_Master.xlsx
 // All new spend belongs in that log, including small DIY and Bunnings purchases.
 // Paid spend replaced the retired $15,000 pre-tracker estimate on 13 Nov 2026.
-// Phase budgets match the presentation: 15 rows, total $155,000.
+// Phase budgets match the presentation: 15 rows, total $152,100.
 // Granny-flat lines do not count: five palm and garden-bed lines ($3,390), the Pointform fence ($3,293.30), and the $18.46 premix.
 // Lines dated before 1 Jan 2025 stay in SPEND_LOG on their original phase ids.
 // They do not count in project totals. The tracker shows them under Before this project (pre 2025).
@@ -128,9 +128,9 @@ export const PHASES: Phase[] = [
     status: "in-progress",
     targetStart: "Underway",
     targetEnd: "After the bathrooms",
-    budgetLow: 7500,
-    budgetHigh: 7500,
-    notes: "Slab is poured and the shed is up and anchored. Budget $7,500, which covers the paid work including the 30% slab share. The last concrete sits in the bathroom budget and gets done after the bathrooms.",
+    budgetLow: 4600,
+    budgetHigh: 4600,
+    notes: "Slab is poured and the shed is up and anchored. Budget $4,600. Spend includes the 30% slab share, so it shows over budget. The last concrete sits in the bathroom budget and gets done after the bathrooms.",
     milestones: ["Slab poured", "Shed up and anchored", "Last concrete after the bathrooms"],
   },
   {
@@ -264,7 +264,7 @@ export const PHASES: Phase[] = [
     budgetLow: 0,
     budgetHigh: 0,
     hidden: true,
-    notes: "Paid lines from before this budget. Kept so the spend log still has a home. Not part of the $155,000.",
+    notes: "Paid lines from before this budget. Kept so the spend log still has a home. Not part of the $152,100.",
     milestones: [],
   },
   {
@@ -277,7 +277,7 @@ export const PHASES: Phase[] = [
     budgetLow: 0,
     budgetHigh: 0,
     hidden: true,
-    notes: "Paid lines with no confirmed works phase. Not part of the $155,000.",
+    notes: "Paid lines with no confirmed works phase. Not part of the $152,100.",
     milestones: [],
   },
 ];

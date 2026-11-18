@@ -1802,6 +1802,15 @@ export const SPEND_LOG = [
     receipt: "Pool shed screen",
   },
   {
+    date: "7 Nov 2026",
+    description: "15x Pine primed DAR FJ LOSP H3 42x18 5.4m $403.95; 2x Pine treated F7 66x42 5.4m $119.70; 6x angle bracket 50x50x40x5 HDG $22.50; 15x decking treated pine H3 90x22 4.8m $307.80; 15x paling treated pine 100x16 2.4m $51.75; 1x screws timber C3 8x40 bx500 $32.30 (GST $85.27) (pool bench)",
+    supplier: "Bunnings",
+    amount: 938,
+    phase: "decking",
+    area: "Outdoor",
+    receipt: "Pool bench",
+  },
+  {
     date: "8 Nov 2026",
     description: "Pool shed slats labour (part), work performed 7 Nov 2026",
     supplier: "Zac Knight",

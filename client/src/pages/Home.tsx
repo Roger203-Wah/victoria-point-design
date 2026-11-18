@@ -28,6 +28,8 @@ const ASSETS = {
   // Before photos
   before_facade: publicAsset("images/before_facade.webp"),
   before_master: publicAsset("images/before_master.webp"),
+  master_wardrobe_before: publicAsset("images/master_wardrobe_before_1.webp"),
+  master_walkin_after: publicAsset("images/master_walkin_after.webp"),
   before_kitchen: publicAsset("images/before_kitchen.webp"),
   before_bedroom2: publicAsset("images/before_bedroom2.webp"),
 };
@@ -713,6 +715,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
             <FadeUp delay={100} className="lg:col-span-3">
               <BeforeAfter before={ASSETS.before_master} after={ASSETS.master_bedroom} />
+              <div className="mt-6">
+                <BeforeAfter before={ASSETS.master_wardrobe_before} after={ASSETS.master_walkin_after} />
+              </div>
             </FadeUp>
             <FadeUp delay={200} className="lg:col-span-2">
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>

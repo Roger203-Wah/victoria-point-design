@@ -133,8 +133,18 @@
       "receipt": "Job not coded"
     },
     {
-      "comment": "General/unclear lines noted as the new entrance for 14b. 23 May 2025 $31.58 and 26 May 2025 $40.81 go to granny-flat and are not counted. The retaining-wall line with the same note stays on Street Presence.",
+      "comment": "General/unclear lines noted as the new entrance for 14b. 23 May 2025 $31.58 and 26 May 2025 $40.81 go to granny-flat and are not counted.",
       "match": { "notesContains": "new entrance for 14 b", "usedFor": "General/unclear" },
+      "phase": "granny-flat"
+    },
+    {
+      "comment": "Richmond hot water unit, 20 Jun 2025, $2,000. Jeremy confirmed this is the granny flat, so it is not counted.",
+      "match": { "date": "2025-06-20", "amount": 2000 },
+      "phase": "granny-flat"
+    },
+    {
+      "comment": "Bunnings 12 Jul 2025 $62.66, documented as the granny flat entrance. Not counted.",
+      "match": { "date": "2025-07-12", "amount": 62.66 },
       "phase": "granny-flat"
     },
     {

@@ -127,9 +127,9 @@
       "receipt": "Investigate — counted in the paid total"
     },
     {
-      "comment": "Richmond INV-1182 ($462.25, 29 Nov 2025) counts on General.",
+      "comment": "Richmond INV-1182 ($462.25, 29 Nov 2025) counts on Pool & Outdoor.",
       "match": { "descriptionContains": "INV-1182" },
-      "phase": "general",
+      "phase": "decking",
       "receipt": "Job not coded"
     },
     {
@@ -146,6 +146,36 @@
       "comment": "Bunnings 12 Jul 2025 $62.66, documented as the granny flat entrance. Not counted.",
       "match": { "date": "2025-07-12", "amount": 62.66 },
       "phase": "granny-flat"
+    },
+    {
+      "comment": "INV-0463 SEQ AC Power, 8 Feb 2025, $3,663. Split 50/50: $1,831.50 master and $1,831.50 bedroom 4 / office.",
+      "match": { "date": "2025-02-08", "amount": 3663, "descriptionContains": "INV-0463" },
+      "replaceWith": [
+        {
+          "description": "INV-0463 Stripe receipt #1304-8440 (Amex Apple Pay; Amex narr INVOICE2GO REDBANK PLAINS mistagged Accommodation) (master share)",
+          "amount": 1831.5,
+          "phase": "master",
+          "area": "Whole-house",
+          "receipt": "Air conditioning"
+        },
+        {
+          "description": "INV-0463 Stripe receipt #1304-8440 (Amex Apple Pay; Amex narr INVOICE2GO REDBANK PLAINS mistagged Accommodation) (office share)",
+          "amount": 1831.5,
+          "phase": "bedroom4",
+          "area": "Whole-house",
+          "receipt": "Air conditioning"
+        }
+      ]
+    },
+    {
+      "comment": "INV-0697 SEQ AC Power Daikin 2.5kW, 14 Nov 2025, $1,900. Bedroom 2.",
+      "match": { "date": "2025-11-14", "amount": 1900, "descriptionContains": "INV-0697" },
+      "phase": "bedroom-2"
+    },
+    {
+      "comment": "Tip run 4 Nov 2026, $45. Pool & Outdoor.",
+      "match": { "date": "2026-11-04", "amount": 45, "descriptionContains": "Tip run" },
+      "phase": "decking"
     },
     {
       "comment": "The two Amex copies of the 22 Mar 2025 Bunnings lines ($11.31 and $138.79) are excluded. The other two copies stay counted on general.",

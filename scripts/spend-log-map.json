@@ -1,7 +1,9 @@
 {
   "comment": "Maps VicPoint_Spend_Master (sheet Master) onto tracker section ids. Category (Materials, Labour, Fees, and so on) does not choose a section. Pre-2025 lines are kept on these ids and are not marked excluded; the tracker drops them from totals because the date is before 1 Jan 2025. Match_Status duplicate_confirmed is left out: Jeremy confirmed those two John Puna labour lines duplicate bank payments already in the log.",
   "includeProperty": "Vic Point main",
-  "skipMatchStatus": ["duplicate_confirmed"],
+  "skipMatchStatus": [
+    "duplicate_confirmed"
+  ],
   "masterPhaseNote": {
     "P1 Market-ready Vic Point (2023)": "Pre-2025. Original section ids, not counted.",
     "P1b Vic Point investment / tenant period (pre-move)": "Pre-2025 general lines. Kept, not counted.",
@@ -97,7 +99,10 @@
   "lineOverrides": [
     {
       "comment": "IKEA order 234146073. Agreed split, not a fresh pro-rata: kitchen $9,744.90 (goods $11,239.99) and laundry $1,921.54 (goods $2,154.00). The two shares sum to the paid $11,666.44.",
-      "match": { "date": "2026-10-11", "sourceContains": "234146073" },
+      "match": {
+        "date": "2026-10-11",
+        "sourceContains": "234146073"
+      },
       "replaceWith": [
         {
           "description": "Kitchen share of order 234146073 (goods $11,239.99). Delivery and Family discount shared pro rata. Cabinets, appliances (KOLSTAN hob, SPJUTBO oven), sink/tap",
@@ -117,39 +122,50 @@
     },
     {
       "comment": "Pointform Colorbond INV-358 is the granny flat fence, not the pool fence. Both the deposit and the balance.",
-      "match": { "descriptionContains": "INV-358" },
+      "match": {
+        "descriptionContains": "INV-358"
+      },
       "phase": "granny-flat"
     },
     {
-      "comment": "PowerPass invoice 8210/09603046 ($216, 16 Mar 2025) counts on General.",
-      "match": { "descriptionContains": "8210/09603046" },
-      "phase": "general",
-      "receipt": "Investigate — counted in the paid total"
-    },
-    {
       "comment": "Richmond INV-1182 ($462.25, 29 Nov 2025) counts on Pool & Outdoor.",
-      "match": { "descriptionContains": "INV-1182" },
+      "match": {
+        "descriptionContains": "INV-1182"
+      },
       "phase": "decking",
       "receipt": "Job not coded"
     },
     {
       "comment": "General/unclear lines noted as the new entrance for 14b. 23 May 2025 $31.58 and 26 May 2025 $40.81 go to granny-flat and are not counted.",
-      "match": { "notesContains": "new entrance for 14 b", "usedFor": "General/unclear" },
+      "match": {
+        "notesContains": "new entrance for 14 b",
+        "usedFor": "General/unclear"
+      },
       "phase": "granny-flat"
     },
     {
       "comment": "Richmond hot water unit, 20 Jun 2025, $2,000. Jeremy confirmed this is the granny flat, so it is not counted.",
-      "match": { "date": "2025-06-20", "amount": 2000 },
+      "match": {
+        "date": "2025-06-20",
+        "amount": 2000
+      },
       "phase": "granny-flat"
     },
     {
       "comment": "Bunnings 12 Jul 2025 $62.66, documented as the granny flat entrance. Not counted.",
-      "match": { "date": "2025-07-12", "amount": 62.66 },
+      "match": {
+        "date": "2025-07-12",
+        "amount": 62.66
+      },
       "phase": "granny-flat"
     },
     {
       "comment": "INV-0463 SEQ AC Power, 8 Feb 2025, $3,663. Split 50/50: $1,831.50 master and $1,831.50 bedroom 4 / office.",
-      "match": { "date": "2025-02-08", "amount": 3663, "descriptionContains": "INV-0463" },
+      "match": {
+        "date": "2025-02-08",
+        "amount": 3663,
+        "descriptionContains": "INV-0463"
+      },
       "replaceWith": [
         {
           "description": "INV-0463 Stripe receipt #1304-8440 (Amex Apple Pay; Amex narr INVOICE2GO REDBANK PLAINS mistagged Accommodation) (master share)",
@@ -169,20 +185,190 @@
     },
     {
       "comment": "INV-0697 SEQ AC Power Daikin 2.5kW, 14 Nov 2025, $1,900. Bedroom 2.",
-      "match": { "date": "2025-11-14", "amount": 1900, "descriptionContains": "INV-0697" },
+      "match": {
+        "date": "2025-11-14",
+        "amount": 1900,
+        "descriptionContains": "INV-0697"
+      },
       "phase": "bedroom-2"
     },
     {
       "comment": "Tip run 4 Nov 2026, $45. Pool & Outdoor.",
-      "match": { "date": "2026-11-04", "amount": 45, "descriptionContains": "Tip run" },
+      "match": {
+        "date": "2026-11-04",
+        "amount": 45,
+        "descriptionContains": "Tip run"
+      },
       "phase": "decking"
     },
     {
       "comment": "The two Amex copies of the 22 Mar 2025 Bunnings lines ($11.31 and $138.79) are excluded. The other two copies stay counted on general.",
-      "match": { "notes": "duplicate" },
+      "match": {
+        "notes": "duplicate"
+      },
       "phase": "unallocated",
       "excluded": true,
       "receipt": "Investigate — counted in the paid total"
+    },
+    {
+      "comment": "PowerPass items: Garage workbench and pegboard. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-03-16",
+        "amount": 216.0,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Masonry drill bit. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-03-22",
+        "amount": 11.31,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Pegboard, pruner and hedge shear. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-03-22",
+        "amount": 138.79,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Pegboard. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-04-06",
+        "amount": 99.0,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Ryobi hedge trimmer, pool thermometer, cat food. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-04-27",
+        "amount": 262.49,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Recip saw and prune blades. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-10-03",
+        "amount": 306.94,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Wheelbarrow wheel and herbicide. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-10-08",
+        "amount": 121.32,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Garden stakes. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-10-11",
+        "amount": 23.74,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Pool inflatables and recip blades. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-10-13",
+        "amount": 72.19,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Landscape Lock. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-10-20",
+        "amount": 94.0,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Garden edging. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-11-08",
+        "amount": 69.29,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Cut-off wheels. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-11-15",
+        "amount": 9.42,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Ratchet ties and MGP10 pine. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-11-15",
+        "amount": 50.89,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Solar wall lights, trimmer line, mallet. Jeremy: maintenance, not reno. Not counted.",
+      "match": {
+        "date": "2025-12-29",
+        "amount": 102.31,
+        "vendor": "Bunnings"
+      },
+      "excluded": true,
+      "receipt": "Maintenance, not reno"
+    },
+    {
+      "comment": "PowerPass items: Hardwood posts, sleepers, rapid set. Jeremy: first pool-area retaining wall, counts on Pool.",
+      "match": {
+        "date": "2025-12-29",
+        "amount": 195.72,
+        "vendor": "Bunnings"
+      },
+      "phase": "pool-fence",
+      "receipt": "Pool retaining wall"
+    },
+    {
+      "comment": "PowerPass items: Concrete and posts. Jeremy: first pool-area retaining wall, counts on Pool.",
+      "match": {
+        "date": "2025-12-30",
+        "amount": 122.34,
+        "vendor": "Bunnings"
+      },
+      "phase": "pool-fence",
+      "receipt": "Pool retaining wall"
     }
   ]
 }

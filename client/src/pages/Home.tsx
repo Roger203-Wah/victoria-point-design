@@ -482,7 +482,7 @@ export default function Home() {
                 The Nimbus granite crazy pave is the feature, and we invested heavily in it. It set the colour palette for everything else, with Monument fencing, bench and roof keeping a darker backdrop that makes the stone and water stand out. A slatted Monument pool shed screen separates the area and hides storage. It also marks the line between the raised pool area and the existing concrete slab. Sparse star jasmine on wires softens the fences without taking over.
               </p>
             </div>
-            <BudgetIndicator amount="$32,400" status="red" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$32,400" status="amber" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[

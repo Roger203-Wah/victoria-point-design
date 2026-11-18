@@ -448,7 +448,10 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
               <ImageSlider
-                slides={[{ src: ASSETS.before_facade, alt: "Street front before" }]}
+                slides={[
+                  { src: publicAsset("images/before_facade_original.webp"), alt: "Street front before landscaping" },
+                  { src: ASSETS.before_facade, alt: "Street front before" },
+                ]}
                 label="Before"
                 frameClassName="h-72 md:h-[480px] w-full"
               />
@@ -464,9 +467,10 @@ export default function Home() {
             </FadeUp>
           </div>
           <FadeUp delay={100}>
-            <p className="text-base leading-relaxed max-w-3xl mb-10" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
               This is an older brick home getting a modern makeover. We're keeping the red brick rather than rendering over it, and lifting the whole front with colour instead. The roof is being repainted in Monument, with charcoal on the garage door, fascia, window frames and the rendered retaining wall. Together with the significant landscaping we've already done, it gives the house a fresh, contemporary look while keeping the warmth and character of the original brick.
             </p>
+            <BudgetIndicator amount="$20,000" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -481,6 +485,7 @@ export default function Home() {
               { label: "Lawn", value: "Sir Walter buffalo — fresh turf, well-edged" },
               { label: "Trees", value: "2–3 columnar Lilly Pilly 'Slim' from lawn behind retaining wall" },
               { label: "Entry Pots", value: "2× large black ceramic pots with Agave, flanking front door" },
+              { label: "Budget", value: "$20,000: roof repaint, colour uplift and front landscaping" },
             ]} />
           </FadeUp>
         </div>

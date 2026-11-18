@@ -272,6 +272,7 @@ export default function Home() {
     { id: "exterior", label: "Street Presence" },
     { id: "entrance", label: "Entrance" },
     { id: "pool", label: "Pool & Outdoor" },
+    { id: "back-patio", label: "Back Covered Patio" },
     { id: "side-access", label: "Side Passage" },
     { id: "kitchen", label: "Kitchen" },
     { id: "bathrooms", label: "Bathrooms" },
@@ -570,6 +571,42 @@ export default function Home() {
               { label: "Shade sail", value: "Existing sail going back up over the pool" },
               { label: "Roof", value: "Monument, to be painted (quotes underway)" },
               { label: "Lawn", value: "Sir Walter buffalo, rear yard, cleaned up" },
+            ]} />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Back Covered Patio */}
+      <section id="back-patio" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="Back Covered Patio" title="Back Covered Patio" status="locked" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+            <FadeUp delay={100}>
+              <ImageSlider
+                slides={[{ src: publicAsset("images/before_patio.webp"), alt: "Back covered patio before" }]}
+                label="Before"
+                frameClassName="aspect-[3/4] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Before</p>
+            </FadeUp>
+            <FadeUp delay={200}>
+              <ImageSlider
+                slides={[{ src: publicAsset("images/after_patio.webp"), alt: "Back covered patio after" }]}
+                label="After"
+                frameClassName="aspect-[3/4] w-full"
+              />
+              <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>After</p>
+            </FadeUp>
+          </div>
+          <FadeUp delay={100}>
+            <p className="text-base leading-relaxed max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              The back covered patio gets a refresh rather than a rebuild. The pool area does the heavy lifting for seating, so this space is about good light and an easy, tidy covered spot to walk into. All the beams, roof, posts, eaves and window trims are painted Monument to match the rest of the outdoors, and modern black downlights and wall lights replace the old fittings. The concrete gets a proper clean, a small strip of grass leads up to the slab, and the black pool fence turns neatly into the brick. We're keeping the wicker sofa, BBQ and dining table, and adding a simple round coffee table and a small rug.
+            </p>
+            <BudgetIndicator amount="$3,000" status="green" className="mt-4 mb-10" />
+          </FadeUp>
+          <FadeUp delay={300}>
+            <SpecTable items={[
+              { label: "Budget", value: "$3,000: paint, lighting and clean up" },
             ]} />
           </FadeUp>
         </div>

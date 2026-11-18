@@ -718,7 +718,7 @@ export default function Home() {
               { label: "Slab and path", value: "Light grey concrete, about 16 m², poured 3 to 4 Oct, runs flush to the house wall towards the street" },
               { label: "Storage", value: "Absco shed on the slab near the gate, plus space for bins and large items" },
               { label: "Lawn", value: "Small patches at the front left and front-right corner" },
-              { label: "Budget", value: "$4,600, as paid. The last concrete is in the bathroom budget and gets done after the bathrooms" },
+              { label: "Budget", value: "$4,600. Spend includes the 30% slab share, so it shows over budget. The last concrete is in the bathroom budget and gets done after the bathrooms" },
             ]} />
           </FadeUp>
         </div>

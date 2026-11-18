@@ -7,7 +7,7 @@
 */
 
 import React, { useState } from "react";
-import { LAST_UPDATED, PHASES, SPEND_LOG, type Status } from "@/data/tracker";
+import { LAST_UPDATED, PHASES, SPEND_LOG, spendIsBeforeProject, type Status } from "@/data/tracker";
 import { Link } from "wouter";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -58,22 +58,23 @@ export default function Tracker() {
   const listedPhases = PHASES.filter((p) => !p.hidden);
   const budgetPhases = listedPhases.filter((p) => !p.excludeFromTotals);
   const excludedPhaseIds = new Set(PHASES.filter((p) => p.excludeFromTotals).map((p) => p.id));
-  const countsInProject = (phaseId: string) => !excludedPhaseIds.has(phaseId);
+  const countsInProject = (entry: (typeof SPEND_LOG)[number]) =>
+    !entry.excluded && !spendIsBeforeProject(entry) && !excludedPhaseIds.has(entry.phase);
   const phaseBySpendId = (phaseId: string) =>
     PHASES.find((p) => p.id === phaseId) ?? PHASES.find((p) => p.spendPhaseIds?.includes(phaseId));
   const entriesForPhase = (phaseId: string) => {
     const phase = PHASES.find((p) => p.id === phaseId);
     const ids = new Set([phaseId, ...(phase?.spendPhaseIds ?? [])]);
-    return SPEND_LOG.filter((e) => ids.has(e.phase));
+    return SPEND_LOG.filter((e) => ids.has(e.phase) && !spendIsBeforeProject(e));
   };
 
-  // Budget totals. The granny flat bucket is excluded.
+  // Budget totals. Granny flat and lines dated before 2025 are excluded.
   const totalBudgetLow = budgetPhases.reduce((s, p) => s + p.budgetLow, 0);
   const totalBudgetHigh = budgetPhases.reduce((s, p) => s + p.budgetHigh, 0);
-  const totalSpent = SPEND_LOG.filter((e) => countsInProject(e.phase)).reduce((s, e) => s + e.amount, 0);
-  const outdoorSpent = SPEND_LOG.filter((e) => e.area === "Outdoor" && countsInProject(e.phase)).reduce((s, e) => s + e.amount, 0);
+  const totalSpent = SPEND_LOG.filter((e) => countsInProject(e)).reduce((s, e) => s + e.amount, 0);
+  const outdoorSpent = SPEND_LOG.filter((e) => e.area === "Outdoor" && countsInProject(e)).reduce((s, e) => s + e.amount, 0);
   const slabEntries = SPEND_LOG.filter(
-    (e) => e.area === "Outdoor" && countsInProject(e.phase) && (e.receipt || "").startsWith("Slab/concrete"),
+    (e) => e.area === "Outdoor" && countsInProject(e) && (e.receipt || "").startsWith("Slab/concrete"),
   );
   const slabSpent = slabEntries.reduce((s, e) => s + e.amount, 0);
   const phasesComplete = budgetPhases.filter((p) => p.status === "complete").length;
@@ -85,10 +86,16 @@ export default function Tracker() {
   const spentByPhase = (phaseId: string) =>
     entriesForPhase(phaseId).reduce((s, e) => s + e.amount, 0);
 
-  const projectSpend = SPEND_LOG.filter((e) => countsInProject(e.phase));
+  const projectSpend = SPEND_LOG.filter((e) => countsInProject(e));
+  const preProjectSpend = SPEND_LOG.filter((e) => spendIsBeforeProject(e));
+  const markedExcludedSpend = SPEND_LOG.filter((e) => e.excluded && !spendIsBeforeProject(e));
   const filteredSpend = spendFilter === "all"
     ? projectSpend
-    : entriesForPhase(spendFilter);
+    : spendFilter === "pre-2025"
+      ? preProjectSpend
+      : spendFilter === "excluded"
+        ? markedExcludedSpend
+        : entriesForPhase(spendFilter);
 
   const pill = (label: string) => (
     <span style={{
@@ -134,7 +141,7 @@ export default function Tracker() {
             Project Tracker
           </h1>
           <p className="text-base max-w-2xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, lineHeight: 1.7 }}>
-            Live status, budget tracking, and spend log for the full renovation. The log is paid lines only ({projectSpend.length}), replacing the old $15,000 pre-tracker estimate. Outdoor spend is {fmt(outdoorSpent)}. Within outdoor, slab and concrete is {fmt(slabSpent)} across {slabEntries.length} lines. Five granny flat lines are kept on their own phase and are not in these totals.
+            Live status, budget tracking, and spend log for the full renovation. Counted spend is paid lines from 2025 and 2026 ({projectSpend.length}), replacing the old $15,000 pre-tracker estimate. Lines dated before 2025 are kept under Before this project (pre 2025) and are not counted. Five granny flat lines are also kept on their own phase and are not in these totals. Outdoor spend is {fmt(outdoorSpent)}. Within outdoor, slab and concrete is {fmt(slabSpent)} across {slabEntries.length} lines.
           </p>
         </div>
       </header>
@@ -161,7 +168,7 @@ export default function Tracker() {
               <div className="text-xs mb-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" }}>Outdoor</div>
               <div className="text-2xl md:text-3xl mb-1" style={{ fontFamily: "Fraunces, Georgia, serif", color: "oklch(0.22 0.025 55)", fontWeight: 300 }}>{fmt(outdoorSpent)}</div>
               <div className="text-xs" style={{ color: "oklch(0.58 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                {SPEND_LOG.filter((e) => e.area === "Outdoor" && countsInProject(e.phase)).length} paid lines
+                {SPEND_LOG.filter((e) => e.area === "Outdoor" && countsInProject(e)).length} paid lines
               </div>
             </div>
             <div className="py-6 px-6">
@@ -321,6 +328,24 @@ export default function Tracker() {
                   color: spendFilter === "all" ? "oklch(0.97 0.005 75)" : "oklch(0.42 0.02 60)",
                 }}
               >All</button>
+              <button
+                onClick={() => setSpendFilter("pre-2025")}
+                style={{
+                  fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase",
+                  padding: "4px 12px", borderRadius: "100px", border: "none", cursor: "pointer",
+                  background: spendFilter === "pre-2025" ? "oklch(0.22 0.025 55)" : "oklch(0.90 0.008 75)",
+                  color: spendFilter === "pre-2025" ? "oklch(0.97 0.005 75)" : "oklch(0.42 0.02 60)",
+                }}
+              >Before this project (pre 2025)</button>
+              <button
+                onClick={() => setSpendFilter("excluded")}
+                style={{
+                  fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase",
+                  padding: "4px 12px", borderRadius: "100px", border: "none", cursor: "pointer",
+                  background: spendFilter === "excluded" ? "oklch(0.22 0.025 55)" : "oklch(0.90 0.008 75)",
+                  color: spendFilter === "excluded" ? "oklch(0.97 0.005 75)" : "oklch(0.42 0.02 60)",
+                }}
+              >Excluded (not counted)</button>
               {listedPhases.map((p) => (
                 <button
                   key={p.id}
@@ -335,6 +360,17 @@ export default function Tracker() {
               ))}
             </div>
           </div>
+
+          {spendFilter === "pre-2025" && (
+            <p className="text-sm mb-6 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              Before this project (pre 2025): these paid lines are dated before 1 Jan 2025. They stay in the log and are not counted in Total Spent, Remaining, outdoor spend, slab spend, or phase totals.
+            </p>
+          )}
+          {spendFilter === "excluded" && (
+            <p className="text-sm mb-6 max-w-3xl" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
+              Excluded (not counted): these lines look like duplicates. They stay in the log and are not counted in the project totals.
+            </p>
+          )}
 
           {filteredSpend.length === 0 ? (
             <div className="py-16 text-center" style={{ color: "oklch(0.58 0.015 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300, fontSize: "0.9rem" }}>
@@ -368,7 +404,13 @@ export default function Tracker() {
                   })}
                   <tr style={{ background: "oklch(0.95 0.008 75)" }}>
                     <td className="py-4 pr-4" colSpan={4} style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "0.95rem", fontWeight: 400 }}>
-                      {spendFilter === "all" ? "Total Spent" : `${PHASES.find(p => p.id === spendFilter)?.title ?? ""} total`}
+                      {spendFilter === "all"
+                        ? "Total Spent"
+                        : spendFilter === "pre-2025"
+                          ? "Before this project (pre 2025), not counted"
+                          : spendFilter === "excluded"
+                            ? "Excluded, not counted"
+                            : `${PHASES.find(p => p.id === spendFilter)?.title ?? ""} total`}
                     </td>
                     <td className="py-4 text-right" style={{ color: "oklch(0.22 0.025 55)", fontFamily: "Fraunces, Georgia, serif", fontSize: "0.95rem", fontWeight: 400 }}>
                       {fmt(filteredSpend.reduce((s, e) => s + e.amount, 0))}

@@ -942,7 +942,7 @@ export default function Home() {
             <ProgressNote>
               The room is in good shape and just needs touch ups, new architraves and trims, and paint. The main jobs are the carpet, a new fan and the wardrobe, which I'll design and install myself.
             </ProgressNote>
-            <BudgetIndicator amount="$3,500" status="green" className="mt-4" />
+            <BudgetIndicator amount="$5,350" status="green" className="mt-4" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -956,7 +956,7 @@ export default function Home() {
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
               { label: "Dresser", value: "Oak timber with matte black handles and mirror above" },
               { label: "Walk-in robe", value: "Open, white shelves with LED strip, raised black rails, low drawers on the left" },
-              { label: "Budget", value: "$3,500: mainly the new walk-in wardrobe fit-out" },
+              { label: "Budget", value: "$5,350: mainly the new walk-in wardrobe fit-out, plus the air con unit" },
             ]} />
           </FadeUp>
         </div>
@@ -986,7 +986,7 @@ export default function Home() {
                 <ProgressNote label="Bedroom 3 progress (18 Nov 2026):">
                   John will frame the new wall, wardrobe and entrance for this room and Bedroom 2, and fill in the old opening in Bedroom 2. The sparky does the electrical before I insulate, plaster and paint, and then the doors get hung. The room stays empty until the carpets go in, at the same time as the lounge, master and Bedrooms 2 and 4.
                 </ProgressNote>
-                <BudgetIndicator amount="$8,000" status="green" className="mt-4" />
+                <BudgetIndicator amount="$9,900" status="green" className="mt-4" />
               </div>
             </FadeUp>
           </div>
@@ -1000,7 +1000,7 @@ export default function Home() {
               { label: "Ceiling Fan", value: "Matte black DC fan" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Window Treatment", value: "Blockout roller blind + sheer linen curtain" },
-              { label: "Budget", value: "$8,000: Bedroom 2 $2,500 (paint, trims, carpet, basic wardrobe update). Bedroom 3 $5,500 (the same, plus a new wall and door entrance by John Puna)" },
+              { label: "Budget", value: "$9,900: Bedroom 2 $4,400 (paint, trims, carpet, basic wardrobe update, air con unit). Bedroom 3 $5,500 (the same, plus a new wall and door entrance by John Puna)" },
             ]} />
           </FadeUp>
         </div>
@@ -1032,7 +1032,7 @@ export default function Home() {
             <ProgressNote>
               The wardrobe still needs a custom design. I'll order it and install it myself. The plaster stays, but the architraves and trims get updated. Because it's an office, it'll get extra sparky work and new lights. Then it's paint, finishings and carpet.
             </ProgressNote>
-            <BudgetIndicator amount="$3,500" status="green" className="mt-4 mb-10" />
+            <BudgetIndicator amount="$5,350" status="green" className="mt-4 mb-10" />
           </FadeUp>
           <FadeUp delay={300}>
             <SpecTable items={[
@@ -1041,7 +1041,7 @@ export default function Home() {
               { label: "Feature wall", value: "Walnut slat panels with brass sconces and floating shelves" },
               { label: "Carpet", value: "Warm mid-grey, same as master bedroom" },
               { label: "Fan", value: "Matt black" },
-              { label: "Budget", value: "$3,500: covers the custom built-in wardrobe, slat panels and shelving" },
+              { label: "Budget", value: "$5,350: covers the custom built-in wardrobe, slat panels and shelving, plus the air con unit" },
             ]} />
           </FadeUp>
         </div>
@@ -1227,9 +1227,9 @@ export default function Home() {
                     { scenario: "May 2025 (at purchase / valuation)", value: "$1,180,000", basis: "Independent valuation, 3br / 1ba / 1,002m²", highlight: false },
                     { scenario: "Current (pre-reno, Feb 2026)", value: "~$1,265,000", basis: "$1.18M + 9.5% annual growth pro-rated 9 months", highlight: false },
                     { scenario: "Post-renovation (4br / 2ba / pool)", value: "$1,380,000 – $1,500,000", basis: "4br median $1.05M + 1,002m² block premium + pool + granny flat + full reno", highlight: true },
-                    { scenario: "Renovation cost", value: "$152,100", basis: "Project budget", highlight: false },
-                    { scenario: "Net uplift (low case)", value: "~-$37,100", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
-                    { scenario: "Net uplift (high case)", value: "~$82,900", basis: "$1.50M – $1.265M – $152.1K", highlight: false },
+                    { scenario: "Renovation cost", value: "$157,700", basis: "Project budget", highlight: false },
+                    { scenario: "Net uplift (low case)", value: "~-$42,700", basis: "Below cost on paper; real return is rental uplift + vacancy risk removal", highlight: false },
+                    { scenario: "Net uplift (high case)", value: "~$77,300", basis: "$1.50M – $1.265M – $157.7K", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className="border-b" style={{ borderColor: "oklch(0.92 0.008 75)", background: row.highlight ? "oklch(0.95 0.012 155 / 0.3)" : "transparent" }}>
                       <td className="py-3 pr-4" style={{ color: "oklch(0.28 0.025 55)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: row.highlight ? 600 : 400, fontSize: "0.82rem" }}>{row.scenario}</td>

@@ -4,7 +4,7 @@
 // Rerun: python3 scripts/build-spend-log.py path/to/VicPoint_Spend_Master.xlsx
 // All new spend belongs in that log, including small DIY and Bunnings purchases.
 // Paid spend replaced the retired $15,000 pre-tracker estimate on 13 Nov 2026.
-// Phase budgets match the presentation: 15 rows, total $152,100.
+// Phase budgets match the presentation: 15 rows, total $157,700.
 // Granny-flat lines do not count: five palm and garden-bed lines ($3,390), the Pointform fence ($3,293.30), and the $18.46 premix.
 // Lines dated before 1 Jan 2025 stay in SPEND_LOG on their original phase ids.
 // They do not count in project totals. The tracker shows them under Before this project (pre 2025).
@@ -188,9 +188,9 @@ export const PHASES: Phase[] = [
     status: "not-started",
     targetStart: "After the kitchen",
     targetEnd: "After the kitchen",
-    budgetLow: 3500,
-    budgetHigh: 3500,
-    notes: "Mainly the walk-in robe fit-out. The robe stays open. Budget $3,500.",
+    budgetLow: 5350,
+    budgetHigh: 5350,
+    notes: "Mainly the walk-in robe fit-out, plus the air con unit. The robe stays open. Budget $5,350.",
     milestones: ["Not started"],
   },
   {
@@ -200,9 +200,9 @@ export const PHASES: Phase[] = [
     status: "not-started",
     targetStart: "After the kitchen",
     targetEnd: "After the kitchen",
-    budgetLow: 2500,
-    budgetHigh: 2500,
-    notes: "Paint, trims, carpet and a basic wardrobe update. Budget $2,500.",
+    budgetLow: 4400,
+    budgetHigh: 4400,
+    notes: "Paint, trims, carpet, a basic wardrobe update and the air con unit. Budget $4,400.",
     milestones: ["Not started"],
   },
   {
@@ -224,9 +224,9 @@ export const PHASES: Phase[] = [
     status: "not-started",
     targetStart: "After the kitchen",
     targetEnd: "After the kitchen",
-    budgetLow: 3500,
-    budgetHigh: 3500,
-    notes: "Paint, trims, carpet and a custom cupboard. No new walls. Budget $3,500.",
+    budgetLow: 5350,
+    budgetHigh: 5350,
+    notes: "Paint, trims, carpet, a custom cupboard and the air con unit. No new walls. Budget $5,350.",
     milestones: ["Not started"],
   },
   {
@@ -264,7 +264,7 @@ export const PHASES: Phase[] = [
     budgetLow: 0,
     budgetHigh: 0,
     hidden: true,
-    notes: "Paid lines from before this budget. Kept so the spend log still has a home. Not part of the $152,100.",
+    notes: "Paid lines from before this budget. Kept so the spend log still has a home. Not part of the $157,700.",
     milestones: [],
   },
   {
@@ -277,7 +277,7 @@ export const PHASES: Phase[] = [
     budgetLow: 0,
     budgetHigh: 0,
     hidden: true,
-    notes: "Paid lines with no confirmed works phase. Not part of the $152,100.",
+    notes: "Paid lines with no confirmed works phase. Not part of the $157,700.",
     milestones: [],
   },
 ];

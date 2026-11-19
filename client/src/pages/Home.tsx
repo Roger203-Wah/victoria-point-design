@@ -287,7 +287,7 @@ function SectionHeader({ label, title, status }: { label: string; title: string;
 
 export default function Home() {
   const sections = [
-    { id: "exterior", label: "Street Presence" },
+    { id: "exterior", label: "Front Yard / Street Presence" },
     { id: "entrance", label: "Entrance" },
     { id: "pool", label: "Pool & Outdoor" },
     { id: "back-patio", label: "Back Covered Patio" },
@@ -465,7 +465,7 @@ export default function Home() {
       {/* 01 — Exterior / Street Presence */}
       <section id="exterior" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="01 — Exterior" title="Street Presence" status="locked" />
+          <SectionHeader label="01 — Exterior" title="Front Yard / Street Presence" status="locked" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
             <FadeUp delay={100}>
               <ImageSlider
@@ -597,7 +597,7 @@ export default function Home() {
               { label: "Fence", value: "Monument Colorbond fence and gate, done" },
               { label: "Pool fence", value: "Black, on the grass and tile line" },
               { label: "Shade sail", value: "Existing sail going back up over the pool" },
-              { label: "Roof", value: "Monument, to be painted (costed under Street Presence)" },
+              { label: "Roof", value: "Monument, to be painted (costed under Front Yard / Street Presence)" },
               { label: "Lawn", value: "Sir Walter buffalo, rear yard, cleaned up" },
               { label: "Budget", value: "$35,000: coping and slab done, still to do the crazy pave, black pool fence, trees and planting" },
             ]} />

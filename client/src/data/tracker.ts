@@ -63,7 +63,7 @@ export const PHASES: Phase[] = [
   {
     id: "exterior",
     num: "01",
-    title: "Street Presence",
+    title: "Front Yard / Street Presence",
     status: "in-progress",
     targetStart: "Underway",
     targetEnd: "Underway",

@@ -1786,6 +1786,15 @@ export const SPEND_LOG = [
     excluded: true,
   },
   {
+    date: "1 Nov 2026",
+    description: "Refund: returned damaged/missing slats (Bunnings Warehouse Victoria Point), credited to Amex",
+    supplier: "Bunnings",
+    amount: -35.36,
+    phase: "decking",
+    area: "Outdoor",
+    receipt: "Pool bench (slat return)",
+  },
+  {
     date: "4 Nov 2026",
     description: "Tip run: concrete and timber waste from around the property (load-based fee, not weighed; no longer free for locals)",
     supplier: "Local tip (waste transfer station)",

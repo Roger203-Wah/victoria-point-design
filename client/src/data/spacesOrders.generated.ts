@@ -236,35 +236,35 @@ export const SPACES_ORDERS: {
       "notes": "Carpeted for now; may become built-in"
     },
     {
-      "room": "Main bathroom",
+      "room": "Main bathroom floor",
       "type": "tiles",
-      "floorType": null,
-      "length": null,
-      "width": null,
-      "area": null,
+      "floorType": "Floor tile – TBC",
+      "length": 3.0,
+      "width": 1.5,
+      "area": 4.5,
       "rough": false,
-      "measureQuality": null,
-      "wastePct": null,
-      "orderArea": null,
-      "notes": null
+      "measureQuality": "Measured (Jeremy)",
+      "wastePct": 0.1,
+      "orderArea": 4.95,
+      "notes": "Remeasured 22 Nov: bath end is 1500 mm sheet to sheet; floor tiled under the drop-in bath frame. Waste 10% is an assumption."
     },
     {
-      "room": "Ensuite",
+      "room": "Ensuite floor",
       "type": "tiles",
-      "floorType": null,
-      "length": null,
-      "width": null,
-      "area": null,
+      "floorType": "Floor tile – TBC",
+      "length": 3.0,
+      "width": 1.45,
+      "area": 4.35,
       "rough": false,
       "measureQuality": null,
-      "wastePct": null,
-      "orderArea": null,
-      "notes": null
+      "wastePct": 0.1,
+      "orderArea": 4.79,
+      "notes": "from bathroom plan. Waste 10% is an assumption."
     },
     {
-      "room": null,
+      "room": "Main bathroom walls",
       "type": "tiles",
-      "floorType": null,
+      "floorType": "Wall tile – TBC",
       "length": null,
       "width": null,
       "area": null,
@@ -272,12 +272,12 @@ export const SPACES_ORDERS: {
       "measureQuality": null,
       "wastePct": null,
       "orderArea": null,
-      "notes": null
+      "notes": "Needs ceiling height and tile height"
     },
     {
-      "room": null,
+      "room": "Ensuite walls",
       "type": "tiles",
-      "floorType": null,
+      "floorType": "Wall tile – TBC",
       "length": null,
       "width": null,
       "area": null,
@@ -285,7 +285,7 @@ export const SPACES_ORDERS: {
       "measureQuality": null,
       "wastePct": null,
       "orderArea": null,
-      "notes": null
+      "notes": "Needs ceiling height and tile height"
     }
   ],
   "totals": {
@@ -298,8 +298,8 @@ export const SPACES_ORDERS: {
       "orderArea": null
     },
     "tiles": {
-      "area": null,
-      "orderArea": null
+      "area": 8.85,
+      "orderArea": 9.74
     }
   },
   "orders": [
@@ -328,6 +328,32 @@ export const SPACES_ORDERS: {
       "status": "Accepted, unpaid",
       "ref": "Proforma 37125",
       "notes": "Total $5,654.44 inc GST (proforma total). Unit price not stated."
+    },
+    {
+      "item": "Inset (drop-in) bath, Decina Shenseki 1395 × 755 × 480 mm",
+      "supplier": "Builders Discount Warehouse",
+      "code": null,
+      "rooms": "Main bathroom",
+      "qty": 1.0,
+      "unit": "each",
+      "unitPrice": null,
+      "total": null,
+      "status": "Idea",
+      "ref": null,
+      "notes": "https://buildersdiscountwarehouse.com.au/product/decina-shenseki-bath/ | Listed range $519–$629; 1395 size likely $519, confirm | Needs tiled frame/hob; send spec sheet to Jason for waste position and frame height"
+    },
+    {
+      "item": "Bath frame / hob build + tiling",
+      "supplier": null,
+      "code": null,
+      "rooms": "Main bathroom",
+      "qty": 1.0,
+      "unit": "job",
+      "unitPrice": null,
+      "total": null,
+      "status": "Idea",
+      "ref": null,
+      "notes": "Price from Jason/tiler"
     }
   ],
   "source": "Spaces_and_Product_Orders.xlsx"

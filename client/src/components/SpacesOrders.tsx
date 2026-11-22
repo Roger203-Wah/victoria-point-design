@@ -102,7 +102,7 @@ export function SpacesOrdersBody() {
                     <td style={td}>
                       {r.room}
                       {r.rough && <> <Tag tone="amber">rough</Tag></>}
-                      {r.notes && <div style={{ fontSize: "0.78rem", color: MUTED, marginTop: 2 }}>{r.notes}</div>}
+                      {r.notes && !/TBC/.test(r.notes) && <div style={{ fontSize: "0.78rem", color: MUTED, marginTop: 2 }}>{r.notes}</div>}
                     </td>
                     <td style={td}>{g.label}</td>
                     <td style={td}>{size(r)}</td>

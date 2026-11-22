@@ -1052,7 +1052,7 @@ export default function Home() {
       {/* Spaces & Orders (preview) */}
       <section id="spaces-orders" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
         <div className="container">
-          <SectionHeader label="11 — Floors" title="Spaces & Orders" status="planning" />
+          <SectionHeader label="Floors" title="Spaces & Orders" status="planning" />
           <SpacesOrdersBody />
         </div>
       </section>

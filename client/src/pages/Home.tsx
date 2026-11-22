@@ -9,6 +9,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { PhaseStatusList } from "@/components/PhaseStatusList";
+import { SpacesOrdersBody } from "@/components/SpacesOrders";
 import { ImageSlider, type ImageSlide } from "@/components/ImageSlider";
 
 // Public files keep their names. BASE_URL is "/" locally and the repo path on GitHub Pages.
@@ -269,7 +270,7 @@ function SpecTable({ items }: { items: { label: string; value: string }[] }) {
 }
 
 // Section header
-function SectionHeader({ label, title, status }: { label: string; title: string; status: "locked" | "pending" | "options" }) {
+function SectionHeader({ label, title, status }: { label: string; title: string; status: "locked" | "pending" | "options" | "planning" }) {
   return (
     <FadeUp>
       <div className="flex items-start justify-between mb-10">
@@ -279,8 +280,8 @@ function SectionHeader({ label, title, status }: { label: string; title: string;
             {title}
           </h2>
         </div>
-        <span className={status === "locked" ? "status-locked" : status === "options" ? "status-pending" : "status-pending"} style={status === "options" ? { background: "oklch(0.93 0.025 75)", color: "oklch(0.38 0.03 60)" } : {}}>
-          {status === "locked" ? "Locked In" : status === "options" ? "2 Options" : "Pending"}
+        <span className={status === "locked" ? "status-locked" : status === "options" ? "status-pending" : "status-pending"} style={status === "options" || status === "planning" ? { background: "oklch(0.93 0.025 75)", color: "oklch(0.38 0.03 60)" } : {}}>
+          {status === "locked" ? "Locked In" : status === "options" ? "2 Options" : status === "planning" ? "Planning" : "Pending"}
         </span>
       </div>
     </FadeUp>
@@ -302,6 +303,7 @@ export default function Home() {
     { id: "master", label: "Master Bedroom" },
     { id: "bedrooms", label: "Bedrooms 2 & 3" },
     { id: "bedroom-4", label: "Bedroom 4 / Office" },
+    { id: "spaces-orders", label: "Spaces & Orders" },
     { id: "project-plan", label: "Project Plan" },
     { id: "budget", label: "Budget" },
     { id: "investment", label: "Investment Case" },
@@ -1046,6 +1048,14 @@ export default function Home() {
               { label: "Budget", value: "$5,350: covers the custom built-in wardrobe, slat panels and shelving, plus the air con unit" },
             ]} />
           </FadeUp>
+        </div>
+      </section>
+
+      {/* Spaces & Orders (preview) */}
+      <section id="spaces-orders" className="py-20 border-t" style={{ borderColor: "oklch(0.88 0.012 75)" }}>
+        <div className="container">
+          <SectionHeader label="Floors" title="Spaces & Orders" status="planning" />
+          <SpacesOrdersBody />
         </div>
       </section>
 

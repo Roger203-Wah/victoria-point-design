@@ -95,8 +95,8 @@ def build(path: Path) -> dict:
         if not item:
             continue
         qty = dec(row[4])
-        if qty is None and isinstance(row[4], str) and row[4].replace(" ", "") in spaces_by_key:
-            qty = spaces_by_key[row[4].replace(" ", "")]
+        if qty is None and isinstance(row[4], str) and row[4].replace(" ", "").lstrip("=") in spaces_by_key:
+            qty = spaces_by_key[row[4].replace(" ", "").lstrip("=")]
             qty = None if qty is None else Decimal(str(qty))
         unit_price, total = dec(row[8]), dec(row[9])
         orders.append({

@@ -308,7 +308,7 @@ export const SPACES_ORDERS: {
       "supplier": "Carpet Court",
       "code": "Affluent Hybrid \"Taroona 7.5\"",
       "rooms": "Dining, Lounge, Entrance, Hallway, Laundry, Kitchen",
-      "qty": null,
+      "qty": 60.14,
       "unit": "m²",
       "unitPrice": null,
       "total": null,

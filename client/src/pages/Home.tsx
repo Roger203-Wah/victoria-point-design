@@ -34,6 +34,7 @@ const ASSETS = {
   before_kitchen: publicAsset("images/before_kitchen.webp"),
   before_bedroom2: publicAsset("images/before_bedroom2.webp"),
   before_main_bathroom: publicAsset("images/before_main_bathroom.webp"),
+  before_ensuite: publicAsset("images/before_ensuite.webp"),
 };
 
 // Viewing order for the pool sliders. Both sets share one 3:4 cover frame.
@@ -789,7 +790,7 @@ export default function Home() {
             </FadeUp>
             <FadeUp delay={200}>
               <div className="overflow-hidden" style={{ borderRadius: "2px" }}>
-                <img src={ASSETS.ensuite} alt="Ensuite render" className="w-full h-72 md:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]" />
+                <BeforeAfter before={ASSETS.before_ensuite} after={ASSETS.ensuite} beforeLabel="Ensuite before" afterLabel="Ensuite render" />
               </div>
               <p className="text-xs mt-2" style={{ color: "oklch(0.52 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", letterSpacing: "0.05em" }}>Ensuite</p>
             </FadeUp>

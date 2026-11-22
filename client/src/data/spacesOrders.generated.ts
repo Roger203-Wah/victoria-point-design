@@ -112,11 +112,11 @@ export const SPACES_ORDERS: {
       "length": 3.0,
       "width": 1.0,
       "area": 3.0,
-      "rough": true,
-      "measureQuality": "Rough",
+      "rough": false,
+      "measureQuality": "Measured (Jeremy)",
       "wastePct": 0.1,
       "orderArea": 3.3,
-      "notes": null
+      "notes": "Measured; final edges once new cabinets are installed"
     },
     {
       "room": "Kitchen (open floor)",
@@ -125,11 +125,11 @@ export const SPACES_ORDERS: {
       "length": 3.6,
       "width": 1.35,
       "area": 4.86,
-      "rough": true,
-      "measureQuality": "Rough",
+      "rough": false,
+      "measureQuality": "Measured (Jeremy)",
       "wastePct": 0.1,
       "orderArea": 5.35,
-      "notes": "Open floor only, measured to where cabinets go (confirmed by Jeremy). Dimensions still rough."
+      "notes": "Open floor only, measured to where cabinets go (confirmed by Jeremy). Measured; final edges once new cabinets are installed"
     },
     {
       "room": "Master bedroom",
@@ -369,5 +369,5 @@ export const SPACES_ORDERS: {
       "notes": "About 30 m² for floors (10% waste) and walls (15% waste) across both rooms. Window size and shower depth are estimates. No price yet."
     }
   ],
-  "source": "new.xlsx"
+  "source": "Spaces_and_Product_Orders.xlsx"
 };

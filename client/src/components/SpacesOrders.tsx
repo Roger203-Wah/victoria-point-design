@@ -166,6 +166,7 @@ export function SpacesOrdersBody() {
       </div>
 
       {/* 4. Still to measure */}
+      {toMeasure.length > 0 && (<>
       <h3 className="text-3xl mb-4" style={{ fontFamily: SERIF, color: INK }}>Still to measure</h3>
       <ul className="max-w-xl">
         {toMeasure.map((m) => (
@@ -175,6 +176,7 @@ export function SpacesOrdersBody() {
           </li>
         ))}
       </ul>
+      </>)}
     </>
   );
 }

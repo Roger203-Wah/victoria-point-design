@@ -265,27 +265,27 @@ export const SPACES_ORDERS: {
       "room": "Main bathroom walls",
       "type": "tiles",
       "floorType": "Wall tile – TBC",
-      "length": null,
-      "width": null,
-      "area": null,
+      "length": 3.5021,
+      "width": 2.4,
+      "area": 8.41,
       "rough": false,
-      "measureQuality": null,
-      "wastePct": null,
-      "orderArea": null,
-      "notes": "Needs ceiling height and tile height"
+      "measureQuality": "Estimate (window, hob)",
+      "wastePct": 0.15,
+      "orderArea": 9.67,
+      "notes": "Wall run x 2.4 m ceiling (confirmed by Jeremy), 600 mm tiles, 15% waste. Window end wall 1.5x2.4 less window ~1 m² = 2.6; bath side walls 2x0.85x2.4 = 4.08; bath hob front 1.5x0.55 = 0.825 + hob top ~0.15; skirting + vanity strip ~0.7. Total 8.405 m². WINDOW SIZE (~1 m²) IS AN ESTIMATE."
     },
     {
       "room": "Ensuite walls",
       "type": "tiles",
       "floorType": "Wall tile – TBC",
-      "length": null,
-      "width": null,
-      "area": null,
+      "length": 3.5,
+      "width": 2.4,
+      "area": 8.4,
       "rough": false,
-      "measureQuality": null,
-      "wastePct": null,
-      "orderArea": null,
-      "notes": "Needs ceiling height and tile height"
+      "measureQuality": "Estimate (shower depth)",
+      "wastePct": 0.15,
+      "orderArea": 9.66,
+      "notes": "Wall run x 2.4 m ceiling (confirmed by Jeremy), 600 mm tiles, 15% waste. Shower end wall 1.45x2.4 = 3.48; shower side walls 2x0.9x2.4 = 4.32; vanity strip + skirting ~0.6. Total 8.4 m². SHOWER DEPTH (0.9 m) IS AN ESTIMATE."
     }
   ],
   "totals": {
@@ -298,8 +298,8 @@ export const SPACES_ORDERS: {
       "orderArea": null
     },
     "tiles": {
-      "area": 8.85,
-      "orderArea": 9.74
+      "area": 25.66,
+      "orderArea": 29.06
     }
   },
   "orders": [
@@ -354,7 +354,20 @@ export const SPACES_ORDERS: {
       "status": "Idea",
       "ref": null,
       "notes": "Price from Jason/tiler"
+    },
+    {
+      "item": "Bathroom/ensuite tile, dark concrete-look 600 mm",
+      "supplier": null,
+      "code": null,
+      "rooms": "Main bathroom, Ensuite",
+      "qty": 30.0,
+      "unit": "m²",
+      "unitPrice": null,
+      "total": null,
+      "status": "Idea",
+      "ref": null,
+      "notes": "About 30 m² for floors (10% waste) and walls (15% waste) across both rooms. Window size and shower depth are estimates. No price yet."
     }
   ],
-  "source": "Spaces_and_Product_Orders.xlsx"
+  "source": "new.xlsx"
 };

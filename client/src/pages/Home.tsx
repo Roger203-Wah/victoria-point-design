@@ -80,8 +80,8 @@ const POOL_AFTER_SLIDES: ImageSlide[] = [
 
 const PALETTE = [
   { name: "Natural White", code: "Dulux Natural White", hex: "#F5F2EE", use: "All interior walls throughout" },
-  { name: "Warm Mid-Grey", code: "Carpet — Feltex / Godfrey Hirst", hex: "#9A9490", use: "Lounge, master, bedrooms 2, 3 and 4" },
-  { name: "Natural Oak", code: "Karndean / Hybrid LVP", hex: "#C8A97A", use: "Kitchen, laundry, hallway and dining" },
+  { name: "Warm Mid-Grey", code: "Carpet — Feltex / Godfrey Hirst", hex: "#9A9490", use: "Master, bedrooms 2, 3 and 4" },
+  { name: "Natural Oak", code: "Carpet Court Affluent Hybrid 'Taroona'", hex: "#C8A97A", use: "Kitchen, hallway, dining, laundry and lounge" },
   { name: "Monument", code: "Colorbond Monument", hex: "#3D3D3B", use: "Roof, fences, pool bench, shed screen, patio beams, trim" },
   { name: "Sage Green", code: "IKEA NICKEBO", hex: "#7A8C7E", use: "Kitchen lower cabinets and plinth" },
   { name: "Light Concrete", code: "IKEA EKBACKEN", hex: "#D8D4CE", use: "Kitchen benchtop — light grey concrete effect laminate" },
@@ -869,10 +869,10 @@ export default function Home() {
             </FadeUp>
             <FadeUp delay={200} className="lg:col-span-2">
               <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 60)", fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 300 }}>
-                The lounge is a light touch. New warm mid-grey carpet that runs through to the bedrooms, a fresh coat of Natural White and a few small upgrades.                 The furniture and styling do the rest.
+                The lounge is a light touch. New pale oak hybrid boards (Carpet Court Taroona) that flow through from the kitchen and hallway, a fresh coat of Natural White and a few small upgrades.                 The furniture and styling do the rest.
               </p>
               <ProgressNote>
-                Very basic. The carpet goes in at the same time as the other rooms.
+                Very basic. The oak boards go in at the same time as the other rooms.
               </ProgressNote>
               <BudgetIndicator amount="$1,000" status="green" className="mt-4" />
             </FadeUp>
@@ -881,13 +881,13 @@ export default function Home() {
             <SpecTable items={[
               { label: "Walls", value: "Dulux Natural White throughout" },
               { label: "Brick Wall", value: "Painted white — texture retained, colour unified" },
-              { label: "Carpet", value: "Warm mid-grey — Feltex or Godfrey Hirst" },
+              { label: "Floor", value: "Pale oak hybrid boards — Carpet Court Affluent Hybrid 'Taroona'" },
               { label: "Styling: TV Unit", value: "Floating oak timber with matte black legs" },
               { label: "Ceiling Fan", value: "Matte black DC fan — no light fitting" },
               { label: "Lighting", value: "Recessed downlights — warm white 2700K" },
               { label: "Curtains", value: "Sheer linen + blockout roller blind" },
               { label: "Styling: Coffee Table", value: "Matte black frame, stone or glass top" },
-              { label: "Budget", value: "$1,000: mainly carpet and small upgrades, keeping changes light" },
+              { label: "Budget", value: "$1,000: mainly flooring and small upgrades, keeping changes light" },
             ]} />
           </FadeUp>
         </div>
@@ -948,7 +948,7 @@ export default function Home() {
             <SpecTable items={[
               { label: "Walls", value: "Dulux Natural White — no feature wall" },
               { label: "Bedhead", value: "Tall fluted upholstered — oatmeal linen fabric" },
-              { label: "Carpet", value: "Warm mid-grey — continuous from lounge" },
+              { label: "Carpet", value: "Warm mid-grey — same as bedrooms 2 and 3" },
               { label: "Bedside Tables", value: "Oak timber with matte black legs" },
               { label: "Bedside Lighting", value: "Matte black wall-mounted sconces" },
               { label: "Ceiling Fan", value: "Matte black DC fan — no light fitting" },
@@ -994,7 +994,7 @@ export default function Home() {
             <SpecTable items={[
               { label: "Walls", value: "Dulux Natural White" },
               { label: "Bedhead", value: "Upholstered — oatmeal linen, queen size" },
-              { label: "Carpet", value: "Warm mid-grey — same as master and lounge" },
+              { label: "Carpet", value: "Warm mid-grey — same as master" },
               { label: "Wardrobe", value: "Basic update, white with matte black handles" },
               { label: "Bedside Tables", value: "Oak timber, compact" },
               { label: "Ceiling Fan", value: "Matte black DC fan" },

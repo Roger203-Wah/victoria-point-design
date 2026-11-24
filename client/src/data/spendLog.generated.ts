@@ -1884,4 +1884,13 @@ export const SPEND_LOG = [
     area: "Outdoor",
     receipt: "Sunshade/shade sail hardware",
   },
+  {
+    date: "24 Nov 2026",
+    description: "Proforma Invoice 37125: 45 m2 Nimbus crazy pave $4,725.27; 13 bags Laticrete 335 Off White $660.37; freight $268.80 (inc GST; no grout)",
+    supplier: "The Pool Tile Company",
+    amount: 5654.44,
+    phase: "coping",
+    area: "Outdoor",
+    receipt: "Pool coping/tiles",
+  },
 ];

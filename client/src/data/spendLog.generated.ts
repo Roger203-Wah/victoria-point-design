@@ -1886,11 +1886,20 @@ export const SPEND_LOG = [
   },
   {
     date: "24 Nov 2026",
-    description: "Proforma Invoice 37125: 45 m2 Nimbus crazy pave $4,725.27; 13 bags Laticrete 335 Off White $660.37; freight $268.80 (inc GST; no grout)",
+    description: "Proforma Invoice 37125, pool share (40.8 of 45 m2): 40.8 m2 Nimbus crazy pave $4,284.24; Laticrete 335 Off White $598.74; freight $243.71 (inc GST; no grout). Split by area 4.2/45 m2",
     supplier: "The Pool Tile Company",
-    amount: 5654.44,
+    amount: 5126.69,
     phase: "coping",
     area: "Outdoor",
     receipt: "Pool coping/tiles",
+  },
+  {
+    date: "24 Nov 2026",
+    description: "Proforma Invoice 37125, front entry share (4.2 of 45 m2): 4.2 m2 Nimbus crazy pave $441.03; Laticrete 335 Off White $61.63; freight $25.09 (inc GST; no grout). Split by area 4.2/45 m2",
+    supplier: "The Pool Tile Company",
+    amount: 527.75,
+    phase: "entrance",
+    area: "Outdoor",
+    receipt: "Entrance crazy pave (front entry)",
   },
 ];

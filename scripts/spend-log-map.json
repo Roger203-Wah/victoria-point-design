@@ -27,7 +27,8 @@
     "Granny flat (not this project)": "granny-flat. Shown, not counted.",
     "Side access": "side-access.",
     "Unsure - small": "general",
-    "Excluded - pre-2024": "Original section id. Not counted, because the date is before 2025."
+    "Excluded - pre-2024": "Original section id. Not counted, because the date is before 2025.",
+    "Entrance": "entrance. Front entry share of Pool Tile Company PI 37125 (4.2 of 45 m2), split by area 26 Nov 2026."
   },
   "categoryNote": "Ignored. Category does not map to a section id.",
   "usedForToSection": {
@@ -72,7 +73,8 @@
     "Side passage garden (soil/plants)": "side-access",
     "Site clean-up / waste disposal": "general",
     "Slab/concrete (fence-side step pad)": "decking",
-    "Sunshade/shade sail hardware": "pool-fence"
+    "Sunshade/shade sail hardware": "pool-fence",
+    "Entrance crazy pave (front entry)": "entrance"
   },
   "landscapingBefore2025Section": "pool-fence",
   "slabSplit": {

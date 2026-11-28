@@ -1902,4 +1902,13 @@ export const SPEND_LOG = [
     area: "Outdoor",
     receipt: "Entrance crazy pave (front entry)",
   },
+  {
+    date: "28 Nov 2026",
+    description: "Pine treated F7 FJ LOSP H3 66x42 5.4m primed 3 @ $59.85 = $179.55; Builders Bog Turbo 500ml $22.52; Pine primed DAR FJ LOSP H3 31x18 5.4m 15 @ $22.37 = $335.55; Trojan 25mm paint scraper $5.04 (GST $49.33)",
+    supplier: "Bunnings",
+    amount: 542.66,
+    phase: "decking",
+    area: "Outdoor",
+    receipt: "Pool shed screen",
+  },
 ];
